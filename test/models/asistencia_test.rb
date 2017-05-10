@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AsistenciumTest < ActiveSupport::TestCase
+class AsistenciaTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
