@@ -1,3 +1,7 @@
 class Profesor < ActiveRecord::Base
-	elf.table_name = 'profesores'
+	self.table_name = 'profesores'
+	belongs_to :administrador
+
+	validates :nombre,  presence: true
+	validates :edad, numericality: true
 end
