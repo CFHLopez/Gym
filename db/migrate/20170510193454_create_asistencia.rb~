@@ -1,4 +1,4 @@
-class CreateAsistencia < ActiveRecord::Migration
+lass CreateAsistencia < ActiveRecord::Migration
   def change
     create_table :asistencia do |t|
 
