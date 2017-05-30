@@ -5,6 +5,5 @@ class Alumno < ActiveRecord::Base
   has_many :pagos
 
 	validates :nombre, presence: true
-	validates :edad, presense: true, numericality: true
 	validates :sexo, presence: true
 end
