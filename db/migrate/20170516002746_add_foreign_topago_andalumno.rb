@@ -1,6 +1,6 @@
 class AddForeignTopagoAndalumno < ActiveRecord::Migration
   def change
-  	add_colum :alumnos, :pago_id, :integer
-	add_foreign_key :alumnos, :pagos, colum: :pago_id, primary key: id
+  	 add_column :alumnos, :pago_id, :integer
+	   add_foreign_key :alumnos, :pagos, column: :pago_id, primary_key: :id
   end
 end

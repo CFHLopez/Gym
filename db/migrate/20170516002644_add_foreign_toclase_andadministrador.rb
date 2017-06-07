@@ -1,6 +1,6 @@
 class AddForeignToclaseAndadministrador < ActiveRecord::Migration
   def change
-  	add_colum :administradores, :clase_id, :integer
-	add_foreign_key :administradores, :clases, colum: :clase_id, primary key: id
+     add_column :administradors, :clase_id, :integer
+	   add_foreign_key :administradors, :clases, column: :clase_id, primary_key: :id
   end
 end

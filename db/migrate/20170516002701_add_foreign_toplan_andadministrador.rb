@@ -1,6 +1,6 @@
 class AddForeignToplanAndadministrador < ActiveRecord::Migration
   def change
-  	add_colum :administradores, :plan_id, :integer
-	add_foreign_key :administradores, :planes, colum: :plan_id, primary key: id
+  	 add_column :administradors, :plan_id, :integer
+	   add_foreign_key :administradors, :plans, column: :plan_id, primary_key: :id
   end
 end

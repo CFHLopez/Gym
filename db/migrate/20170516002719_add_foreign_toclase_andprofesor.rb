@@ -1,6 +1,6 @@
 class AddForeignToclaseAndprofesor < ActiveRecord::Migration
   def change
-  	add_colum :profesores, :clase_id, :integer
-	add_foreign_key :profesores, :clases, colum: :clase_id, primary key: id
+  	 add_column :profesors, :clase_id, :integer
+	   add_foreign_key :profesors, :clases, column: :clase_id, primary_key: :id
   end
 end

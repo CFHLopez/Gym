@@ -1,6 +1,6 @@
 class AddForeignToasistenciaAndclase < ActiveRecord::Migration
   def change
-  	add_colum :clases, :asistencia_id, :integer
-	add_foreign_key :clases, :asistencias, colum: :asistencia_id, primary key: id
+  	 add_column :clases, :asistencia_id, :integer
+	   add_foreign_key :clases, :asistencias, column: :asistencia_id, primary_key: :id
   end
 end
