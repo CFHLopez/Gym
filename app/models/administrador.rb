@@ -1,5 +1,4 @@
 class Administrador < ActiveRecord::Base
-	self.table_name = 'administradores'
 	has_many :profesores
 	has_many :planes
 	has_many :clases
