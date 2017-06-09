@@ -1,6 +1,5 @@
 class AdministradorsController < ApplicationController
   def index
-    @administradors = administrador.all
+    @administradors = Administrador.all
   end
-
 end

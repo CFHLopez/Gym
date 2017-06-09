@@ -5,4 +5,5 @@ class Profesor < ActiveRecord::Base
 	validates :nombre,  presence: true
 	validates :edad, numericality: true
 	validates :desc, presence: true {:message => "Agregar descripcion del profesor"}
+	validates :email, uniqueness: {case_sensitive: false ,message: "ya esta registrado"}
 end

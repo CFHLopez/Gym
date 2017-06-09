@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516002817) do
+ActiveRecord::Schema.define(version: 20170516002805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,18 +36,11 @@ ActiveRecord::Schema.define(version: 20170516002817) do
     t.integer  "plan_id"
   end
 
-  create_table "asistencia", force: :cascade do |t|
-    t.integer  "cantidad"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "clases", force: :cascade do |t|
     t.string   "nombre"
     t.string   "desc"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "asistencia_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pagos", force: :cascade do |t|
@@ -77,6 +70,5 @@ ActiveRecord::Schema.define(version: 20170516002817) do
   add_foreign_key "administradors", "profesors"
   add_foreign_key "alumnos", "pagos"
   add_foreign_key "alumnos", "plans"
-  add_foreign_key "clases", "asistencia", column: "asistencia_id"
   add_foreign_key "profesors", "clases"
 end

@@ -3,6 +3,7 @@ class CreateProfesors < ActiveRecord::Migration
     create_table :profesors do |t|
       t.string :nombre
       t.integer :edad
+      t.string :email
       t.string :desc
 
       t.timestamps null: false
