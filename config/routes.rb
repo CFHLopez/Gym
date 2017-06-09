@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get 'administradors/', to: 'administradors#index'
+  get 'Adm/', to: 'administradors#index'
 
 end

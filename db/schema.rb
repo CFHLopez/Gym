@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170516002805) do
   create_table "administradors", force: :cascade do |t|
     t.string   "nombre"
     t.integer  "edad"
+    t.string   "email"
     t.string   "desc"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(version: 20170516002805) do
   create_table "profesors", force: :cascade do |t|
     t.string   "nombre"
     t.integer  "edad"
+    t.string   "email"
     t.string   "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
