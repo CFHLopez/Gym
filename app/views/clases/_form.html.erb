@@ -1,0 +1,13 @@
+<%= form_for(@clases, :html =>{:role => 'form'}) do |f| %>
+    <% if @clases.errors.any? %>
+        <%= pluralize(@clases.errors.count, "ERROR")%>
+        <% @clases.errors.full_menssages.each do |actual| %>
+            <%= actual %>
+        <% end %>
+    <% end %>
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %><br>
+    <%= f.label :desc %>
+    <%= f.text_area :desc %><br>
+    <%= f.submit %>
+<% end %>

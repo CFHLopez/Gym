@@ -1,6 +1,7 @@
-<%@administradors.each do |administradors|%>
-<%= administradors.nombre %>
-<%= administradors.edad %>
-<%= administradors.email %>
-<%= administradors.desc %>
+<%= link_to 'Nuevo Adm', nuevo_adm_path%><br>
+<%= 'Nombre/s:'%><br>
+<% @administradors.each do |actual| %>
+<%= actual.nombre %>
+<%= link_to 'Mostrar', adm_url(actual) %>
+<%= link_to 'Editar', editar_adm_path(actual) %>
 <% end %>
