@@ -1,0 +1,15 @@
+<%= form_for(@alumnos, :html =>{:role => 'form'}) do |f| %>
+    <% if @alumnos.errors.any? %>
+        <%= pluralize(@alumnos.errors.count, "ERROR")%>
+        <% @alumnos.errors.full_menssages.each do |actual| %>
+            <%= actual %>
+        <% end %>
+    <% end %>
+    <%= "Nombre: "%>
+    <% f.label :nombre %>
+    <%= f.text_field :nombre %><br><br>
+    <%= "Sexo: "%>
+    <% f.label :desc %>
+    <%= f.text_field :sexo %><br><br>
+    <%= f.submit value="Agregar"%>
+<% end %>

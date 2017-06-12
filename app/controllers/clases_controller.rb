@@ -1,5 +1,5 @@
 class ClasesController < ApplicationController
-  before_action :set_clases, only: [:mostrar, :editar, :update, :eliminar]
+  before_action :set_clase, only: [:mostrar, :editar, :update, :eliminar]
 
   def index
     @clases = Clase.all
@@ -45,7 +45,7 @@ class ClasesController < ApplicationController
 
   private
 
-  def set_clases
+  def set_clase
     @clases = Clase.find(params[:id])
   end
 

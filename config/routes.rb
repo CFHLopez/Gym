@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   delete 'Adm/:id',to: 'administradors#eliminar'
 
   get 'Clases/', to: 'clases#index', as: 'clases'
-  get 'Clases/nuevo', to: 'clases#nuevo', as: 'nueva_clase'
+  get 'Clases/nuevo', to: 'clases#nuevo', as: 'nuevo_clase'
   get 'Clases/:id', to: 'clases#mostrar', as: 'clase'
   get 'Clases/:id/editar', to: 'clases#editar', as: 'editar_clase'
 
@@ -23,4 +23,15 @@ Rails.application.routes.draw do
 
   post 'Clases/:id', to: 'clases#crear'
   delete 'Clases/:id', to: 'clases#eliminar'
+
+  get 'Alum/', to: 'alumnos#index', as: 'alumnos'
+  get 'Alum/nuevo', to: 'alumnos#nuevo', as: 'nuevo_alumno'
+  get 'Alum/:id', to: 'alumnos#mostrar', as: 'alumno'
+  get 'Alum/:id/editar', to: 'alumnos#editar', as: 'editar_alumno'
+
+  put 'Alum/:id', to: 'alumnos#update'
+  patch 'Alum/:id', to: 'alumnos#update'
+
+  post 'Alum/', to: 'alumnos#crear'
+  delete 'Alum/:id',to: 'alumnos#eliminar'
 end
