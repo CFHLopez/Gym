@@ -16,7 +16,7 @@ class AdministradorsController < ApplicationController
   end
 
   def crear
-    @administradors = Administrador.create(administrador_params)
+    @administradors = Administrador.create(adm_params)
     respond_to do |format|
       if @administradors.save
         format.html{redirect_to @administradors, notice:'ADMINITRADOR CREADO'}
@@ -28,7 +28,7 @@ class AdministradorsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @administradors.update(administrador_params)
+      if @administradors.update(adm_params)
         format.html{redirect_to @administradors}
       else
         format.html{render :nuevo}
@@ -49,7 +49,7 @@ class AdministradorsController < ApplicationController
     @administradors = Administrador.find(params[:id])
   end
 
-  def administrador_params
-    params.require(:administradors).permit(:nombre,:edad,:desc)
+  def adm_params
+    params.require(:administrador).permit(:nombre, :edad, :email, :desc)
   end
 end

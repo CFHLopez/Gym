@@ -1,7 +1,8 @@
-<%= link_to 'Nuevo Adm', nuevo_adm_path%><br>
-<%= 'Nombre/s:'%><br>
+<%= link_to 'Nuevo administradors', nuevo_administrador_path%><br><br>
+<h1><%= 'Nombre/s:'%></h1><br>
 <% @administradors.each do |actual| %>
 <%= actual.nombre %>
-<%= link_to 'Mostrar', adm_url(actual) %>
-<%= link_to 'Editar', editar_adm_path(actual) %>
+<%= link_to 'Mostrar', administrador_url(actual) %>
+<%= link_to 'Editar', editar_administrador_path(actual) %>
+<%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Esta Seguro?'} %><br><br>
 <% end %>

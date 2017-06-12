@@ -1,17 +1,21 @@
-<%= form_for(@administradors, :html => {:role => 'form'}) do |f| %>
+<%= form_for(@administradors, :html =>{:role => 'form'}) do |f| %>
     <% if @administradors.errors.any? %>
         <%= pluralize(@administradors.errors.count, "ERROR")%>
         <% @administradors.errors.full_menssages.each do |actual| %>
             <%= actual %>
         <% end %>
     <% end %>
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
-    <%= f.label :edad %>
-    <%= f.text_field :edad %>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    <%= f.label :desc %>
-    <%= f.text_field :desc %>
+    <%= "Nombre: "%>
+    <% f.label :nombre %>
+    <%= f.text_field :nombre %><br><br>
+    <%= "Edad: "%>
+    <% f.label :edad %>
+    <%= f.text_field :edad %><br><br>
+    <%= "Email: "%>
+    <% f.label :email %>
+    <%= f.text_field :email %><br><br>
+    <%= "Descripcion: "%><br><br>
+    <% f.label :desc %>
+    <%= f.text_area :desc, size: "30x10" %><br>
     <%= f.submit %>
 <% end %>
