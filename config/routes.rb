@@ -34,4 +34,17 @@ Rails.application.routes.draw do
 
   post 'Alum/', to: 'alumnos#crear'
   delete 'Alum/:id',to: 'alumnos#eliminar'
+
+  get 'Profe/', to: 'profesors#index', as: 'profesors'
+  get 'Profe/nuevo', to: 'profesors#nuevo', as: 'nuevo_profesor'
+  get 'Profe/:id', to: 'profesors#mostrar', as: 'profesor'
+  get 'Profe/:id/editar', to: 'profesors#editar', as: 'editar_profesor'
+
+  put 'Profe/:id', to: 'profesors#update'
+  patch 'Profe/:id', to: 'profesors#update'
+
+  post 'Profe/', to: 'profesors#crear'
+  delete 'Profe/:id',to: 'profesors#eliminar'
+
+
 end
