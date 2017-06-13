@@ -1,5 +1,5 @@
 class ProfesorsController < ApplicationController
-	 before_action :set_profesor, only: [:mostrar, :editar, :update, :eliminar]
+	before_action :set_profesor, only: [:mostrar, :editar, :update, :eliminar]
 
   def index
     @profesors = Profesor.all
@@ -19,7 +19,7 @@ class ProfesorsController < ApplicationController
     @profesors = Profesor.create(adm_params)
     respond_to do |format|
       if @profesors.save
-        format.html{redirect_to @profesors, notice:'PROFESOR CREADO'}
+        format.html{redirect_to @profesors, notice:'Profesor CREADO'}
       else
         format.html{render :nuevo}
       end
@@ -39,18 +39,17 @@ class ProfesorsController < ApplicationController
   def eliminar
     @profesors.destroy
     respond_to do |format|
-      format.html{redirect_to profesors_url, notice:'PROFESOR ELIMINADO'}
+      format.html{redirect_to profesors_url, notice:'profesor ELIMINADO'}
     end
   end
 
   private
 
   def set_profesor
-    @profesorS = profesor.find(params[:id])
+    @profesors = Profesor.find(params[:id])
   end
 
   def adm_params
     params.require(:profesor).permit(:nombre, :edad, :email, :desc)
   end
-end
 end

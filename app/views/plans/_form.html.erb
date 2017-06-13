@@ -1,0 +1,13 @@
+<%= form_for(@plans, :html =>{:role => 'form'}) do |f| %>
+    <% if @plans.errors.any? %>
+        <%= pluralize(@pplans.errors.count, "ERROR")%>
+        <% @plans.errors.full_menssages.each do |actual| %>
+            <%= actual %>
+        <% end %>
+    <% end %>
+    <%= "Nombre: "%>
+    <% f.label :nombre %>
+    <%= f.text_field :nombre %><br><br>
+    ## agregar precio
+        <%= f.submit value="Agregar"%>
+<% end %>

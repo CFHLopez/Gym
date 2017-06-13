@@ -1,0 +1,8 @@
+<%= link_to 'Nuevo profesor', nuevo_profesor_path%><br><br>
+<h1><%= 'Nombre/s:'%></h1><br>
+<% @profesors.each do |actual| %>
+<%= actual.nombre %>
+<%= link_to 'Mostrar', profesor_url(actual) %>
+<%= link_to 'Editar', editar_profesor_path(actual) %>
+<%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Esta Seguro?'} %><br><br>
+<% end %>

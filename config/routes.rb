@@ -47,4 +47,16 @@ Rails.application.routes.draw do
   delete 'Profe/:id',to: 'profesors#eliminar'
 
 
+  get 'Plan/', to: 'plans#index', as: 'plans'
+  get 'Plan/nuevo', to: 'plans#nuevo', as: 'nuevo_plan'
+  get 'Plan/:id', to: 'plans#mostrar', as: 'plan'
+  get 'Plan/:id/editar', to: 'plans#editar', as: 'editar_plan'
+
+  put 'Plan/:id', to: 'plans#update'
+  patch 'Plan/:id', to: 'plans#update'
+
+  post 'Plan/', to: 'plans#crear'
+  delete 'Plan/:id',to: 'plans#eliminar'
+
+
 end

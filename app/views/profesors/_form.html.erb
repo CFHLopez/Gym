@@ -1,0 +1,21 @@
+<%= form_for(@profesors, :html =>{:role => 'form'}) do |f| %>
+    <% if @profesors.errors.any? %>
+        <%= pluralize(@profesors.errors.count, "ERROR")%>
+        <% @profesors.errors.full_menssages.each do |actual| %>
+            <%= actual %>
+        <% end %>
+    <% end %>
+    <%= "Nombre: "%>
+    <% f.label :nombre %>
+    <%= f.text_field :nombre %><br><br>
+    <%= "Edad: "%>
+    <% f.label :edad %>
+    <%= f.text_field :edad %><br><br>
+    <%= "Email: "%>
+    <% f.label :email %>
+    <%= f.text_field :email %><br><br>
+    <%= "Descripcion: "%><br><br>
+    <% f.label :desc %>
+    <%= f.text_area :desc, size: "30x10" %><br>
+    <%= f.submit value="Agregar"%>
+<% end %>

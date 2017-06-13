@@ -1,0 +1,8 @@
+<%= link_to 'Nuevo plan', nuevo_plan_path%><br><br>
+<h1><%= 'Nombre/s:'%></h1><br>
+<% @plans.each do |actual| %>
+<%= actual.nombre %>
+<%= link_to 'Mostrar', plans_url(actual) %>
+<%= link_to 'Editar', editar_plans_path(actual) %>
+<%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Esta Seguro?'} %><br><br>
+<% end %>
