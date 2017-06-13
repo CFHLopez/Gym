@@ -16,10 +16,10 @@ class PagosController < ApplicationController
   end
 
   def crear
-    @pagos = Pago.create(adm_params)
+    @pagos = Pago.create(pagos_params)
     respond_to do |format|
       if @pagos.save
-        format.html{redirect_to @pagos, notice:'PAGOCREADO'}
+        format.html{redirect_to @pagos, notice:'PAGO CREADO'}
       else
         format.html{render :nuevo}
       end
@@ -28,7 +28,7 @@ class PagosController < ApplicationController
 
   def update
     respond_to do |format|
-      if @pagos.update(adm_params)
+      if @pagos.update(pagos_params)
         format.html{redirect_to @pagos}
       else
         format.html{render :nuevo}
@@ -49,7 +49,7 @@ class PagosController < ApplicationController
     @pagos = Pago.find(params[:id])
   end
 
-  def adm_params
+  def pagos_params
     params.require(:pago).permit(:fecha, :monto)
  end
 end

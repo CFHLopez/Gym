@@ -9,14 +9,14 @@ class PlansController < ApplicationController
   end
 
   def nuevo
-    @plans = Administrador.new
+    @plans = Plan.new
   end
 
   def editar
   end
 
   def crear
-    @plans = Plan.create(adm_params)
+    @plans = Plan.create(plans_params)
     respond_to do |format|
       if @plans.save
         format.html{redirect_to @plans, notice:'PLAN CREADO'}
@@ -28,7 +28,7 @@ class PlansController < ApplicationController
 
   def update
     respond_to do |format|
-      if @plans.update(adm_params)
+      if @plans.update(plans_params)
         format.html{redirect_to @plans}
       else
         format.html{render :nuevo}
@@ -49,7 +49,7 @@ class PlansController < ApplicationController
     @plans = Plan.find(params[:id])
   end
 
-  def adm_params
+  def plans_params
     params.require(:plan).permit(:nombre, :precio)
   end
 end

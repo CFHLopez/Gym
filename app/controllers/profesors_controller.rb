@@ -16,7 +16,7 @@ class ProfesorsController < ApplicationController
   end
 
   def crear
-    @profesors = Profesor.create(adm_params)
+    @profesors = Profesor.create(profesors_params)
     respond_to do |format|
       if @profesors.save
         format.html{redirect_to @profesors, notice:'Profesor CREADO'}
@@ -28,7 +28,7 @@ class ProfesorsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @profesors.update(adm_params)
+      if @profesors.update(profesors_params)
         format.html{redirect_to @profesors}
       else
         format.html{render :nuevo}
@@ -49,7 +49,7 @@ class ProfesorsController < ApplicationController
     @profesors = Profesor.find(params[:id])
   end
 
-  def adm_params
+  def profesors_params
     params.require(:profesor).permit(:nombre, :edad, :email, :desc)
   end
 end

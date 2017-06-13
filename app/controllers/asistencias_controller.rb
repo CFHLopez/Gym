@@ -16,7 +16,7 @@ class AsistenciasController < ApplicationController
   end
 
   def crear
-    @asistencias = Asistencia.create(adm_params)
+    @asistencias = Asistencia.create(asistencias_params)
     respond_to do |format|
       if @asistencias.save
         format.html{redirect_to @asistencias, notice:'ASISTENCIA CREADA'}
@@ -28,7 +28,7 @@ class AsistenciasController < ApplicationController
 
   def update
     respond_to do |format|
-      if @asistencias.update(adm_params)
+      if @asistencias.update(asistencias_params)
         format.html{redirect_to @asistencias}
       else
         format.html{render :nuevo}
@@ -49,7 +49,7 @@ class AsistenciasController < ApplicationController
     @asistencias = Asistencia.find(params[:id])
   end
 
-  def adm_params
+  def asistencias_params
     params.require(:asistencia).permit(:fecha, :cant_alumnos)
   end
 end

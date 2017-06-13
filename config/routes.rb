@@ -46,7 +46,6 @@ Rails.application.routes.draw do
   post 'Profe/', to: 'profesors#crear'
   delete 'Profe/:id',to: 'profesors#eliminar'
 
-
   get 'Plan/', to: 'plans#index', as: 'plans'
   get 'Plan/nuevo', to: 'plans#nuevo', as: 'nuevo_plan'
   get 'Plan/:id', to: 'plans#mostrar', as: 'plan'
@@ -79,6 +78,5 @@ Rails.application.routes.draw do
 
   post 'Asistencia/', to: 'asistencias#crear'
   delete 'Asistencia/:id',to: 'asistencias#eliminar'
-
-
+  
 end
