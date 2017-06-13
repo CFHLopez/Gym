@@ -1,6 +1,6 @@
 <%= form_for(@plans, :html =>{:role => 'form'}) do |f| %>
     <% if @plans.errors.any? %>
-        <%= pluralize(@pplans.errors.count, "ERROR")%>
+        <%= pluralize(@plans.errors.count, "ERROR")%>
         <% @plans.errors.full_menssages.each do |actual| %>
             <%= actual %>
         <% end %>

@@ -1,0 +1,15 @@
+<%= form_for(@asistencias, :html =>{:role => 'form'}) do |f| %>
+    <% if @asistencias.errors.any? %>
+        <%= pluralize(@asistencias.errors.count, "ERROR")%>
+        <% @asistencias.errors.full_menssages.each do |actual| %>
+            <%= actual %>
+        <% end %>
+    <% end %>
+    <%= "fecha: "%>
+    <% f.label :fecha %>
+    <%= f.text_field :fecha %><br><br>
+    <%= "cantidad alumnos: "%>
+    <% f.label :cant_alumnos %>
+    <%= f.text_field :cant_alumnos %><br><br>
+    <%= f.submit value="Agregar"%>
+<% end %>

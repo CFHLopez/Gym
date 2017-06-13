@@ -1,0 +1,8 @@
+<%= link_to 'Nueva Asistencia', nuevo_asistencia_path%><br><br>
+<h1><%= 'Nombre/s:'%></h1><br>
+<% @asistencias.each do |actual| %>
+<%= actual.nombre %>
+<%= link_to 'Mostrar', asistencia_url(actual) %>
+<%= link_to 'Editar', editar_asistencia_path(actual) %>
+<%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Esta Seguro?'} %><br><br>
+<% end %>

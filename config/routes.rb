@@ -58,5 +58,27 @@ Rails.application.routes.draw do
   post 'Plan/', to: 'plans#crear'
   delete 'Plan/:id',to: 'plans#eliminar'
 
+  get 'Pago/', to: 'pagos#index', as: 'pagos'
+  get 'Pago/nuevo', to: 'pagos#nuevo', as: 'nuevo_pago'
+  get 'Pago/:id', to: 'pagos#mostrar', as: 'pago'
+  get 'Pago/:id/editar', to: 'pagos#editar', as: 'editar_pago'
+
+  put 'Pago/:id', to: 'pagos#update'
+  patch 'Pago/:id', to: 'pagos#update'
+
+  post 'Pago/', to: 'pagos#crear'
+  delete 'Pago/:id',to: 'pagos#eliminar'
+
+  get 'Asistencia/', to: 'asistencias#index', as: 'asistencias'
+  get 'Asistencia/nuevo', to: 'asistencias#nuevo', as: 'nuevo_asistencia'
+  get 'Asistencia/:id', to: 'asistencias#mostrar', as: 'asistencia'
+  get 'Asistencia/:id/editar', to: 'asistencias#editar', as: 'editar_asistencia'
+
+  put 'Asistencia/:id', to: 'asistencias#update'
+  patch 'Asistencia/:id', to: 'asistencias#update'
+
+  post 'Asistencia/', to: 'asistencias#crear'
+  delete 'Asistencia/:id',to: 'asistencias#eliminar'
+
 
 end

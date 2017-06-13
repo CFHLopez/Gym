@@ -1,0 +1,15 @@
+<%= form_for(@pagos, :html =>{:role => 'form'}) do |f| %>
+    <% if @pagos.errors.any? %>
+        <%= pluralize(@pagos.errors.count, "ERROR")%>
+        <% @pagos.errors.full_menssages.each do |actual| %>
+            <%= actual %>
+        <% end %>
+    <% end %>
+    <%= "Fecha: "%>
+    <% f.label :fecha %>
+    <%= f.text_field :fecha %><br><br>
+     <%= "Monto: "%>
+    <% f.label :monto %>
+    <%= f.text_field :monto %><br><br>
+        <%= f.submit value="Agregar"%>
+<% end %>

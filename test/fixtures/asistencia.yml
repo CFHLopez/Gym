@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2017-06-12 23:11:19
+  cant_alumnos: 1
+
+two:
+  fecha: 2017-06-12 23:11:19
+  cant_alumnos: 1
