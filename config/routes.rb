@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root "administradors#index"
 
   get 'Adm/', to: 'administradors#index', as: 'administradors'
