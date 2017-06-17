@@ -1,8 +1,19 @@
-<%= link_to 'Nueva Clase', nuevo_clase_path%><br><br>
-<h1><%= 'Nombre/s:'%></h1><br>
-<% @clases.each do |actual| %>
-<%= actual.nombre %>
-<%= link_to 'Mostrar', clase_url(actual) %>
-<%= link_to 'Editar', editar_clase_path(actual) %>
-<%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Esta Seguro?'} %><br><br>
-<% end %>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @clases.each do |actual| %>
+      <tr>
+        <td><%= actual.nombre %></td>
+        <td><%= link_to 'Mostrar', clase_url(actual) %></td>
+        <td> <%= link_to 'Editar', editar_clase_path(actual) %></td>
+        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'} %></td>
+      </tr>
+  </tbody>
+  <%end%>
+</table>
+<br><br>
+<%= link_to 'NUEVA CLASE', nuevo_clase_path %>

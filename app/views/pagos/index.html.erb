@@ -1,8 +1,19 @@
-<%= link_to 'Nuevo pago', nuevo_pago_path%><br><br>
-<h1><%= 'Nombre/s:'%></h1><br>
-<% @pagos.each do |actual| %>
-<%= actual.nombre %>
-<%= link_to 'Mostrar', pago_url(actual) %>
-<%= link_to 'Editar', editar_pago_path(actual) %>
-<%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Esta Seguro?'} %><br><br>
-<% end %>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @pagos.each do |actual| %>
+      <tr>
+        <td><%= actual.nombre %></td>
+        <td><%= link_to 'Mostrar', pago_url(actual) %></td>
+        <td> <%= link_to 'Editar', editar_pago_path(actual) %></td>
+        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'} %></td>
+      </tr>
+  </tbody>
+  <%end%>
+</table>
+<br><br>
+<%= link_to 'NUEVO ADM', nuevo_pago_path %>
