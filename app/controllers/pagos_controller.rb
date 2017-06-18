@@ -1,5 +1,5 @@
 class PagosController < ApplicationController
-	 before_action :set_pago, only: [:mostrar, :editar, :update, :eliminar]
+	before_action :set_pago, only: [:mostrar, :editar, :update, :eliminar]
 
   def index
     @pagos = Pago.all
