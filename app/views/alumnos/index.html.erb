@@ -8,12 +8,12 @@
   <% @alumnos.each do |actual| %>
       <tr>
         <td><%= actual.nombre %></td>
-        <td><%= link_to 'Mostrar', alumno_url(actual) %></td>
-        <td> <%= link_to 'Editar', editar_alumno_path(actual) %></td>
-        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'} %></td>
+        <td><%= link_to 'Mostrar', alumno_url(actual), class: "btn btn-default"%></td>
+        <td> <%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-default"%></td>
+        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-default"%></td>
       </tr>
   </tbody>
   <%end%>
 </table>
 <br><br>
-<%= link_to 'NUEVO ALUMNO', nuevo_alumno_path %>
+<%= link_to 'NUEVO ALUMNO', nuevo_alumno_path, class: "btn btn-default"%>

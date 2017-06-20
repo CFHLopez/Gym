@@ -8,12 +8,12 @@
   <% @pagos.each do |actual| %>
       <tr>
         <td><%= actual.nombre %></td>
-        <td><%= link_to 'Mostrar', pago_url(actual) %></td>
-        <td> <%= link_to 'Editar', editar_pago_path(actual) %></td>
-        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'} %></td>
+        <td><%= link_to 'Mostrar', pago_url(actual), class: "btn btn-default"%></td>
+        <td> <%= link_to 'Editar', editar_pago_path(actual), class: "btn btn-default"%></td>
+        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-default"%></td>
       </tr>
   </tbody>
   <%end%>
 </table>
 <br><br>
-<%= link_to 'NUEVO ADM', nuevo_pago_path %>
+<%= link_to 'NUEVO ADM', nuevo_pago_path, class: "btn btn-default"%>

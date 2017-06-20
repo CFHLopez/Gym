@@ -21,5 +21,5 @@
       <%=f.collection_select :plan_id, Plan.order("Nombre"), :id, :nombre, include_blank: true %>
     </div><br><br>
     <%= f.submit value="AGREGAR"%>
-    <%= link_to "REGRESAR", Alumno %>
+    <%= link_to "REGRESAR", Alumno, class: "btn btn-default"%>
 <% end %>

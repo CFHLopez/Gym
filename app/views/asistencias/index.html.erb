@@ -2,7 +2,7 @@
 <h1><%= 'Nombre/s:'%></h1><br>
 <% @asistencias.each do |actual| %>
 <%= actual.nombre %>
-<%= link_to 'Mostrar', asistencia_url(actual) %>
-<%= link_to 'Editar', editar_asistencia_path(actual) %>
-<%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Esta Seguro?'} %><br><br>
+<%= link_to 'Mostrar', asistencia_url(actual), class: "btn btn-default"%>
+<%= link_to 'Editar', editar_asistencia_path(actual), class: "btn btn-default"%>
+<%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Esta Seguro?'}, class: "btn btn-default"%><br><br>
 <% end %>
