@@ -5,5 +5,5 @@ class Alumno < ActiveRecord::Base
 
 	validates :nombre, presence: true, length: { minimum: 2 }
 	validates :sexo, presence: true
-	validates :edad, presence: true, numericality: true, on: :update
+	validates :plan_id, presence: true
 end

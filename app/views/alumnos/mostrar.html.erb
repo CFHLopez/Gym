@@ -2,5 +2,5 @@
 Sexo:
 <%= @alumnos.sexo %><br><br>
 Plan:
-<%= @alumnos.plan_id %><br><br>
-<%= link_to "REGRESAR", Alumno %>
+<%= @alumnos.plan.nombre %><br><br>
+<%= link_to "REGRESAR", Alumno, class: "btn btn-default" %>

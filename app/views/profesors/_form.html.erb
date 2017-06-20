@@ -14,6 +14,9 @@
     <%= "Email: "%>
     <% f.label :email %>
     <%= f.text_field :email %><br><br>
+    <%= "Clase/s:" %><br>
+    <% f.label :clase_id %>
+    <%=f.collection_select :clase_id, Clase.order("Nombre"), :id, :nombre, include_blank: true %><br><br>
     <%= "Descripcion: "%><br><br>
     <% f.label :desc %>
     <%= f.text_area :desc, size: "30x10" %><br>
