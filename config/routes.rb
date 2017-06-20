@@ -16,13 +16,13 @@ Rails.application.routes.draw do
 
   get 'Clases/', to: 'clases#index', as: 'clases'
   get 'Clases/nuevo', to: 'clases#nuevo', as: 'nueva_clase'
-  get 'Clases/:id', to: 'clases#mostrar', as: 'clase'
   get 'Clases/:id/editar', to: 'clases#editar', as: 'editar_clase'
+  get 'Clases/:id', to: 'clases#mostrar', as: 'clase'
 
   put 'Clases/:id', to: 'clases#update'
   patch 'Clases/:id', to: 'clases#update'
 
-  post 'Clases/:id', to: 'clases#crear'
+  post 'Clases', to: 'clases#crear'
   delete 'Clases/:id', to: 'clases#eliminar'
 
   get 'Alum/', to: 'alumnos#index', as: 'alumnos'

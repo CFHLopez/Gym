@@ -16,7 +16,7 @@ class ClasesController < ApplicationController
   end
 
   def crear
-    @clases = Clase.create(clases_params)
+    @clases = Clase.create(clase_params)
     respond_to do |format|
       if @clases.save
         format.html{redirect_to @clases, notice:'CLASE CREADA'}
@@ -28,8 +28,8 @@ class ClasesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @clases.update(clases_params)
-        format.html{redirect_to @clases}
+      if @clases.update(clase_params)
+        format.html{redirect_to @clases, notice:'CLASE MODIFICADA'}
       else
         format.html{render :nuevo}
       end
@@ -49,7 +49,7 @@ class ClasesController < ApplicationController
     @clases = Clase.find(params[:id])
   end
 
-  def clases_params
+  def clase_params
     params.require(:clase).permit(:nombre, :desc)
   end
 end

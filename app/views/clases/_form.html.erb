@@ -1,7 +1,7 @@
 <%= form_for(@clases, :html =>{:role => 'form'}) do |f| %>
     <% if @clases.errors.any? %>
         <%= pluralize(@clases.errors.count, "ERROR")%>
-        <% @clases.errors.full_menssages.each do |actual| %>
+        <% @clases.errors.full_messages.each do |actual| %>
             <%= actual %>
         <% end %>
     <% end %>
@@ -11,6 +11,6 @@
     <%= "Descripcion: "%><br><br>
     <% f.label :desc %>
     <%= f.text_area :desc, size: "40x10" %><br>
-    <%= f.submit value="AGREGAR"%>
+    <%= f.submit "AGREGAR"%>
     <%= link_to "VOLVER", Clase %>
 <% end %>

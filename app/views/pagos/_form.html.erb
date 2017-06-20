@@ -1,7 +1,7 @@
 <%= form_for(@pagos, :html =>{:role => 'form'}) do |f| %>
     <% if @pagos.errors.any? %>
         <%= pluralize(@pagos.errors.count, "ERROR")%>
-        <% @pagos.errors.full_menssages.each do |actual| %>
+        <% @pagos.errors.full_messages.each do |actual| %>
             <%= actual %>
         <% end %>
     <% end %>
