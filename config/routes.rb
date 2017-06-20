@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'home/index'
+
   devise_for :users
-  root "alumnos#index"
+  root "home#index"
 
   get 'Adm/', to: 'administradors#index', as: 'administradors'
   get 'Adm/nuevo', to: 'administradors#nuevo', as: 'nuevo_administrador'
