@@ -1,8 +1,8 @@
 class Profesor < ActiveRecord::Base
 	belongs_to :administrador
-	has_many :clases
-
-	validates :nombre,  presence: true, length: { minimum: 2 }
+	belongs_to :clase
+	
+	validates :nombre, presence: true, length: { minimum: 2 }
 	validates :edad, numericality: true, on: :update
 	validates :clase_id, presence: true
 	#validates :desc, presence: true {:message => "Agregar descripcion del profesor"}
