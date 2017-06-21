@@ -3,5 +3,5 @@ Sexo:
 <%= @alumnos.sexo %><br><br>
 Plan:
 <%= @alumnos.plan.nombre %><br><br>
-<%= @alumnos.create_at.strftime("%d - %m - %Y")%>
+<%= @alumnos.created_at.strftime("%d - %m - %Y")%><br><br>
 <%= link_to "REGRESAR", Alumno, class: "btn btn-default" %>
