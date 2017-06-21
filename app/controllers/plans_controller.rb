@@ -37,7 +37,7 @@ class PlansController < ApplicationController
   end
 
   def eliminar
-    @aplans.destroy
+    @plans.destroy
     respond_to do |format|
       format.html{redirect_to plans_url, notice:'PLAN ELIMINADO'}
     end
