@@ -1,5 +1,6 @@
 class Pago < ActiveRecord::Base
-  belongs_to :alumnos
+  has_many :alumnos
 
-  validates :monto, presence: true, numericality: true, on: :update
+  validates :monto, presence: true, numericality: true
+  validates :alumno_id, presence: true
 end

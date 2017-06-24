@@ -1,7 +1,7 @@
 class Alumno < ActiveRecord::Base
 	belongs_to :plan
 	has_many :clases
-  has_many :pagos
+	has_many :pagos
 
 	validates :nombre, presence: true, length: { minimum: 2 }
 	validates :sexo, presence: true
