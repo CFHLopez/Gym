@@ -11,7 +11,7 @@
         <td><%= actual.nombre %></td>
         <td><%= link_to 'Mostrar', profesor_url(actual), class: "btn btn-default", class: "btn btn-default"%></td>
         <td> <%= link_to 'Editar', editar_profesor_path(actual), class: "btn btn-default", class: "btn btn-default"%></td>
-        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-default" %></td>
+        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger" %></td>
       </tr>
   </tbody>
   <%end%>

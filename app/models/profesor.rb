@@ -1,6 +1,6 @@
 class Profesor < ActiveRecord::Base
 	belongs_to :administrador
-	belongs_to :clase
+	has_many :clase
 	
 	validates :nombre, presence: true, length: { minimum: 2 }
 	validates :edad, numericality: true, on: :update
