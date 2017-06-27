@@ -1,9 +1,30 @@
-<h1>Asistencias</h1>
-<%= link_to 'Nueva Asistencia', nuevo_asistencia_path%><br><br>
-<h1><%= 'Nombre/s:'%></h1><br>
-<% @asistencias.each do |actual| %>
-<%= actual.nombre %>
-<%= link_to 'Mostrar', asistencia_url(actual), class: "btn btn-default"%>
-<%= link_to 'Editar', editar_asistencia_path(actual), class: "btn btn-default"%>
-<%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Esta Seguro?'}, class: "btn btn-default"%><br><br>
-<% end %>
+<h1><b><%= "Asistencias" %></b></h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Fecha</th>
+    <th>Clase</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @asistencia.each do |actual| %>
+      <tr>
+        <td><%= actual.fecha %></td>
+        <td><%= actual.clase.nombre %></td>
+        <td><%= link_to 'Mostrar', asistencia_url(actual), class: "btn btn-success"%></td>
+        <td> <%= link_to 'Editar', editar_asistencia_path(actual), class: "btn btn-info"%></td>
+        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
+      </tr>
+  </tbody>
+  <%end%>
+</table>
+<br><br>
+<span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'NUEVA ASISTENCIA',nuevo_asistencia_path %></span><br>
+
+<ul class="pagination pagination-sm">
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+</ul>

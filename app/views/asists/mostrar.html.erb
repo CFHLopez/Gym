@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+  		<h1><b><%= @asists.fecha.strftime("%d - %m - %Y") %></b></h1>
+      </div>
+      <big><b>
+      <div class="panel-body">
+      	Clase
+      	<%= @asist.clase.nombre %>
+      </div>
+      <div class="panel-body">
+      	Cantidad: 
+      	<%= @asists.cantidad %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to "REGRESAR", Asist, class: "btn btn-primary" %>

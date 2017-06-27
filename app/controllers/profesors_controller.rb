@@ -2,7 +2,7 @@ class ProfesorsController < ApplicationController
 	before_action :set_profesor, only: [:mostrar, :editar, :update, :eliminar]
 
   def index
-    @profesors = Profesor.all
+    @profesors = Profesor.paginate(:page => params[:page], :per_page => 8)
   end
 
   def mostrar

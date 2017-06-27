@@ -2,7 +2,7 @@ class AdministradorsController < ApplicationController
   before_action :set_administador, only: [:mostrar, :editar, :update, :eliminar]
 
   def index
-    @administradors = Administrador.all
+    @administradors = Administrador.paginate(:page => params[:page], :per_page => 8)
   end
 
   def mostrar

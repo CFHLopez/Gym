@@ -1,11 +1,30 @@
-<h1><%= @profesors.nombre %></h1><br>
-Edad:
-<%= @profesors.edad %><br>
-Email:
-<%= @profesors.email %><br>
-Clase/s:
-<%= @profesors.clase.nombre %><br><br>
-Descripcion:
-<%= @profesors.desc %><br><br>
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+  		<h1><b><%= @profesors.nombre %></b></h1>
+      </div>
+      <big><b>
+      <div class="panel-body">
+      	Edad: 
+      	<%= @profesors.edad %>
+      	 Años
+      </div>
+      <div class="panel-body">
+      	Email: 
+      	<%= @profesors.email %>
+      </div>
+      <div class="panel-body">
+      	Clase/s: 
+      	<%= @profesors.clase.nombre %>
+      </div>
+      <div class="panel-body">
+      	Descripcion: 
+      	<%= @profesors.desc %>
+      </div>
+      </b></big>
+    </div>
+  </div>
+</div>
 
-<%= link_to "REGRESAR", Profesor, class: "btn btn-default" %>
+<%= link_to "REGRESAR", Profesor, class: "btn btn-primary" %>

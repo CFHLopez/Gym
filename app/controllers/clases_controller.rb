@@ -2,7 +2,7 @@ class ClasesController < ApplicationController
   before_action :set_clase, only: [:mostrar, :editar, :update, :eliminar]
 
   def index
-    @clases= Clase.all
+    @clases= Clase.paginate(:page => params[:page], :per_page => 8)
   end
 
   def mostrar

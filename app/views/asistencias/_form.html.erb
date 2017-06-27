@@ -1,15 +1,13 @@
-<%= form_for(@asistencias, :html =>{:role => 'form'}) do |f| %>
-    <% if @asistencias.errors.any? %>
-        <%= pluralize(@asistencias.errors.count, "ERROR")%>
-        <% @asistencias.errors.full_messages.each do |actual| %>
+<%= form_for(@asistencia, :html =>{:role => 'form'}) do |f| %>
+    <% if @asistencia.errors.any? %>
+        <%= pluralize(@asistencia.errors.count, "ERROR")%>
+        <% @asistencia.errors.full_messages.each do |actual| %>
             <%= actual %>
         <% end %>
     <% end %>
-    <%= "fecha: "%>
-    <% f.label :fecha %>
+    <b><%= "Fecha: "%></b>
     <%= f.text_field :fecha %><br><br>
-    <%= "cantidad alumnos: "%>
-    <% f.label :cant_alumnos %>
+    <b><%= "Cantidad Alumnos/as: "%><br>
     <%= f.text_field :cant_alumnos %><br><br>
-    <%= f.submit value="Agregar", class: "btn btn-default"%>
+    <%= f.submit value= "Agregar", class: "btn btn-default"%>
 <% end %>

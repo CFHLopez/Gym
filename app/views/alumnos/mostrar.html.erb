@@ -1,8 +1,25 @@
-<h1><%= @alumnos.nombre %></h1><br>
-Sexo:
-<%= @alumnos.sexo %><br><br>
-Plan:
-<%= @alumnos.plan.nombre %><br><br>
-Fecha Inscripcion: 
-<%= @alumnos.created_at.strftime("%d - %m - %Y")%><br><br>
-<%= link_to "REGRESAR", Alumno, class: "btn btn-default" %>
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+  		<h1><b><%= @alumnos.nombre %></b></h1>
+      </div>
+      <big><b>
+      <div class="panel-body">
+      	Sexo:  
+      	<%= @alumnos.sexo %>
+      </div>
+      <div class="panel-body">
+      	Plan: 
+      	<%= @alumnos.plan.nombre %>
+      </div>
+      <div class="panel-body">
+      	Fecha Inscripción: 
+      	<%= @alumnos.created_at.strftime("%d - %m - %Y") %>
+      </div>
+      </b></big>
+    </div>
+  </div>
+</div>
+
+<%= link_to "REGRESAR", Alumno, class: "btn btn-primary" %>

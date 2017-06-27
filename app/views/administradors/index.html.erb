@@ -1,4 +1,4 @@
-<h1>Administradores</h1>
+<h1><b><%= "Administrador/a/es/as" %></b></h1>
 <table class="table">
   <thead>
   <tr>
@@ -9,13 +9,13 @@
   <% @administradors.each do |actual| %>
       <tr>
         <td><%= actual.nombre %></td>
-        <td><%= link_to 'Mostrar', administrador_url(actual), class: "btn btn-default"%></td>
-        <td> <%= link_to 'Editar', editar_administrador_path(actual), class: "btn btn-default"%></td>
+        <td><%= link_to 'Mostrar', administrador_url(actual), class: "btn btn-success"%></td>
+        <td> <%= link_to 'Editar', editar_administrador_path(actual), class: "btn btn-info"%></td>
         <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
       </tr>
   </tbody>
   <%end%>
 </table>
 <br><br>
-<%= link_to 'NUEVO ADMINISTRADOR', nuevo_administrador_path, class: "btn btn-default"%><br><br>
-<%= link_to 'NUEVO PAGO', 'pagos/nuevo' , class: "btn btn-default"%>
+<span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'NUEVO ADMINISTRADOR',nuevo_administrador_path %></span>
+<%= will_paginate @administradors, renderer: BootstrapPagination::Rails %>

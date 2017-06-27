@@ -33,8 +33,9 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'
 # gema para paginacion
-## Gemfile for Rails 3+, Sinatra, and Merb
-gem 'will_paginate', '~> 3.1.0'
+# Gemfile for Rails 3+, Sinatra, and Merb
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 
 

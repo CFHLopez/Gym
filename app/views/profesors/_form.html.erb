@@ -5,24 +5,15 @@
             <%= actual %>
         <% end %>
     <% end %>
-    <%= "Nombre: "%>
-    <% f.label :nombre %>
+    <b><%= "Nombre: "%></b>
     <%= f.text_field :nombre %><br><br>
-    <%= "Edad: " %>
-    <% f.label :edad %>
+    <b><%= "Edad: " %></b>
     <%= f.select :edad, [["18"],["19"],["20"],["21"],["22"],["23"],["24"],["25"],["26"],["27"],["28"],["29"],["30"],["31"],["32"],["33"],["34"],["35"],["36"],["37"],["38"],["39"],["40"]]%><br><br>
-    <%= "Email: "%>
-    <% f.label :email %>
+    <b><%= "Email: "%></b>
     <%= f.text_field :email %><br><br>
-    <%= "Clase/s:" %><br>
-    <% f.label :clase_id %>
+    <b><%= "Clase/s:" %></b>
     <%= f.collection_select :clase_id, Clase.order("Nombre"), :id, :nombre, include_blank: true %><br><br>
-    <%= hidden_field_tag "Profesor[clase_ids][]"%>
-    <% Clase.all.each do |clase|%>
-    <%= check_box_tag "Profesor[clase_ids][]", clase.id, @profesors.clase_id.include?(clase_id)%>
-    <%= clase.nombre%><br>
-    <% end %>
-    <%= "Descripcion: "%><br><br>
+    <b><%= "Descripcion: "%></b><br><br>
     <% f.label :desc %>
     <%= f.text_area :desc, size: "30x10" %><br>
     <%= f.submit value="AGREGAR"%>

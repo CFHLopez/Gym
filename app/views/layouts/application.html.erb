@@ -10,7 +10,7 @@
 
 
 <body background="<%= asset_path 'gimnasio.jpg' %>" width=100%>
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -18,14 +18,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Funcionality Chris</a>
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Funcionality Chris</a>
+        </div>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/administradores">Administradores</a></li>
-          <li><a href="/profesores">Profesores</a></li>
-          <li><a href="/alumnos">Alumnos</a></li>
+          <li><a href="/administradores">Administrador/es</a></li>
+          <li><a href="/profesores">Profesor/es</a></li>
+          <li><a href="/alumnos">Alumnos/as</a></li>
           <li><a href="/planes">Planes</a></li>
           <li><a href="/clases">Clases</a></li>
           <li><a href="/asistencias">Asistencias</a></li>

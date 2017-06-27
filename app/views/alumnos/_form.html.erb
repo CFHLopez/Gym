@@ -6,20 +6,17 @@
         <% end %>
     <% end %>
     <div class="field">
-      <%= "Nombre: "%>
-      <% f.label :nombre %>
+      <b><%= "Nombre: "%></b>
       <%= f.text_field :nombre %><br><br>
     </div>
     <div class="field">
-      <%= "Sexo: "%>
-      <% f.label :sexo %>
+      <b><%= "Sexo: "%></b>
       <%= f.select :sexo, [["MASCULINO"],["FEMENINO"]]%><br><br>
     </div>
     <div class="field">
-      <%= "Plan: "%>
-      <%f.label :plan_id %>
+      <b><%= "Plan: "%></b>
       <%=f.collection_select :plan_id, Plan.order("Nombre"), :id, :nombre, include_blank: true %>
     </div><br><br>
-    <%= f.submit value="AGREGAR"%>
-    <%= link_to "REGRESAR", Alumno, class: "btn btn-default"%>
+    <%= f.submit value="AGREGAR", class: "btn btn-success"%>
+    <%= link_to "REGRESAR", Alumno, class: "btn btn-primary"%>
 <% end %>

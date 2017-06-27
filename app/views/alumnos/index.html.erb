@@ -1,20 +1,25 @@
-<h1>Alumnos</h1>
+<h1><b><%= "Alumnos/as" %></b></h1>
 <table class="table">
   <thead>
   <tr>
     <th>Nombre</th>
+    <th>Plan</th>
+    <th>Fecha Pago</th>
   </tr>
   </thead>
   <tbody>
   <% @alumnos.each do |actual| %>
       <tr>
         <td><%= actual.nombre %></td>
-        <td><%= link_to 'Mostrar', alumno_url(actual), class: "btn btn-default"%></td>
-        <td> <%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-default"%></td>
+        <td><%= actual.plan.nombre %></td>
+        <td><%= actual.created_at.strftime("%d")%></td>
+        <td><%= link_to 'Mostrar', alumno_url(actual), class: "btn btn-success"%></td>
+        <td> <%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info"%></td>
         <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
       </tr>
   </tbody>
   <%end%>
 </table>
 <br><br>
-<%= link_to 'NUEVO ALUMNO', nuevo_alumno_path, class: "btn btn-default"%>
+<span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'NUEVO/A ALUMNO/A',nuevo_alumno_path %></span><br>
+<%= will_paginate @alumnos, renderer: BootstrapPagination::Rails %>

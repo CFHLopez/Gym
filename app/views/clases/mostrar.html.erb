@@ -1,4 +1,17 @@
-<h1><%= @clases.nombre %></h1><br>
-Descripcion:
-<%= @clases.desc %><br><br>
-<%= link_to "VOLVER", Clase, class: "btn btn-default"%>
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+  		<h1><b><%= @clases.nombre %></b></h1>
+      </div>
+      <big><b>
+      <div class="panel-body">
+      	Descripción: 
+      	<%= @clases.desc %>
+      </div>
+      </b></big>
+    </div>
+  </div>
+</div>
+
+<%= link_to "REGRESAR", Clase, class: "btn btn-primary" %>

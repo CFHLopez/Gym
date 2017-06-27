@@ -2,7 +2,7 @@ class AlumnosController < ApplicationController
   before_action :set_alumno, only: [:mostrar, :editar, :update, :eliminar]
 
   def index
-    @alumnos = Alumno.all
+    @alumnos = Alumno.paginate(:page => params[:page], :per_page => 5)
   end
 
   def mostrar

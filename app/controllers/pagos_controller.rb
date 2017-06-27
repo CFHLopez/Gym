@@ -2,7 +2,7 @@ class PagosController < ApplicationController
 	before_action :set_pago, only: [:mostrar, :editar, :update, :eliminar]
 
   def index
-    @pagos = Pago.all
+    @pagos = Pago.paginate(:page => params[:page], :per_page => 8)
   end
 
   def mostrar

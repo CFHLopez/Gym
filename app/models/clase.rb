@@ -2,7 +2,9 @@ class Clase < ActiveRecord::Base
 	belongs_to :administrador
 	has_many :profesor
 	has_many :asistencia
+	has_many :asist
 
 	validates :nombre,  presence: true, length: { minimum: 2 }, uniqueness: true
 	validates :desc, length: { maximum: 500 }
+	validates :asist_id, numericality: true
 end

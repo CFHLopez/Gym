@@ -1,13 +1,31 @@
-<h1><%= @administradors.nombre %></h1><br>
-Edad:
-<%= @administradors.edad %><br>
-Email:
-<%= @administradors.email %><br>
-Descripcion:
-<%= @administradors.desc %><br><br>
-Links:<br><br>
-<%= link_to "PLANES", Plan, class: "btn btn-default"%> <br><br>
-<%= link_to "ALUMNOS", Alumno, class: "btn btn-default"%> <br><br>
-<%= link_to "PROFESORES", Profesor, class: "btn btn-default"%> <br><br>
-<%= link_to "CLASES", Clase, class: "btn btn-default"%><br><br>
-<%= link_to "REGRESAR", Administrador, class: "btn btn-default"%><br><br>
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+  		<h1><b><%= @administradors.nombre %></b></h1>
+      </div>
+      <big><b>
+      <div class="panel-body">
+      	Edad: 
+      	<%= @administradors.edad %>
+      	 Años
+      </div>
+      <div class="panel-body">
+      	Email: 
+      	<%= @administradors.email %>
+      </div>
+      <div class="panel-body">
+      	Descripcion: 
+      	<%= @administradors.desc %>
+      </div>
+      </b></big>
+    </div>
+  </div>
+</div>
+
+<%= link_to "REGRESAR", Administrador, class: "btn btn-primary" %><br><br>
+
+<%= link_to "PLANES", Plan, class: "btn btn-success"%>
+<%= link_to "ALUMNOS", Alumno, class: "btn btn-info"%>
+<%= link_to "PROFESORES", Profesor, class: "btn btn-warning"%>
+<%= link_to "CLASES", Clase, class: "btn btn-danger"%>

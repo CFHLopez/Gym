@@ -5,12 +5,10 @@
             <%= actual %>
         <% end %>
     <% end %>
-    <%= "Nombre: "%>
-    <% f.label :nombre %>
+    <b><%= "Nombre: "%></b>
     <%= f.text_field :nombre %><br><br>
-    <%= "Precio: "%>
-    <% f.label :precio %>
+    <b><%= "Precio: "%></b>
     <%= f.text_field :precio %><br><br>
-    <%= f.submit value="AGREGAR"%>
-    <%= link_to "VOLVER", Plan, class: "btn btn-default"%>
+    <%= f.submit value="AGREGAR", class: "btn btn-success"%>
+    <%= link_to "VOLVER", Plan, class: "btn btn-primary"%>
 <% end %>

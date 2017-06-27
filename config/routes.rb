@@ -71,15 +71,15 @@ Rails.application.routes.draw do
   post 'pagos/', to: 'pagos#crear'
   delete 'pagos/:id',to: 'pagos#eliminar'
 
-  get 'asistencias/', to: 'asistencias#index', as: 'asistencias'
-  get 'asistencias/nuevo', to: 'asistencias#nuevo', as: 'nuevo_asistencia'
-  get 'asistencias/:id', to: 'asistencias#mostrar', as: 'asistencia'
-  get 'asistencias/:id/editar', to: 'asistencias#editar', as: 'editar_asistencia'
+  get 'asistencias/', to: 'asists#index', as: 'asists'
+  get 'asistencias/nuevo', to: 'asists#nuevo', as: 'nueva_asist'
+  get 'asistencias/:id', to: 'asists#mostrar', as: 'asist'
+  get 'asistencias/:id/editar', to: 'asists#editar', as: 'editar_asist'
 
-  put 'asistencias/:id', to: 'asistencias#update'
-  patch 'asistencias/:id', to: 'asistencias#update'
+  put 'asistencias/:id', to: 'asists#update'
+  patch 'asistencias/:id', to: 'asists#update'
 
-  post 'asistencias/', to: 'asistencias#crear'
-  delete 'asistencias/:id',to: 'asistencias#eliminar'
+  post 'asistencias/', to: 'asists#crear'
+  delete 'asistencias/:id',to: 'asists#eliminar'
 
 end

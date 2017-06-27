@@ -1,0 +1,2 @@
+module AsistsHelper
+end
