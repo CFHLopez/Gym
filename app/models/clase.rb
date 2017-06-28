@@ -6,5 +6,4 @@ class Clase < ActiveRecord::Base
 
 	validates :nombre,  presence: true, length: { minimum: 2 }, uniqueness: true
 	validates :desc, length: { maximum: 500 }
-	validates :asist_id, numericality: true
 end
