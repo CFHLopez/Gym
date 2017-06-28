@@ -9,7 +9,7 @@
   <tbody>
   <% @pagos.each do |actual| %>
       <tr>
-        <td><%= actual.create_at %></td>
+        <td><%= actual.created_at %></td>
         <td><%= actual.monto %></td>
         <td><%= link_to 'Mostrar', pago_url(actual), class: "btn btn-success"%></td>
         <td> <%= link_to 'Editar', editar_pago_path(actual), class: "btn btn-info"%></td>

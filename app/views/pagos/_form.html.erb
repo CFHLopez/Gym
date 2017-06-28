@@ -8,5 +8,6 @@
     <%= "Seleccionar Alumno/a: "%>
     <%=f.collection_select :alumno_id, Alumno.order("Nombre"), :id, :nombre, include_blank: true %>
     <%=%>
+ 
     <%= f.submit value="Agregar", class: "btn btn-default"%>
 <% end %>
