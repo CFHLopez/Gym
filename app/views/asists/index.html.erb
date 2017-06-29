@@ -4,14 +4,15 @@
   <tr>
     <th>Fecha</th>
     <th>Clase</th>
+    <th>Cantidad Alumnos</th>
   </tr>
   </thead>
   <tbody>
   <% @asists.each do |actual| %>
       <tr>
-        <td><%= actual.fecha %></td>
+        <td><%= actual.fecha.strftime("%d - %m - %Y") %></td>
         <td><%= actual.clase.nombre %></td>
-        <td><%= link_to 'Mostrar', asist_url(actual), class: "btn btn-success"%></td>
+        <td><%= actual.cantidad %>
         <td> <%= link_to 'Editar', editar_asist_path(actual), class: "btn btn-info"%></td>
         <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
       </tr>

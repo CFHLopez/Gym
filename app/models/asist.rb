@@ -1,5 +1,5 @@
 class Asist < ActiveRecord::Base
-	has_many :clases
+	belongs_to :clase
 
 	validates :cantidad, presence: true, numericality: true
 	validates :clase_id, presence: true

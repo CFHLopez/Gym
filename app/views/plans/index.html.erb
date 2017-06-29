@@ -20,10 +20,4 @@
 <br><br>
 <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'NUEVO PLAN',nuevo_plan_path %></span><br>
 
-<ul class="pagination pagination-sm">
-  <li><a href="#">1</a></li>
-  <li><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-</ul>
+<%= will_paginate @plans, renderer: BootstrapPagination::Rails %>

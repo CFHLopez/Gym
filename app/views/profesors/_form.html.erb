@@ -16,6 +16,6 @@
     <b><%= "Descripcion: "%></b><br><br>
     <% f.label :desc %>
     <%= f.text_area :desc, size: "30x10" %><br>
-    <%= f.submit value="AGREGAR"%>
-    <%= link_to "VOLVER", Profesor, class: "btn btn-default"%>
+    <button type="submit" class="btn btn-success">AGREGAR</button>
+    <%= link_to "VOLVER", Profesor, class: "btn btn-primary"%>
 <% end %>

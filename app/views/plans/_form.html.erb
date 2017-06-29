@@ -5,10 +5,14 @@
             <%= actual %>
         <% end %>
     <% end %>
-    <b><%= "Nombre: "%></b>
-    <%= f.text_field :nombre %><br><br>
-    <b><%= "Precio: "%></b>
-    <%= f.text_field :precio %><br><br>
+    <div class="field">
+      <b><%= "Nombre: "%></b>
+      <%= f.text_field :nombre %><br><br>
+    </div>
+    <div class="field">
+      <b><%= "Precio: "%></b>
+      <%= f.select :precio, [["5000"],["10000"],["15000"],["18000"],["20000"],["30000"]]%><br><br>
+    </div>
     <%= f.submit value="AGREGAR", class: "btn btn-success"%>
-    <%= link_to "VOLVER", Plan, class: "btn btn-primary"%>
+    <%= link_to "REGRESAR", Plan, class: "btn btn-primary"%>
 <% end %>
