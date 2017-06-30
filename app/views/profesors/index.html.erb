@@ -8,7 +8,7 @@
   <tbody>
   <% @profesors.each do |actual| %>
       <tr>
-        <td><%= actual.nombre %></td>
+        <td><b><%= actual.nombre %></b></td>
         <td><%= link_to 'Mostrar', profesor_url(actual), class: "btn btn-default", class: "btn btn-success"%></td>
         <td> <%= link_to 'Editar', editar_profesor_path(actual), class: "btn btn-info"%></td>
         <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger" %></td>

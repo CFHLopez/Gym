@@ -3,16 +3,17 @@
   <thead>
   <tr>
     <th>Fecha</th>
+    <th>Alumno/a<th>
     <th>Monto</th>
   </tr>
   </thead>
   <tbody>
   <% @pagos.each do |actual| %>
       <tr>
-        <td><%= actual.created_at %></td>
-        <td><%= actual.monto %></td>
-        <td><%= link_to 'Mostrar', pago_url(actual), class: "btn btn-success"%></td>
-        <td> <%= link_to 'Editar', editar_pago_path(actual), class: "btn btn-info"%></td>
+        <td><b><%= actual.created_at.strftime("%d - %m - %Y")%></b></td>
+        <td><b><%= actual.alumno.nombre%></b></td>
+        <td><b><%= actual.monto%></b></td>
+        <td><%= link_to 'Editar', editar_pago_path(actual), class: "btn btn-info"%></td>
         <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
       </tr>
   </tbody>

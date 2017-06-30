@@ -5,9 +5,20 @@
             <%= actual %>
         <% end %>
     <% end %>
-    <%= "Seleccionar Alumno/a: "%>
-    <%=f.collection_select :alumno_id, Alumno.order("Nombre"), :id, :nombre, include_blank: true %>
-    <%=%>
- 
-    <%= f.submit value="Agregar", class: "btn btn-default"%>
+    <div class="container">
+      <div class="panel-group">
+      <big><b>
+        <div class="panel-body">
+          ALUMNO/A: 
+          <%=f.collection_select :alumno_id, Alumno.order("Nombre"), :id, :nombre, include_blank: true %><br>
+        </div>
+        <div class="panel-body">
+          PRECIO:
+          <%= f.select :monto, [["5000"],["10000"],["15000"],["18000"],["20000"],["30000"]]%><br>
+        </div>
+        <%= f.submit value="AGREGAR", class: "btn btn-success"%>
+        <%= link_to "REGRESAR", Pago, class: "btn btn-primary"%>
+      </b>
+      </big>
+    </div>
 <% end %>

@@ -9,8 +9,8 @@
   <tbody>
   <% @plans.each do |actual| %>
       <tr>
-        <td><%= actual.nombre %></td>
-        <td><%= actual.precio %></td>
+        <td><b><%= actual.nombre %></b></td>
+        <td><b><%= actual.precio %></b></td>
         <td> <%= link_to 'Editar', editar_plan_path(actual), class: "btn btn-info"%></td>
         <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
       </tr>

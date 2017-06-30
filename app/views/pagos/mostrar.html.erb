@@ -1,5 +1,21 @@
-<h1><%= @pago.nombre %></h1><br>
-Fecha De Pago:
-<%= @pago.created_at.strftime("%d - %m")%><br><br>
-Monto:
-<%%><br>
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+  		<h1><b><%= @pagos.created_at.strftime("%d - %m") %></b></h1>
+      </div>
+      <big><b>
+      <div class="panel-body">
+      	Alumno/a: 
+      	<%= @pagos.alumno.nombre %>
+      </div>
+      <div class="panel-body">
+      	Monto: 
+      	<%= @pagos.monto %>
+      </div>
+      </b></big>
+    </div>
+  </div>
+</div>
+
+<%= link_to "REGRESAR", Plan, class: "btn btn-primary" %>

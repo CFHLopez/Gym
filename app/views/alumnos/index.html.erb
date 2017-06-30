@@ -10,11 +10,11 @@
   <tbody>
   <% @alumnos.each do |actual| %>
       <tr>
-        <td><%= actual.nombre %></td>
-        <td><%= actual.plan.nombre %></td>
-        <td><%= actual.created_at.strftime("%d")%></td>
+        <td><b><%= actual.nombre %></b></td>
+        <td><b><%= actual.plan.nombre %></b></td>
+        <td><b><%= actual.created_at.strftime("%d")%></b></td>
         <td><%= link_to 'Mostrar', alumno_url(actual), class: "btn btn-success"%></td>
-        <td> <%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info"%></td>
+        <td><%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info"%></td>
         <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
       </tr>
   </tbody>

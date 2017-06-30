@@ -6,4 +6,5 @@ class Alumno < ActiveRecord::Base
 	validates :nombre, presence: true, length: { minimum: 2 }
 	validates :sexo, presence: true
 	validates :plan_id, presence: true
+	validates :rut, rut: true
 end

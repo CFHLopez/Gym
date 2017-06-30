@@ -5,18 +5,24 @@
             <%= actual %>
         <% end %>
     <% end %>
-    <div class="field">
-        <b><%= "Clase/s:" %></b>
-        <%= f.collection_select :clase_id, Clase.order("Nombre"), :id, :nombre, include_blank: true %><br><br>
+    <div class="container">
+      <div class="panel-group">
+      <big><b>
+        <div class="panel-group">
+        CLASE:
+        <%= f.collection_select :clase_id, Clase.order("Nombre"), :id, :nombre, include_blank: true %><br>
+        </div>
+        <div class="panel-body">
+          FECHA: 
+          <%= f.text_field :fecha %><br>
+        </div>
+        <div class="panel-body">
+          CANTIDAD DE ALUMNOS/AS: 
+        <%= f.text_field :cantidad %><br>
+      </div>
+      </b></big>
+      </div>
+      <%= f.submit value="AGREGAR", class: "btn btn-success"%>
+      <%= link_to "REGRESAR", Asist, class: "btn btn-primary"%>
     </div>
-    <div class="field">
-        <b><%= "Fecha: "%></b>
-        <%= f.text_field :fecha %><br><br>
-    </div>
-    <div class="field">
-        <b><%= "Cantidad De Almunos: "%></b>
-        <%= f.text_field :cantidad %><br><br>
-    </div>
-    <%= f.submit value="AGREGAR", class: "btn btn-success"%>
-    <%= link_to "REGRESAR", Asist, class: "btn btn-primary"%>
 <% end %>

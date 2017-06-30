@@ -5,18 +5,28 @@
             <%= actual %>
         <% end %>
     <% end %>
-    <div class="field">
-      <b><%= "Nombre: "%></b>
-      <%= f.text_field :nombre %><br><br>
+    <div class="container">
+      <div class="panel-group">
+      <big><b>
+        <div class="panel-body">
+          NOMBRE: 
+          <%= f.text_field :nombre %><br>
+        </div>
+        <div class="panel-body">
+          RUT: 
+        <%= f.text_field :rut %><br>
+      </div>
+      <div class="panel-body">
+        SEXO: 
+        <%= f.select :sexo, [["MASCULINO"],["FEMENINO"]]%><br>
+      </div>
+      <div class="panel-body">
+        PLAN: 
+        <%=f.collection_select :plan_id, Plan.order("Nombre"), :id, :nombre, include_blank: true %><br>
+      </div>
+      </b></big>
+      </div>
+      <%= f.submit value="AGREGAR", class: "btn btn-success"%>
+      <%= link_to "REGRESAR", Alumno, class: "btn btn-primary"%>
     </div>
-    <div class="field">
-      <b><%= "Sexo: "%></b>
-      <%= f.select :sexo, [["MASCULINO"],["FEMENINO"]]%><br><br>
-    </div>
-    <div class="field">
-      <b><%= "Plan: "%></b>
-      <%=f.collection_select :plan_id, Plan.order("Nombre"), :id, :nombre, include_blank: true %>
-    </div><br><br>
-    <%= f.submit value="AGREGAR", class: "btn btn-success"%>
-    <%= link_to "REGRESAR", Alumno, class: "btn btn-primary"%>
 <% end %>

@@ -2,15 +2,15 @@
   <div class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading">
-  		<h1><b><%= @asists.fecha.strftime("%d - %m - %Y") %></b></h1>
+  		<h1><b>CLASE: <%= @asists.clase.nombre %></b></h1>
       </div>
       <big><b>
       <div class="panel-body">
-      	Clase
-      	<%= @asists.clase.nombre %>
+      	FECHA:
+        <%= @asists.fecha.strftime("%d - %m - %Y") %>
       </div>
       <div class="panel-body">
-      	Cantidad: 
+      	CANTIDAD DE ALUMNOS/AS: 
       	<%= @asists.cantidad %>
       </div>
     </div>

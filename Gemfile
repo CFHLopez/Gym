@@ -36,6 +36,11 @@ gem 'autoprefixer-rails'
 # Gemfile for Rails 3+, Sinatra, and Merb
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+#gema para validar rut
+gem 'rut_validation'
+gem 'rut_chileno'
+#gema para attr_accessible
+gem 'protected_attributes'
 
 
 

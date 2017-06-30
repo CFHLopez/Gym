@@ -5,9 +5,20 @@
             <%= actual %>
         <% end %>
     <% end %>
-    <b><%= "Fecha: "%></b>
-    <%= f.text_field :fecha %><br><br>
-    <b><%= "Cantidad Alumnos/as: "%><br>
-    <%= f.text_field :cant_alumnos %><br><br>
-    <%= f.submit value= "Agregar", class: "btn btn-default"%>
+    <div class="container">
+      <div class="panel-group">
+      <big><b>
+        <div class="panel-body">
+          FECHA: 
+          <%= f.text_field :fecha %><br>
+        </div>
+        <div class="panel-body">
+          CANTIDAD DE ALUMNOS/AS: 
+        <%= f.text_field :cant_alumnos %><br>
+      </div>
+      </b></big>
+      </div>
+      <%= f.submit value="AGREGAR", class: "btn btn-success"%>
+      <%= link_to "REGRESAR", Asist, class: "btn btn-primary"%>
+    </div>
 <% end %>

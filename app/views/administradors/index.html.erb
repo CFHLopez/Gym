@@ -1,5 +1,6 @@
-<h1><b><%= "Administrador/a/es/as" %></b></h1>
+<h1><b><%= "Administrador/a" %></b></h1>
 <table class="table">
+  <b>
   <thead>
   <tr>
     <th>Nombre</th>
@@ -8,13 +9,14 @@
   <tbody>
   <% @administradors.each do |actual| %>
       <tr>
-        <td><%= actual.nombre %></td>
+        <td><b><%= actual.nombre %></b></td>
         <td><%= link_to 'Mostrar', administrador_url(actual), class: "btn btn-success"%></td>
         <td> <%= link_to 'Editar', editar_administrador_path(actual), class: "btn btn-info"%></td>
         <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
       </tr>
   </tbody>
   <%end%>
+  </b>
 </table>
 <br><br>
 <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'NUEVO ADMINISTRADOR',nuevo_administrador_path %></span>
