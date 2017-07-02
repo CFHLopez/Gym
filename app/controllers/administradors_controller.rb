@@ -50,6 +50,6 @@ class AdministradorsController < ApplicationController
   end
 
   def adm_params
-    params.require(:administrador).permit(:nombre, :edad, :email, :desc)
+    params.require(:administrador).permit(:nombre, :edad, :email, :desc, :rut)
   end
 end

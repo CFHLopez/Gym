@@ -5,6 +5,6 @@ class Administrador < ActiveRecord::Base
 
 	validates :nombre, presence: true, length: { minimum: 2 }
 	validates :edad, presence: true, numericality: true, on: :update
-	validates :rut, rut: true
+	validates :rut, rut: true, presence: true, uniqueness: true
 	
 end

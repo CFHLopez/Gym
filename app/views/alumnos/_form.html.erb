@@ -1,9 +1,9 @@
 <%= form_for(@alumnos, :html =>{:role => 'form'}) do |f| %>
     <% if @alumnos.errors.any? %>
-        <%= pluralize(@alumnos.errors.count, "ERROR")%>
-        <% @alumnos.errors.full_messages.each do |actual| %>
-            <%= actual %>
-        <% end %>
+      <%= pluralize(@alumnos.errors.count, "ERROR")%>
+      <% @alumnos.errors.full_messages.each do |actual| %>
+          <%= actual %>
+      <% end %>
     <% end %>
     <div class="container">
       <div class="panel-group">
@@ -18,7 +18,7 @@
       </div>
       <div class="panel-body">
         SEXO: 
-        <%= f.select :sexo, [["MASCULINO"],["FEMENINO"]]%><br>
+        <%= f.select :sexo, [["MASCULINO"], ["FEMENINO"]]%><br>
       </div>
       <div class="panel-body">
         PLAN: 

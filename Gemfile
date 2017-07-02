@@ -38,7 +38,6 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 #gema para validar rut
 gem 'rut_validation'
-gem 'rut_chileno'
 #gema para attr_accessible
 gem 'protected_attributes'
 
