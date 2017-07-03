@@ -106,6 +106,16 @@ ActiveRecord::Schema.define(version: 20170630035640) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "usuarios", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "email"
+    t.string   "contraseña"
+    t.string   "estado"
+    t.integer  "tipo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "administradors", "clases"
   add_foreign_key "administradors", "plans"
   add_foreign_key "administradors", "profesors"
