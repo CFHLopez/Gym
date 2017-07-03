@@ -13,6 +13,10 @@
           <%=f.collection_select :alumno_id, Alumno.order("Nombre"), :id, :nombre, include_blank: true %><br>
         </div>
         <div class="panel-body">
+          CLASE:
+          <%= %><br>
+        </div>
+        <div class="panel-body">
           PRECIO:
           <%= f.select :monto, [["5000"],["10000"],["15000"],["18000"],["20000"],["30000"]]%><br>
         </div>
