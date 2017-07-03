@@ -1,23 +1,24 @@
-<h1><b><%= "Planes" %></b></h1>
-<table class="table">
-  <thead>
-  <tr>
-    <th>Nombre</th>
-    <th>Precio</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @plans.each do |actual| %>
-      <tr>
-        <td><b><%= actual.nombre %></b></td>
-        <td><b><%= actual.precio %></b></td>
-        <td> <%= link_to 'Editar', editar_plan_path(actual), class: "btn btn-info"%></td>
-        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
-      </tr>
-  </tbody>
-  <%end%>
-</table>
-<br><br>
-<span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'NUEVO PLAN',nuevo_plan_path %></span><br>
-
-<%= will_paginate @plans, renderer: BootstrapPagination::Rails %>
+<div class="container">
+  <h1><b><%= "Planes" %></b></h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Precio</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @plans.each do |actual| %>
+        <tr>
+          <td><b><%= actual.nombre %></b></td>
+          <td><b><%= actual.precio %></b></td>
+          <td> <%= link_to 'Editar', editar_plan_path(actual), class: "btn btn-info"%></td>
+          <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
+        </tr>
+   </tbody>
+   <%end%>
+  </table>
+  <br><br>
+  <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'NUEVO PLAN',nuevo_plan_path %></span><br>
+  <%= will_paginate @plans, renderer: BootstrapPagination::Rails %>
+</div>

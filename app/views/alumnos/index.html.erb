@@ -1,3 +1,4 @@
+<div class="container">
 <h1><b><%= "Alumnos/as" %></b></h1>
 <table class="table">
   <thead>
@@ -23,3 +24,4 @@
 <br><br>
 <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'NUEVO/A ALUMNO/A',nuevo_alumno_path %></span><br>
 <%= will_paginate @alumnos, renderer: BootstrapPagination::Rails %>
+</div>
