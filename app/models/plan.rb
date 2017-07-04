@@ -1,5 +1,5 @@
 class Plan < ActiveRecord::Base
-	belongs_to :administrador
+	belongs_to :user
 	has_many :alumnos
 
 	validates :nombre,  presence: true, uniqueness: true

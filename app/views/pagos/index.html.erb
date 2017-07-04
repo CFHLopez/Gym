@@ -15,7 +15,11 @@
         <td><b><%= actual.alumno.nombre%></b></td>
         <td><b><%= actual.monto%></b></td>
         <td><%= link_to 'Editar', editar_pago_path(actual), class: "btn btn-info"%></td>
+        
+        <% if can? :eliminar, Pago %>
         <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
+         <% end %>
+
       </tr>
   </tbody>
   <%end%>

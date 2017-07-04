@@ -7,11 +7,15 @@
     <%= f.label :nombre , "Nombre"%><br />
     <%= f.text_field :nombre %>
     </div>
-
   <div class="field">
     <%= f.label :rut , "Rut"%><br />
     <%= f.text_field :rut %>
     </div>
+
+     <div class="panel-body">
+        ROL: 
+        <%= f.select :role, [["Administrador"], ["Profesor"]]%><br>
+      </div>
 
       <div class="field">
     <%= f.label :edad, "Edad"%><br />

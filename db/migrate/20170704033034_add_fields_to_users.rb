@@ -5,5 +5,7 @@ class AddFieldsToUsers < ActiveRecord::Migration
     add_column :users, :edad, :integer
     add_column :users, :sexo, :string
     add_column :users, :observacion, :string
+
+
   end
 end

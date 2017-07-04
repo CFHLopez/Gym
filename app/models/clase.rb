@@ -1,6 +1,6 @@
 class Clase < ActiveRecord::Base
-	belongs_to :administrador
-	has_many :profesors
+	belongs_to :user
+	has_many :users
 	has_many :asistencias
 	has_many :asists
 
