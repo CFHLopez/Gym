@@ -8,10 +8,15 @@ class Ability
        if user.role == "administrador"
              can :manage, :all
        elsif user.role == "profesor"
-        alias_action :create, :read, :update, :to => :cru
+        alias_action :nuevo, :mostrar, :update, :index, :to => :cru
         can :cru, Pago
         can :cru, Asist
+        can :cru, Clase    
         can :cru, Alumno
+        can :cru, Plan
+        can :cru, Profesor
+
+
     end
     #
     # The first argument to `can` is the action you are giving the user

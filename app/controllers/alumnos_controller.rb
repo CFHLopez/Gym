@@ -1,4 +1,5 @@
 class AlumnosController < ApplicationController
+  load_and_authorize_resource
   before_action :set_alumno, only: [:mostrar, :editar, :update, :eliminar]
 
   def index
