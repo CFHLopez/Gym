@@ -1,5 +1,6 @@
 class AsistsController < ApplicationController
-	before_action :set_asists, only: [:mostrar, :editar, :update, :eliminar]
+	load_and_authorize_resource
+  before_action :set_asists, only: [:mostrar, :editar, :update, :eliminar]
 
   def index
     @asists = Asist.paginate(:page => params[:page], :per_page => 8)

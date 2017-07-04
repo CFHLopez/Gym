@@ -4,6 +4,30 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :nombre , "Nombre"%><br />
+    <%= f.text_field :nombre %>
+    </div>
+
+  <div class="field">
+    <%= f.label :rut , "Rut"%><br />
+    <%= f.text_field :rut %>
+    </div>
+
+      <div class="field">
+    <%= f.label :edad, "Edad"%><br />
+    <%= f.text_field :edad %>
+    </div>
+      <div class="field">
+    <%= f.label :sexo , "Sexo"%><br />
+   <%= f.select :sexo, [["MASCULINO"], ["FEMENINO"]]%><br>
+    </div>
+      <div class="field">
+    <%= f.label :observacion , "Observacion"%><br />
+    <%= f.text_field :observacion %>
+    </div>
+
+
+  <div class="field">
     <%= f.label :email , "Email"%><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
