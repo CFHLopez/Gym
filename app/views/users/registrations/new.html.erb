@@ -1,49 +1,49 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div class="container">
-    <h2><b>Registrate</b></h2>
+    <h3><b>Registrar Cuenta</b></h3>
     <div class="panel-group">
-    <big><b>
+    <b>
       <div class="panel-body">
-        <%= f.label :nombre , "Nombre"%>
-        <%= f.text_field :nombre %>
+        <%= f.label :nombre , "Nombre"%></b><i>
+        <%= f.text_field :nombre,placeholder: "Nombre Completo"%></i><b>
       </div>
       <div class="panel-body">
-        <%= f.label :rut , "Rut"%>
-        <%= f.text_field :rut %>
+        <%= f.label :rut , "Rut"%></b><i>
+        <%= f.text_field :rut, placeholder: "XXXXXXX-X" %></i><b>
       </div>
       <div class="panel-body">
-        ROL: 
-        <%= f.select :role, [["administrador"], ["profesor"]]%>
+        ROL: </b><i>
+        <%= f.select :role, [["administrador"], ["profesor"]]%></i><b>
       </div>
       <div class="panel-body">
         <%= f.label :edad, "Edad"%>
         <%= f.text_field :edad %>
       </div>
       <div class="panel-body">
-        <%= f.label :sexo , "Sexo"%>
-        <%= f.select :sexo, [["Masculino"], ["Femenino"]]%>
+        <%= f.label :sexo , "Sexo"%></b><i>
+        <%= f.select :sexo, [["Masculino"], ["Femenino"]]%></i><b>
       </div>
       <div class="panel-body">
-        <%= f.label :observacion , "Observacion"%><br>
-        <%= f.text_area :observacion, size: "30x6" %>
+        <%= f.label :email , "Email"%></b><i>
+        <%= f.email_field :email, autofocus: true,placeholder: "ejemplo@ejemplo.cl" %></i><b>
       </div>
       <div class="panel-body">
-        <%= f.label :email , "Email"%>
-        <%= f.email_field :email, autofocus: true %>
-      </div>
-      <div class="panel-body">
-        <%= f.label :password , "Contraseña"%>
+        <%= f.label :password , "Contraseña"%></b><i>
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %>  Mínimo de caracteres)</em><br>
         <% end %>
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.password_field :password, autocomplete: "off" , placeholder: "********"%></i><b>
       </div>
       <div class="panel-body">
-        <%= f.label :password_confirmation, "Confirmar Contraseña" %><br>
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <%= f.label :password_confirmation, "Confirmar Contraseña" %><br></b><i>
+        <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "********" %></i><b>
       </div>
-    </b></big>
+      <div class="panel-body">
+        <%= f.label :observacion , "Observacion"%><br></b><i>
+        <%= f.text_area :observacion, size: "30x2", placeholder: "Opcional" %></i><b>
+      </div>
+    </b>
     </div>
     <div class="actions">   
       <%= f.submit "Registrate", class: "btn btn-success" %><br><br>
