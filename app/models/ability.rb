@@ -12,10 +12,9 @@ class Ability
         can :cru, Pago
         can :cru, Asist   
         can :cru, Alumno
+    else
+        can :read, :index
 
-    else  :index
-
-    end
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
@@ -33,6 +32,6 @@ class Ability
     #   can :update, Article, :published => true
     #
     # See the wiki for details:
-    # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+   end # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
   end
 end
