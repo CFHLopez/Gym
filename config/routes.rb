@@ -5,16 +5,16 @@ Rails.application.routes.draw do
   devise_for :users
   root "home#index"
 
-  get 'administradores/', to: 'administradors#index', as: 'administradors'
-  get 'administradores/nuevo', to: 'administradors#nuevo', as: 'nuevo_administrador'
-  get 'administradores/:id', to: 'administradors#mostrar', as: 'administrador'
-  get 'administradores/:id/editar', to: 'administradors#editar', as: 'editar_administrador'
+  get 'users/', to: 'users#index', as: 'users'
+  get 'users/nuevo', to: 'users#nuevo', as: 'nuevo_user'
+  get 'users/:id', to: 'users#mostrar', as: 'user'
+  get 'users/:id/editar', to: 'users#editar', as: 'editar_user'
 
-  put 'administradores/:id', to: 'administradors#update'
-  patch 'administradores/:id', to: 'administradors#update'
+  put 'users/:id', to: 'users#update'
+  patch 'users/:id', to: 'users#update'
 
-  post 'administradores/', to: 'administradors#crear'
-  delete 'administradores/:id',to: 'administradors#eliminar'
+  post 'users/', to: 'users#crear'
+  delete 'users/:id',to: 'users#eliminar'
 
   get 'clases/', to: 'clases#index', as: 'clases'
   get 'clases/nuevo', to: 'clases#nuevo', as: 'nueva_clase'

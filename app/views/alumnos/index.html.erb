@@ -16,10 +16,9 @@
         <td><b><%= actual.created_at.strftime("%d")%></b></td>
         <td><%= link_to 'Mostrar', alumno_url(actual), class: "btn btn-success"%></td>
         <td><%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info"%></td>
-        
         <% if can? :eliminar, Alumno %>
         <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
-         <% end %>
+        <% end %>
       </tr>
   </tbody>
   <%end%>

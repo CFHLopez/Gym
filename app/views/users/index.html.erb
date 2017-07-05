@@ -1,0 +1,28 @@
+<div class="container">
+<h1><b><%= "Usuarios/as" %></b></h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Rol</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |actual| %>
+      <tr>
+        <td><b><%= actual.nombre %></b></td>
+        <td><b><%= actual.role %></b></td>
+        <td><%= link_to 'Mostrar', user_url(actual), class: "btn btn-success"%></td>
+        <td><%= link_to 'Editar', editar_user_path(actual), class: "btn btn-info"%></td>
+        
+        <% if can? :eliminar, user %>
+        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
+         <% end %>
+      </tr>
+  </tbody>
+  <%end%>
+</table>
+<br><br>
+<span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'NUEVO/A USUARIO/A',nuevo_user_path %></span><br>
+<%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+</div>
