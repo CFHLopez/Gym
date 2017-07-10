@@ -1,6 +1,6 @@
 <%= form_for(@alumnos, :html =>{:role => 'form'}) do |f| %>
     <% if @alumnos.errors.any? %>
-      <%= pluralize(@alumnos.errors.count, "ERROR")%>
+      <%= pluralize(@alumnos.errors.count, "Error")%>
       <% @alumnos.errors.full_messages.each do |actual| %>
           <%= actual %>
       <% end %>

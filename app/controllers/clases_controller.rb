@@ -3,7 +3,7 @@ class ClasesController < ApplicationController
   before_action :set_clase, only: [:mostrar, :editar, :update, :eliminar]
 
   def index
-    @clases= Clase.paginate(:page => params[:page], :per_page => 8)
+    @clases= Clase.paginate(:page => params[:page], :per_page => 5)
   end
 
   def mostrar
@@ -20,7 +20,7 @@ class ClasesController < ApplicationController
     @clases = Clase.create(clase_params)
     respond_to do |format|
       if @clases.save
-        format.html{redirect_to @clases, notice:'CLASE CREADA'}
+        format.html{redirect_to @clases, notice:'Clase Creada'}
       else
         format.html{render :nuevo}
       end
@@ -30,7 +30,7 @@ class ClasesController < ApplicationController
   def update
     respond_to do |format|
       if @clases.update(clase_params)
-        format.html{redirect_to @clases, notice:'CLASE MODIFICADA'}
+        format.html{redirect_to @clases, notice:'Clase Modificada'}
       else
         format.html{render :nuevo}
       end
@@ -40,7 +40,7 @@ class ClasesController < ApplicationController
   def eliminar
     @clases.destroy
     respond_to do |format|
-      format.html{redirect_to clases_url, notice:'CLASE ELIMINADA'}
+      format.html{redirect_to clases_url, notice:'Clase Eliminada'}
     end
   end
 
@@ -51,6 +51,6 @@ class ClasesController < ApplicationController
   end
 
   def clase_params
-    params.require(:clase).permit(:nombre, :user_id, :desc)
+    params.require(:clase).permit(:nombre,:user_id,:desc)
   end
 end

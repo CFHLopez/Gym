@@ -1,6 +1,6 @@
 <%= form_for(@asists, :html =>{:role => 'form'}) do |f| %>
     <% if @asists.errors.any? %>
-        <%= pluralize(@asists.errors.count, "ERROR")%>
+        <%= pluralize(@asists.errors.count, "Error")%>
         <% @asists.errors.full_messages.each do |actual| %>
             <%= actual %>
         <% end %>
@@ -9,16 +9,16 @@
       <div class="panel-group">
       <big><b>
         <div class="panel-group">
-        CLASE:
+        Clase:
         <%= f.collection_select :clase_id, Clase.order("Nombre"), :id, :nombre, include_blank: true %><br>
         </div>
         <div class="panel-body">
-          CANTIDAD DE ALUMNOS/AS: 
+          Cantidad de Alumnos/as: 
         <%= f.text_field :cantidad %><br>
       </div>
       </b></big>
       </div>
-      <%= f.submit value="AGREGAR", class: "btn btn-success"%>
-      <%= link_to "REGRESAR", Asist, class: "btn btn-primary"%>
+      <%= f.submit value="Agregar", class: "btn btn-success"%>
+      <%= link_to "Volver", Asist, class: "btn btn-primary"%>
     </div>
 <% end %>

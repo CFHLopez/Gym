@@ -1,23 +1,23 @@
 <div class="container">
-<h1><b><%= "Clases" %></b></h1>
-<table class="table">
-  <thead>
-  <tr>
-    <th>Nombre</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @clases.each do |actual| %>
+  <h1><b><%= "Clases" %></b></h1>
+  <table class="table">
+    <thead>
       <tr>
-        <td><b><%= actual.nombre %></b></td>
-        <td><%= link_to 'Mostrar', clase_url(actual), class: "btn btn-success"%></td>
-        <td> <%= link_to 'Editar', editar_clase_path(actual), class: "btn btn-info"%></td>
-        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
+        <th>Nombre</th>
       </tr>
-  </tbody>
-  <%end%>
-</table>
-<br><br>
-<span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'NUEVA CLASE',nueva_clase_path %></span><br>
-<%= will_paginate @clases, renderer: BootstrapPagination::Rails %>
+    </thead>
+    <tbody>
+      <% @clases.each do |actual| %>
+        <tr>
+          <td><b><%= actual.nombre %></b></td>
+          <td><%= link_to 'Mostrar', clase_url(actual), class: "btn btn-success"%></td>
+          <td><%= link_to 'Editar', editar_clase_path(actual), class: "btn btn-info"%></td>
+          <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table><br><br>
+  <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'Nueva Clase',nueva_clase_path %>
+  </span><br>
+  <%= will_paginate @clases, renderer: BootstrapPagination::Rails %>
 </div>

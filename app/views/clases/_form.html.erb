@@ -1,28 +1,27 @@
 <%= form_for(@clases, :html =>{:role => 'form'}) do |f| %>
-    <% if @clases.errors.any? %>
-        <%= pluralize(@clases.errors.count, "ERROR")%>
-        <% @clases.errors.full_messages.each do |actual| %>
-            <%= actual %>
-        <% end %>
+  <% if @clases.errors.any? %>
+    <%= pluralize(@clases.errors.count, "ERROR")%>
+    <% @clases.errors.full_messages.each do |actual| %>
+      <%= actual %>
     <% end %>
-    <div class="container">
-      <div class="panel-group">
-      <big><b>
-        <div class="panel-body">
-          Nombre: 
-          <%= f.text_field :nombre %><br>
-        </div>
-        <div class="panel-body">
-          Profesor/s/a/as:<br>
-          <%= f.collection_select :user_id, User.order("Nombre"), :id, :nombre, include_blank: true %><br>
-        </div>
-        <div class="panel-body">
-          Descripción:<br>
-          <%= f.text_area :desc, size: "30x6" %><br>
-        </div>
-        <%= f.submit value="Agregar", class: "btn btn-success"%>
-        <%= link_to "Regresar", Clase, class: "btn btn-primary"%>
-      </b>
-      </big>
-    </div>
+  <% end %>
+  <div class="container">
+    <div class="panel-group">
+    <big><b>
+      <div class="panel-body">
+        Nombre: 
+        <%= f.text_field :nombre %><br>
+      </div>
+      <div class="panel-body">
+        Profesor/es:<br>
+        <%= f.collection_select :user_id, User.order("Nombre"), :id, :nombre, include_blank: true %><br>
+      </div>
+      <div class="panel-body">
+        Descripción:<br>
+        <%= f.text_area :desc, size: "30x6" %><br>
+      </div>
+      <%= f.submit value="Agregar", class: "btn btn-success"%>
+      <%= link_to "Volver", Clase, class: "btn btn-primary"%>
+    </b></big>
+  </div>
 <% end %>
