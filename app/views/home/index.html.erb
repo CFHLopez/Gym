@@ -1,68 +1,186 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 	<body>
+  <center>
+    <!-- logo principal del gym -->
+    <div class="container">
+      <img src="<%= asset_path 'logo.jpg' %>" class="img-responsive" /><br>
+    </div>
+    <div class="container">
+      <img src="<%= asset_path 'g5.jpg' %>" class="img-responsive" />
+    </div>
 		<div class= "center">
-	    	<center><h1>Gimnasio Funcionality Chris</h1>
-		<div id="contenedor">
-    		<div id="myCarousel" class="carousel slide">
-      			<ol class="carousel-indicators">
-        			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        			<li data-target="#myCarousel" data-slide-to="1"></li>
-        			<li data-target="#myCarousel" data-slide-to="2"></li>
-        			<li data-target="#myCarousel" data-slide-to="3"></li>
+      <!-- direccion -->
+		  <div class="image">
+        <div class="panel-body">
+          <h2>Encuentranos En:<br>
+          Vicuña Mackenna #10422, La Florida<br>
+          Metro San Jose De La Estrella <br>
+          Frente Al Cristo</h2>
+        </div>
+        <img src="<%= asset_path 'gym.jpg' %>" class="img-responsive" alt="Dirección"/><br>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="panel-body">
+            <h3>Fuimos Parte del: "VI Medio Maraton & Corridas 3K, 7K & 21K", Puente Alto 2017</h3>
+          </div>
+    		  <div id="C1" class="carousel slide" data-ride="carousel1">
+            <!-- Indicadores-->
+      		  <ol class="carousel-indicators">
+        		  <li data-target="#C1" data-slide-to="0" class="active"></li>
+        			<li data-target="#C1" data-slide-to="1"></li>
+        			<li data-target="#C1" data-slide-to="2"></li>
+        			<li data-target="#C1" data-slide-to="3"></li>
+              <li data-target="#C1" data-slide-to="4"></li>
+              <li data-target="#C1" data-slide-to="5"></li>
+              <li data-target="#C1" data-slide-to="6"></li>
+              <li data-target="#C1" data-slide-to="7"></li>
+              <li data-target="#C1" data-slide-to="8"></li>
+              <li data-target="#C1" data-slide-to="9"></li>
+              <li data-target="#C1" data-slide-to="10"></li>
       			</ol>
-      			<!-- Carousel items -->
-      			<div class="carousel-inner">
-        			<div class="active item"><img src="<%= asset_path 'verdenegro.jpg' %>" alt="Gym" width="360" height="360"/></div>
-        			<div class="item"><img src="<%= asset_path 'gym.jpg' %>" alt="Logo" width="650" height="550"/></div>
-        			<div class="item"><img src="<%= asset_path 'g1.jpg' %>" alt="Logo" width="650" height="555"/></div>
-        			<div class="item"><img src="<%= asset_path 'g2.jpg' %>" alt="Logo" width="450" height="350"/></div>
+      			<!-- Imagenes del Carousel -->
+      			<div class="carousel-inner" role="listbox">
+        			<div class="item active">
+                <img src="<%= asset_path 'c1.jpg' %>" alt="c1" class="img-responsive"/>
+              </div>
+        			<div class="item">
+                <img src="<%= asset_path 'c2.jpg' %>" alt="c2" class="img-responsive"/>
+              </div>
+              <div class="item">
+                <img src="<%= asset_path 'c9.jpg' %>" alt="c3" class="img-responsive"/>
+              </div>
+        			<div class="item">
+                <img src="<%= asset_path 'c3.jpg' %>" alt="c4" class="img-responsive"/>
+              </div>
+        			<div class="item">
+                <img src="<%= asset_path 'c5.jpg' %>" alt="c5" class="img-responsive"/>
+              </div>
+              <div class="item">
+                <img src="<%= asset_path 'c6.jpg' %>" alt="c6" class="img-responsive"/>
+              </div>
+              <div class="item">
+                <img src="<%= asset_path 'c0.png' %>" alt="c7" class="img-responsive"/>
+              </div>
+              <div class="item">
+                <img src="<%= asset_path 'c7.jpg' %>" alt="c8" class="img-responsive"/>
+              </div>
+              <div class="item">
+                <img src="<%= asset_path 'c8.png' %>" alt="c9" class="img-responsive"/>
+              </div>
+              <div class="item">
+                <img src="<%= asset_path 'c4.jpg' %>" alt="c10" class="img-responsive"/>
+              </div>
       			</div>
-      			<!-- Carousel nav -->
-      			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      			<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    		</div>
-		</div>
-    <script>
-      $(document).ready(function(){
-        // Activate Carousel
-        $("#myCarousel").carousel({interval: 4500});
-        // Enable Carousel Indicators
-        $(".item1").click(function(){
-          $("#myCarousel").carousel(0);
-        });
-        $(".item2").click(function(){
-          $("#myCarousel").carousel(1);          
-        });
-        $(".item3").click(function(){
-          $("#myCarousel").carousel(2);
-        });
-        $(".item4").click(function(){            
-          $("#myCarousel").carousel(3);
-        });
-        // Enable Carousel Controls
-        $(".left").click(function(){
-          $("#myCarousel").carousel("prev");
-        });
-        $(".right").click(function(){
-          $("#myCarousel").carousel("next");
-        }); 
-      });
-    </script>
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<div class="col-md-4">
-    		<div class="thumbnail">
-      			<a href="https://www.facebook.com/Funcionality-Gymm-824423997702783/">
-        		<img src="<%= asset_path 'fb.jpg' %>" alt="Nature" style="width:10%">
-      			</a>
-    		</div>
-  		</div>
-  		<div class="col-md-4">
-    		<div class="thumbnail">
-        		<img src="<%= asset_path 'ws.jpg' %>" alt="Nature" style="width:10%">+569 734 64 561
-      			</a>
-    		</div>
-  		</div>
-	</body>
+      			<!-- Controles -->
+      			<a href="#C1" class="left carousel-control" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Anterior</span>
+            </a>
+            <a href="#C1" class="right carousel-control" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Siguiente</span>
+            </a>
+            <script>
+              $(document).ready(function(){
+                // Activate Carousel
+                $("#C1").carousel({interval: 4500});
+                // Enable Carousel Indicators
+                $(".item1").click(function(){$("#C1").carousel(0);});
+                $(".item2").click(function(){$("#C1").carousel(1);});
+                $(".item3").click(function(){$("#C1").carousel(2);});
+                $(".item4").click(function(){$("#C1").carousel(3);});
+                $(".item5").click(function(){$("#C1").carousel(4);});
+                $(".item6").click(function(){$("#C1").carousel(5);});
+                $(".item7").click(function(){$("#C1").carousel(6);});
+                $(".item8").click(function(){$("#C1").carousel(7);});
+                $(".item9").click(function(){$("#C1").carousel(8);});
+                $(".item10").click(function(){$("#C1").carousel(9);});
+                $(".item11").click(function(){$("#C1").carousel(10);});
+                // Enable Carousel Controls
+                $(".left").click(function(){$("#C1").carousel("prev");});
+                $(".right").click(function(){$("#C1").carousel("next");}); 
+              });
+            </script>
+            <script src="js/jquery.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+    		  </div>
+          <div class="panel-body">
+              <h4>Donde Destacaron En 21K:<br>
+              Violanda Candia Obteniendo 3er Puesto En Su Categoria<br>
+              Pamela Casanova Obteniendo 3er Lugar General En Mujeres</h4>
+            </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel-body">
+            <h3> Motivate & Se Parte</h3>
+          </div>
+          <div id="C2" class="carousel slide" data-ride="carousel1">
+            <!-- Indicadores-->
+            <ol class="carousel-indicators">
+              <li data-target="#C2" data-slide-to="0" class="active"></li>
+              <li data-target="#C2" data-slide-to="1"></li>
+              <li data-target="#C2" data-slide-to="2"></li>
+              <li data-target="#C2" data-slide-to="3"></li>
+            </ol>
+            <!-- Imagenes del Carousel -->
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+              <img src="<%= asset_path 'g3.jpg' %>" alt="g1" class="img-responsive"/>
+            </div>
+            <div class="item">
+              <img src="<%= asset_path 'g2.jpg' %>" alt="g2" class="img-responsive"/>
+            </div>
+            <div class="item">
+              <img src="<%= asset_path 'g4.jpg' %>" alt="g3" class="img-responsive"/>
+            </div>
+            <div class="item">
+              <img src="<%= asset_path 'g1.jpg' %>" alt="g4" class="img-responsive"/>
+            </div>
+          </div>
+          <!-- Controles -->
+          <a href="#C2" class="left carousel-control" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+          </a>
+          <a href="#C2" class="right carousel-control" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+          </a>
+          <script>
+            $(document).ready(function(){
+            // Activate Carousel
+            $("#C2").carousel({interval: 4500});
+            // Enable Carousel Indicators
+            $(".item1").click(function(){$("#C2").carousel(0);});
+            $(".item2").click(function(){$("#C2").carousel(1);});
+            $(".item3").click(function(){$("#C2").carousel(2);});
+            $(".item4").click(function(){$("#C2").carousel(3);});
+            // Enable Carousel Controls
+            $(".left").click(function(){$("#C2").carousel("prev");});
+            $(".right").click(function(){$("#C2").carousel("next");}); 
+          });
+          </script>
+          <script src="js/jquery.js"></script>
+          <script src="js/bootstrap.min.js"></script>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <a href="https://www.facebook.com/Funcionality-Gymm-824423997702783/">
+              <img src="<%= asset_path 'fb.jpg' %>" alt="Nature">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <img src="<%= asset_path 'ws.jpg' %>" alt="Nature">+569 734 64 561
+          </div>
+        </div>
+      </div>
+    <div class="col-md-4">
+          <div class="panel-body">
+            <img src="<%= asset_path 'p1.jpg' %>" alt="p1" class="img-responsive"/>
+          </div>
+        </div>
 </center>
