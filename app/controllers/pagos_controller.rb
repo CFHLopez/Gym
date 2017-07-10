@@ -20,7 +20,7 @@ class PagosController < ApplicationController
     @pagos = Pago.create(pagos_params)
     respond_to do |format|
       if @pagos.save
-        format.html{redirect_to @pagos, notice:'PAGO CREADO'}
+        format.html{redirect_to @pagos, notice:'Pago Creado'}
       else
         format.html{render :nuevo}
       end
@@ -40,7 +40,7 @@ class PagosController < ApplicationController
   def eliminar
     @pagos.destroy
     respond_to do |format|
-      format.html{redirect_to pagos_url, notice:'PAGO ELIMINADO'}
+      format.html{redirect_to pagos_url, notice:'Pago Eliminado'}
     end
   end
 

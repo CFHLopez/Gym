@@ -43,7 +43,6 @@ gem 'rut_validation'
 gem 'protected_attributes'
 
 
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

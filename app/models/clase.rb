@@ -1,6 +1,9 @@
 class Clase < ActiveRecord::Base
-	belongs_to :user
-	has_many :users
+	#una clase tiene uno o mas users
+	attr_accessible :nombre, :user_id
+	has_many :usersclases
+	has_many :users, through: :usersclases
+
 	has_many :asistencias
 	has_many :asists
 

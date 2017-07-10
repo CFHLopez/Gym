@@ -1,6 +1,6 @@
 <%= form_for(@pagos, :html =>{:role => 'form'}) do |f| %>
     <% if @pagos.errors.any? %>
-        <%= pluralize(@pagos.errors.count, "ERROR")%>
+        <%= pluralize(@pagos.errors.count, "Error")%>
         <% @pagos.errors.full_messages.each do |actual| %>
             <%= actual %>
         <% end %>
@@ -20,9 +20,8 @@
           PRECIO:
           <%= f.select :monto, [["5000"],["10000"],["15000"],["18000"],["20000"],["30000"]]%><br>
         </div>
-        <%= f.submit value="AGREGAR", class: "btn btn-success"%>
-        <%= link_to "REGRESAR", Pago, class: "btn btn-primary"%>
-      </b>
-      </big>
+        <%= f.submit value="Agregar", class: "btn btn-success"%>
+        <%= link_to "Regresar", Pago, class: "btn btn-primary"%>
+      </b></big>
     </div>
 <% end %>

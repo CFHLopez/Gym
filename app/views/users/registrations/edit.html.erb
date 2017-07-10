@@ -32,10 +32,12 @@
   </div>
 <% end %>
 <div class="container">
-    <h3><b>Desactivar Cuenta</b></h3>
-    <div class="panel-group">
-    <big><b>
+  <h3><b>Desactivar Cuenta</b></h3>
+  <div class="panel-group"><big><b>
     <p>Desactivar Tu Cuenta Significa: Que No Podrás Volver a Ingresar Como Empleado. ¿Estás Seguro?</p> 
     <%= link_to "Eiminar", registration_path(resource_name), data: { confirm: "¿Está seguro?" }, method: :delete, class: "btn btn-danger" %>
-
+    </b></big>
+    </div>
+  </div>
+</div>
 <%= link_to "Volver", :back, class: "btn btn-primary" %>

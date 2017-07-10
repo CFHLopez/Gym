@@ -16,6 +16,10 @@
           PRECIO:
           <%= f.select :precio, [["5000"],["10000"],["15000"],["18000"],["20000"],["30000"]]%><br>
         </div>
+        <div class="panel-body">
+          DESCRIPCIÓN:<br>
+          <%= f.text_area :desc, size: "30x6" %><br>
+        </div>
         <%= f.submit value="AGREGAR", class: "btn btn-success"%>
         <%= link_to "REGRESAR", Plan, class: "btn btn-primary"%>
       </b>

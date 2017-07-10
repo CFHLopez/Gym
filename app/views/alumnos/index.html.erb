@@ -1,29 +1,29 @@
 <div class="container">
-<h1><b><%= "Alumnos/as" %></b></h1>
-<table class="table">
-  <thead>
-  <tr>
-    <th>Nombre</th>
-    <th>Plan</th>
-    <th>Fecha Pago</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @alumnos.each do |actual| %>
+  <h1><b><%= "Alumnos/as" %></b></h1>
+  <table class="table">
+    <thead>
       <tr>
-        <td><b><%= actual.nombre %></b></td>
-        <td><b><%= actual.plan.nombre %></b></td>
-        <td><b><%= actual.created_at.strftime("%d")%></b></td>
-        <td><%= link_to 'Mostrar', alumno_url(actual), class: "btn btn-success"%></td>
-        <td><%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info"%></td>
-        <% if can? :eliminar, Alumno %>
-        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
-        <% end %>
+        <th>Nombre</th>
+        <th>Plan</th>
+        <th>Fecha Pago</th>
       </tr>
-  </tbody>
-  <%end%>
-</table>
-<br><br>
-<span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'NUEVO/A ALUMNO/A',nuevo_alumno_path %></span><br>
-<%= will_paginate @alumnos, renderer: BootstrapPagination::Rails %>
+    </thead>
+    <tbody>
+      <% @alumnos.each do |actual| %>
+        <tr>
+          <td><b><%= actual.nombre %></b></td>
+          <td><b><%= actual.plan.nombre %></b></td>
+          <td><b><%= actual.created_at.strftime("%d")%></b></td>
+          <td><%= link_to 'Mostrar', alumno_url(actual), class: "btn btn-success"%></td>
+          <td><%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info"%></td>
+          <% if can? :eliminar, Alumno %>
+            <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿ESTA SEGURO?'}, class: "btn btn-danger"%></td>
+          <% end %>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+  <br><br>
+  <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'NUEVO/A ALUMNO/A',nuevo_alumno_path %></span><br>
+  <%= will_paginate @alumnos, renderer: BootstrapPagination::Rails %>
 </div>

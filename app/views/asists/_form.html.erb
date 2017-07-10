@@ -13,10 +13,6 @@
         <%= f.collection_select :clase_id, Clase.order("Nombre"), :id, :nombre, include_blank: true %><br>
         </div>
         <div class="panel-body">
-          FECHA:
-          <%= f.date_select :fecha, order: [:day, :month, :year], start_year: 2016, selected: Date.today,end_year: Date.today.year %><br>
-        </div>
-        <div class="panel-body">
           CANTIDAD DE ALUMNOS/AS: 
         <%= f.text_field :cantidad %><br>
       </div>
