@@ -6,22 +6,23 @@
     <% end %>
   <% end %>
   <div class="container">
-    <div class="panel-group">
+    <div class="form-group">
     <big><b>
       <div class="panel-body">
-        Nombre: 
-        <%= f.text_field :nombre %><br>
-      </div>
+        <label class="control-label col-xs-3">Nombre:</label></b> 
+        <i><%= f.text_field :nombre, placeholder: "Nombre Completo" %></i><br>
+      </div><b>
       <div class="panel-body">
-        Profesor/es:<br>
-        <%= f.collection_select :user_id, User.order("Nombre"), :id, :nombre, include_blank: true %><br>
-      </div>
+        <label class="control-label col-xs-3">Profesor/es:</label></b>
+        <i><%= f.collection_select :user_id, User.order("Nombre"), :id, :nombre, include_blank: true %></i><br>
+      </div><b>
       <div class="panel-body">
-        Descripción:<br>
-        <%= f.text_area :desc, size: "30x6" %><br>
+        <label class="control-label col-xs-3">Descripción:</label></b>
+        <i><%= f.text_area :desc, size: "30x6", placeholder: "Descripción" %></i><br>
       </div>
       <%= f.submit value="Agregar", class: "btn btn-success"%>
+      <input type="reset" class="btn btn-default" value="Limpiar">
       <%= link_to "Volver", Clase, class: "btn btn-primary"%>
-    </b></big>
+    </big>
   </div>
 <% end %>

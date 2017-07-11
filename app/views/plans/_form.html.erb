@@ -1,28 +1,28 @@
 <%= form_for(@plans, :html =>{:role => 'form'}) do |f| %>
-    <% if @plans.errors.any? %>
-        <%= pluralize(@plans.errors.count, "Error")%>
-        <% @plans.errors.full_messages.each do |actual| %>
-            <%= actual %>
-        <% end %>
+  <% if @plans.errors.any? %>
+    <%= pluralize(@plans.errors.count, "Error")%>
+    <% @plans.errors.full_messages.each do |actual| %>
+      <%= actual %>
     <% end %>
-    <div class="container">
-      <div class="panel-group">
-      <big><b>
-        <div class="panel-body">
-          Nombre: 
-          <%= f.text_field :nombre %><br>
-        </div>
-        <div class="panel-body">
-          Precio:
-          <%= f.select :precio, [["5000"],["10000"],["15000"],["18000"],["20000"],["30000"]]%><br>
-        </div>
-        <div class="panel-body">
-          Descripción:<br>
-          <%= f.text_area :desc, size: "30x6" %><br>
-        </div>
-        <%= f.submit value="Agregar", class: "btn btn-success"%>
-        <%= link_to "Volver", Plan, class: "btn btn-primary"%>
-      </b>
-      </big>
-    </div>
+  <% end %>
+  <div class="container">
+    <div class="form-group">
+    <big><b>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Nombre:</label></b> 
+        <i><%= f.text_field :nombre, placeholder: "Nombre del Plan"%></i><br>
+      </div><b>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Precio:</label></b>
+        <i><%= f.select :precio, [["5000"],["10000"],["15000"],["18000"],["20000"],["30000"]]%></i><br>
+      </div>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Descripción:</label></b>
+        <i><%= f.text_area :desc, size: "30x6", placeholder: "Descripción"%></i><br>
+      </div>
+      <%= f.submit value="Agregar", class: "btn btn-success"%>
+      <input type="reset" class="btn btn-default" value="Limpiar">
+      <%= link_to "Volver", Plan, class: "btn btn-primary"%>
+    </big>
+  </div>
 <% end %>

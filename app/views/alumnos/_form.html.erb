@@ -1,32 +1,33 @@
 <%= form_for(@alumnos, :html =>{:role => 'form'}) do |f| %>
-    <% if @alumnos.errors.any? %>
-      <%= pluralize(@alumnos.errors.count, "Error")%>
-      <% @alumnos.errors.full_messages.each do |actual| %>
-          <%= actual %>
-      <% end %>
+  <% if @alumnos.errors.any? %>
+    <%= pluralize(@alumnos.errors.count, "Error")%>
+    <% @alumnos.errors.full_messages.each do |actual| %>
+        <%= actual %>
     <% end %>
-    <div class="container">
-      <div class="panel-group">
+  <% end %>
+  <div class="container">
+    <div class="form-group">
       <big><b>
-        <div class="panel-body">
-          NOMBRE: 
-          <%= f.text_field :nombre %><br>
-        </div>
-        <div class="panel-body">
-          RUT: 
-        <%= f.text_field :rut %><br>
-      </div>
       <div class="panel-body">
-        SEXO: 
-        <%= f.select :sexo, [["Masculino"], ["Femenino"]]%><br>
-      </div>
+        <label class="control-label col-xs-3">Nombre:</label></b>
+        <i><%= f.text_field :nombre, placeholder: "Nombre Completo"%></i><br>
+      </div><b>
       <div class="panel-body">
-        PLAN: 
-        <%=f.collection_select :plan_id, Plan.order("Nombre"), :id, :nombre, include_blank: true %><br>
+        <label class="control-label col-xs-3">Rut:</label></b> 
+        <i><%= f.text_field :rut, placeholder: "XXXXXXX-X"%></i><br>
+      </div><b>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Genero:</label></b>
+        <i><%= f.select :sexo, [["Masculino"], ["Femenino"]]%></i><br>
+      </div><b>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Plan:</label></b>
+        <i><%=f.collection_select :plan_id, Plan.order("Nombre"), :id, :nombre, include_blank: true %></i><br>
       </div>
-      </b></big>
-      </div>
-      <%= f.submit value="Agregar", class: "btn btn-success"%>
-      <%= link_to "Regresar", Alumno, class: "btn btn-primary"%>
+      </big>
     </div>
+    <%= f.submit value="Agregar", class: "btn btn-success"%>
+    <input type="reset" class="btn btn-default" value="Limpiar">
+    <%= link_to "Regresar", Alumno, class: "btn btn-primary"%>
+  </div>
 <% end %>

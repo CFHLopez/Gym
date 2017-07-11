@@ -1,27 +1,25 @@
 <%= form_for(@pagos, :html =>{:role => 'form'}) do |f| %>
-    <% if @pagos.errors.any? %>
-        <%= pluralize(@pagos.errors.count, "Error")%>
-        <% @pagos.errors.full_messages.each do |actual| %>
-            <%= actual %>
-        <% end %>
-    <% end %>
-    <div class="container">
-      <div class="panel-group">
+  <% if @pagos.errors.any? %>
+    <%= pluralize(@pagos.errors.count, "Error")%>
+    <% @pagos.errors.full_messages.each do |actual| %>
+      <%= actual %>
+    <%end%>
+  <%end%>
+  <div class="container">
+    <div class="form-group">
       <big><b>
         <div class="panel-body">
-          Alumno/a: 
-          <%=f.collection_select :alumno_id, Alumno.order("Nombre"), :id, :nombre, include_blank: true %><br>
-        </div>
+          <label class="control-label col-xs-3">Alumno/a:</label></b> 
+          <i><%=f.collection_select :alumno_id, Alumno.order("Nombre"), :id, :nombre, include_blank: true %></i><br>
+        </div><b>
         <div class="panel-body">
-          Clase:
-          <%= %><br>
-        </div>
-        <div class="panel-body">
-          Monto:
-          <%= f.select :monto, [["5000"],["10000"],["15000"],["18000"],["20000"],["30000"]]%><br>
+          <label class="control-label col-xs-3">Monto:</label></b>
+          <i><%= f.select :monto, [["5000"],["10000"],["15000"],["18000"],["20000"],["30000"]]%></i><br>
         </div>
         <%= f.submit value="Agregar", class: "btn btn-success"%>
+        <input type="reset" class="btn btn-default" value="Limpiar">
         <%= link_to "Volver", Pago, class: "btn btn-primary"%>
-      </b></big>
+      </big>  
     </div>
-<% end %>
+  </div>
+<%end%>

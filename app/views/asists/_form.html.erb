@@ -1,24 +1,25 @@
 <%= form_for(@asists, :html =>{:role => 'form'}) do |f| %>
-    <% if @asists.errors.any? %>
-        <%= pluralize(@asists.errors.count, "Error")%>
-        <% @asists.errors.full_messages.each do |actual| %>
-            <%= actual %>
-        <% end %>
-    <% end %>
-    <div class="container">
-      <div class="panel-group">
-      <big><b>
-        <div class="panel-group">
-        Clase:
-        <%= f.collection_select :clase_id, Clase.order("Nombre"), :id, :nombre, include_blank: true %><br>
-        </div>
-        <div class="panel-body">
-          Cantidad de Alumnos/as: 
-        <%= f.text_field :cantidad %><br>
+  <% if @asists.errors.any? %>
+      <%= pluralize(@asists.errors.count, "Error")%>
+      <% @asists.errors.full_messages.each do |actual| %>
+          <%= actual %>
+      <% end %>
+  <% end %>
+  <div class="container">
+    <div class="form-group">
+    <big><b>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Clase:</label></b>
+        <i><%= f.collection_select :clase_id, Clase.order("Nombre"), :id, :nombre, include_blank: true %></i>
+      </div><b>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Cantidad de Alumnos/as:</label></b> 
+        <i><%= f.text_field :cantidad %></i>
       </div>
-      </b></big>
-      </div>
-      <%= f.submit value="Agregar", class: "btn btn-success"%>
-      <%= link_to "Volver", Asist, class: "btn btn-primary"%>
+    </big>
     </div>
+    <%= f.submit value="Agregar", class: "btn btn-success"%>
+    <input type="reset" class="btn btn-default" value="Limpiar">
+    <%= link_to "Volver", Asist, class: "btn btn-primary"%>
+  </div>
 <% end %>

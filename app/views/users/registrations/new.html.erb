@@ -5,7 +5,7 @@
     <div class="panel-group"><b>
       <div class="panel-body">
         <%= f.label :nombre , "Nombre"%></b><i>
-        <%= f.text_field :nombre,placeholder: "Nombre Completo"%></i><b>
+        <%= f.text_field :nombre, placeholder: "Nombre Completo"%></i><b>
       </div>
       <div class="panel-body">
         <%= f.label :rut , "Rut"%></b><i>
@@ -45,6 +45,7 @@
     </div>
     <div class="actions">   
       <%= f.submit "Registrate", class: "btn btn-success" %><br><br>
+      <input type="reset" class="btn btn-default" value="Limpiar">
     </div>
   </div>
 <% end %>
