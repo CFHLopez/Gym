@@ -39,13 +39,6 @@ ActiveRecord::Schema.define(version: 20170709222713) do
     t.string   "rut"
   end
 
-  create_table "asistencia", force: :cascade do |t|
-    t.datetime "fecha"
-    t.integer  "cant_alumnos"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "asists", force: :cascade do |t|
     t.datetime "fecha"
     t.integer  "cantidad"

@@ -41,7 +41,8 @@ gem 'will_paginate-bootstrap'
 gem 'rut_validation'
 #gema para attr_accessible
 gem 'protected_attributes'
-
+#gema buscar
+gem 'ransack'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

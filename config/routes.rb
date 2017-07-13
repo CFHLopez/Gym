@@ -71,5 +71,4 @@ Rails.application.routes.draw do
 
   post 'asistencias/', to: 'asists#crear'
   delete 'asistencias/:id',to: 'asists#eliminar'
-
 end

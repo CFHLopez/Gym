@@ -1,5 +1,47 @@
 <div class="container">
   <h1><b><%= "Pagos" %></b></h1>
+  <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'Nuevo Pago',nuevo_pago_path %></span>  
+  <a href="#Morosos" class="btn btn-danger btn-lg" data-toggle="modal">Morosos/as</a>
+  <div class="modal fade" id="Morosos">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title"><b>Morosos/as</b></h2>
+          <div class="modal-footer">
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#Fondos" class="btn btn-success btn-lg" data-toggle="modal">Ingresos</a>
+  <div class="modal fade" id="Fondos">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <% t0 = Time.now.strftime("%m") %>
+          <% t1 = Time.now.strftime("%Y") %>
+          <% t3 = Time.local(t1,t0,01,0,0) %>
+          <% t4 = Time.now %>
+          <% suma = 0 %>
+          <% @pagos.each do |f| %><br>
+            <% t2 = f.created_at %>
+            <!-- Si esta dentro del inicio del mes hasta la fecha-->
+            <% if t2.between?(t3,t4) %>
+              <% suma += f.monto.to_i %>
+            <%end%>
+        <%end%>
+          <h1 class="modal-title"><b>Ingresos</b></h1>
+          <h3>Desde: <%=t3.strftime("%d/%m/%Y")%><br> 
+          Hasta: <%=Time.now.strftime("%d/%m/%Y")%><br>
+          Monto: $ <%= suma %> Pesos</h3>
+          <div class="modal-footer">
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <table class="table">
     <thead>
       <tr>
@@ -22,64 +64,5 @@
       <%end%>
     </tbody>
   </table><br><br>
-  <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'Nuevo Pago',nuevo_pago_path %></span>  
-  <a href="#Morosos" class="btn btn-danger btn-lg" data-toggle="modal">Morosos/as</a>
-  <div class="modal fade" id="Morosos">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title"><b>Morosos/as</b></h2>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Fecha Pago</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @pagos.each do |f| %>
-                <tr>
-                  <td><b><%= f.alumno.nombre %></b></td>
-                  <td><b><%= f.created_at.strftime("%d")%></b></td>
-                </tr>
-              <%end%>
-            </tbody>
-          </table>
-          <div class="modal-footer">
-            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <a href="#Fondos" class="btn btn-success btn-lg" data-toggle="modal">Ingresos</a>
-  <div class="modal fade" id="Fondos">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title"><b>Ingresos</b></h1>
-            <h4>Fecha Actual:
-            <%= Time.now.strftime("%d-%m-%Y") %></h4>
-            <% t0 = Time.now.strftime("%m") %>
-            <% t1 = Time.now.strftime("%Y") %>
-            <% t3 = Time.local(t1,t0,01,0,0) %>
-            <% t4 = Time.now %>
-            <% suma = 0 %>
-            <% @pagos.each do |f| %><br>
-              <% t2 = f.created_at %>
-              <!-- Si esta dentro del inicio del mes hasta la fecha-->
-              <% if t2.between?(t3,t4) %>
-                <% suma += f.monto.to_i %>
-              <%end%>
-            <%end%>
-            <h3>Ingresos a La Fecha:<br>
-            $ <%= suma %> Pesos</h3>
-          <div class="modal-footer">
-            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div><br>
   <%= will_paginate @pagos, renderer: BootstrapPagination::Rails %>
 </div>

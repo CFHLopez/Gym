@@ -1,20 +1,33 @@
 <div class="container">
   <h1><b><%= "Alumnos/as" %></b></h1>
+  <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'Nuevo/a Alumno/a',nuevo_alumno_path %></span>  
+  <a href="#Buscar" class="btn btn-default btn-lg" data-toggle="modal">Buscar</a>
+  <div class="modal fade" id="Buscar">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title"><b>Buscar</b></h2>
+          <div class="modal-footer">
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <table class="table">
     <thead>
       <tr>
-        <th>Nombre</th>
+        <th>Nombre Alumno/a</th>
         <th>Plan</th>
-        <th>Fecha Pago</th>
+        <th>Fecha</th>
       </tr>
     </thead>
     <tbody>
       <% @alumnos.each do |actual| %>
         <tr>
-          <td><b><%= actual.nombre %></b></td>
+          <td><b><%= link_to(actual.nombre, actual) %></b></td>
           <td><b><%= actual.plan.nombre %></b></td>
           <td><b><%= actual.created_at.strftime("%d")%></b></td>
-          <td><%= link_to 'Mostrar', alumno_url(actual), class: "btn btn-success"%></td>
           <td><%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info"%></td>
           <% if can? :eliminar, Alumno %>
             <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
@@ -24,6 +37,5 @@
     </tbody>
   </table>
   <br><br>
-  <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'Nuevo/a Alumno/a',nuevo_alumno_path %></span><br>
-  <%= will_paginate @alumnos, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate @asist, renderer: BootstrapPagination::Rails %>
 </div>

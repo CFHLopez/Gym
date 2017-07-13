@@ -3,7 +3,7 @@ class PlansController < ApplicationController
   before_action :set_plan, only: [:mostrar, :editar, :update, :eliminar]
 
   def index
-    @plans= Plan.paginate(:page => params[:page], :per_page => 5)
+    @plans = Plan.paginate(:page => params[:page], :per_page => 5)
   end
 
   def mostrar
