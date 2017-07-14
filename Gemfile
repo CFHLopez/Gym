@@ -42,12 +42,11 @@ gem 'rut_validation'
 #gema para attr_accessible
 gem 'protected_attributes'
 #gema buscar
-gem 'ransack'
+# gem 'ransack' <--- no me funciono, buscar mas informacion
+# gem 'sunspot_rails' <--- tampoco funciono u.u
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-#gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

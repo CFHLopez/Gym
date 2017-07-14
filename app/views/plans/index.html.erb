@@ -1,5 +1,18 @@
 <div class="container">
   <h1><b><%= "Planes" %></b></h1>
+  <a href="#Buscar" class="btn btn-default btn-lg" data-toggle="modal">Buscar</a>
+  <div class="modal fade" id="Buscar">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title"><b>Buscar</b></h2>
+          <div class="modal-footer">
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <table class="table">
     <thead>
       <tr>
@@ -10,7 +23,7 @@
     <tbody>
       <% @plans.each do |actual| %>
         <tr>
-          <td><b><%= actual.nombre %></b></td>
+          <td><b><%= link_to(actual.nombre, actual) %></b></td>
           <td><b><%= actual.precio %></b></td>
           <td> <%= link_to 'Editar', editar_plan_path(actual), class: "btn btn-info"%></td>
           <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
