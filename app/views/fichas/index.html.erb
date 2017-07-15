@@ -1,6 +1,6 @@
 <div class="container">
-  <h1><b><%= "Alumnos/as" %></b></h1>
-  <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'Nuevo/a Alumno/a',nuevo_alumno_path %></span>  
+  <h1><b><%= "Fichas" %></b></h1>
+  <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'Nueva Ficha',nueva_ficha_path %></span>  
   <a href="#Buscar" class="btn btn-default btn-lg" data-toggle="modal">Buscar</a>
   <div class="modal fade" id="Buscar">
     <div class="modal-dialog">
@@ -18,18 +18,16 @@
     <thead>
       <tr>
         <th>Nombre Alumno/a</th>
-        <th>Plan</th>
         <th>Fecha</th>
       </tr>
     </thead>
     <tbody>
-      <% @alumnos.each do |actual| %>
+      <% @fichas.each do |actual| %>
         <tr>
-          <td><b><%= link_to(actual.nombre, actual) %></b></td>
-          <td><b><%= actual.plan.nombre %></b></td>
+          <td><b><%= link_to(actual.alumno.nombre, actual) %></b></td>
           <td><b><%= actual.created_at.strftime("%d")%></b></td>
-          <td><%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info"%></td>
-          <% if can? :eliminar, Alumno %>
+          <td><%= link_to 'Editar', editar_ficha_path(actual), class: "btn btn-info"%></td>
+          <% if can? :eliminar, Ficha %>
             <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
           <% end %>
         </tr>
@@ -37,5 +35,5 @@
     </tbody>
   </table>
   <br><br>
-  <%= will_paginate @alumnos, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate @fichas, renderer: BootstrapPagination::Rails %>
 </div>

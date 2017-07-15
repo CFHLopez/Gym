@@ -38,6 +38,16 @@ Rails.application.routes.draw do
   post 'alumnos/', to: 'alumnos#crear'
   delete 'alumnos/:id',to: 'alumnos#eliminar'
 
+  get 'fichas/', to: 'fichas#index', as: 'fichas'
+  get 'fichas/nuevo', to: 'fichas#nuevo', as: 'nueva_ficha'
+  get 'fichas/:id', to: 'fichas#mostrar', as: 'ficha'
+  get 'fichas/:id/editar', to: 'fichas#editar', as: 'editar_ficha'
+
+  put 'fichas/:id', to: 'fichas#update'
+  patch 'fichas/:id', to: 'fichas#update'
+
+  post 'fichas/', to: 'fichas#crear'
+  delete 'fichas/:id',to: 'fichas#eliminar'
 
   get 'planes/', to: 'plans#index', as: 'plans'
   get 'planes/nuevo', to: 'plans#nuevo', as: 'nuevo_plan'

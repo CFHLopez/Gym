@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170709222713) do
+ActiveRecord::Schema.define(version: 20170715005629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20170709222713) do
     t.integer  "pago_id"
     t.integer  "plan_id"
     t.string   "rut"
+    t.string   "desc"
+    t.integer  "edad"
+  end
+
+  create_table "asistencia", force: :cascade do |t|
+    t.datetime "fecha"
+    t.integer  "cant_alumnos"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "asists", force: :cascade do |t|
@@ -56,6 +65,25 @@ ActiveRecord::Schema.define(version: 20170709222713) do
     t.integer  "asist_id"
     t.integer  "user_id"
     t.integer  "usersclases_id"
+  end
+
+  create_table "fichas", force: :cascade do |t|
+    t.float    "estatura"
+    t.float    "peso"
+    t.integer  "biceps"
+    t.integer  "triceps"
+    t.integer  "subescapular"
+    t.integer  "suprailiaco"
+    t.float    "IMC"
+    t.float    "grasa"
+    t.integer  "torax"
+    t.integer  "cintura"
+    t.integer  "caderas"
+    t.integer  "brazo"
+    t.integer  "muslo"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "alumno_id"
   end
 
   create_table "pagos", force: :cascade do |t|
@@ -128,6 +156,7 @@ ActiveRecord::Schema.define(version: 20170709222713) do
   add_foreign_key "clases", "plans", column: "user_id"
   add_foreign_key "clases", "profesors"
   add_foreign_key "clases", "usersclases", column: "usersclases_id"
+  add_foreign_key "fichas", "alumnos"
   add_foreign_key "pagos", "alumnos"
   add_foreign_key "profesors", "clases"
   add_foreign_key "users", "clases"

@@ -1,0 +1,59 @@
+<%= form_for(@fichas, :html =>{:role => 'form'}) do |f| %>
+  <% if @fichas.errors.any? %>
+    <%= pluralize(@fichas.errors.count, "Error")%>
+    <% @fichas.errors.full_messages.each do |actual| %>
+        <%= actual %>
+    <% end %>
+  <% end %>
+  <div class="container">
+    <div class="form-group">
+      <big><b>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Alumno:</label></b>
+        <i><%=f.collection_select :alumno_id, Alumno.order("Nombre"), :id, :nombre, include_blank: true %></i><br>
+      </div>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Peso:</label></b>
+        <i><%= f.text_field :peso, placeholder: "Peso en Kilogramos"%></i><br>
+      </div><b>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Estatura:</label></b>
+        <i><%= f.text_field :estatura, placeholder: "Estatura en Metros"%></i><br>
+      </div><b>
+      <h2>Piegometria</h2>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Biceps:</label></b>
+        <i><%= f.text_field :biceps, placeholder: "En Centimetros"%></i><br>
+      </div><b>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Subescapular:</label></b>
+        <i><%= f.text_field :subescapular, placeholder: "En Centimetros"%></i><br>
+      </div><b>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Suprailiaco:</label></b>
+        <i><%= f.text_field :suprailiaco, placeholder: "En Centimetros"%></i><br>
+      </div><b>
+      <h2>Antropometria</h2>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Torax:</label></b>
+        <i><%= f.text_field :torax, placeholder: "En Centimetros"%></i><br>
+      </div><b>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Cintura:</label></b>
+        <i><%= f.text_field :cintura, placeholder: "En Centimetros"%></i><br>
+      </div><b>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Caderas:</label></b>
+        <i><%= f.text_field :caderas, placeholder: "En Centimetros"%></i><br>
+      </div><b>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Muslo:</label></b>
+        <i><%= f.text_field :muslo, placeholder: "En Centimetros"%></i><br>
+      </div><b>
+      </big>
+    </div>
+    <%= f.submit value="Agregar", class: "btn btn-success"%>
+    <input type="reset" class="btn btn-default" value="Limpiar">
+    <%= link_to "Regresar", Ficha, class: "btn btn-primary"%>
+  </div>
+<% end %>

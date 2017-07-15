@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estatura: 1.5
+  peso: 1.5
+  biceps: 1
+  triceps: 1
+  subescapular: 1
+  suprailiaco: 1
+  IMC: 1.5
+  grasa: 1.5
+  torax: 1
+  cintura: 1
+  caderas: 1
+  brazo: 1
+  muslo: 1
+
+two:
+  estatura: 1.5
+  peso: 1.5
+  biceps: 1
+  triceps: 1
+  subescapular: 1
+  suprailiaco: 1
+  IMC: 1.5
+  grasa: 1.5
+  torax: 1
+  cintura: 1
+  caderas: 1
+  brazo: 1
+  muslo: 1
