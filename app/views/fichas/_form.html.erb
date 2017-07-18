@@ -8,6 +8,7 @@
   <div class="container">
     <div class="form-group">
       <big><b>
+      <h3>Datos</h3>
       <div class="panel-body">
         <label class="control-label col-xs-3">Alumno:</label></b>
         <i><%=f.collection_select :alumno_id, Alumno.order("Nombre"), :id, :nombre, include_blank: true %></i><br>
@@ -20,7 +21,7 @@
         <label class="control-label col-xs-3">Estatura:</label></b>
         <i><%= f.text_field :estatura, placeholder: "Estatura en Metros"%></i><br>
       </div><b>
-      <h2>Piegometria</h2>
+      <h3>Piegometria</h3>
       <div class="panel-body">
         <label class="control-label col-xs-3">Biceps:</label></b>
         <i><%= f.text_field :biceps, placeholder: "En Centimetros"%></i><br>
@@ -33,7 +34,7 @@
         <label class="control-label col-xs-3">Suprailiaco:</label></b>
         <i><%= f.text_field :suprailiaco, placeholder: "En Centimetros"%></i><br>
       </div><b>
-      <h2>Antropometria</h2>
+      <h3>Antropometria</h3>
       <div class="panel-body">
         <label class="control-label col-xs-3">Torax:</label></b>
         <i><%= f.text_field :torax, placeholder: "En Centimetros"%></i><br>

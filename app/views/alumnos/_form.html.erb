@@ -17,12 +17,20 @@
         <i><%= f.text_field :rut, placeholder: "XXXXXXX-X"%></i><br>
       </div><b>
       <div class="panel-body">
+        <label class="control-label col-xs-3">Edad:</label></b>
+        <i><%= f.select :edad, [["15"],["16"],["17"],["18"],["19"],["20"],["21"],["22"],["23"],["24"],["25"],["26"],["27"],["28"],["29"],["30"],["31"],["32"],["33"],["34"],["35"],["36"],["37"],["38"],["39"],["40"],["41"],["42"],["43"],["44"],["45"],["46"],["47"],["48"],["49"],["50"],["51"],["52"],["53"],["54"],["55"],["56"],["57"],["58"],["59"],["60"],["61"],["62"],["63"],["64"],["65"],["66"],["67"],["68"],["69"],["70"]]%></i><br>
+      </div>
+      <div class="panel-body">
         <label class="control-label col-xs-3">Genero:</label></b>
         <i><%= f.select :sexo, [["Masculino"], ["Femenino"]]%></i><br>
       </div><b>
       <div class="panel-body">
         <label class="control-label col-xs-3">Plan:</label></b>
         <i><%=f.collection_select :plan_id, Plan.order("Nombre"), :id, :nombre, include_blank: true %></i><br>
+      </div>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Complicación Medica:</label></b>
+        <i><%= f.text_area :desc, size: "30x6", placeholder: "En caso de tener algun problema"%></i><br>
       </div>
       </big>
     </div>

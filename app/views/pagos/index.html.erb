@@ -1,12 +1,13 @@
 <div class="container">
   <h1><b><%= "Pagos" %></b></h1>
   <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'Nuevo Pago',nuevo_pago_path %></span>  
-  <a href="#Morosos" class="btn btn-danger btn-lg" data-toggle="modal">Morosos/as</a>
-  <div class="modal fade" id="Morosos">
+  <!-- boton buscar aun no configurado
+  <a href="#Buscar" class="btn btn-default btn-lg" data-toggle="modal">Buscar</a>
+  <div class="modal fade" id="Buscar">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title"><b>Morosos/as</b></h2>
+          <h2 class="modal-title"><b>Buscar</b></h2>
           <div class="modal-footer">
             <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
           </div>
@@ -14,6 +15,7 @@
       </div>
     </div>
   </div>
+  -->
   <a href="#Fondos" class="btn btn-success btn-lg" data-toggle="modal">Ingresos</a>
   <div class="modal fade" id="Fondos">
     <div class="modal-dialog">
@@ -33,8 +35,8 @@
         <%end%>
           <h1 class="modal-title"><b>Ingresos</b></h1>
           <h3>Desde: <%=t3.strftime("%d/%m/%Y")%><br> 
-          Hasta: <%=Time.now.strftime("%d/%m/%Y")%><br>
-          Monto: $ <%= suma %> Pesos</h3>
+          Hasta: <%=Time.now.strftime("%d/%m/%Y")%><br><br></h3>
+          <h1>Monto: $ <%= suma %> Pesos</h1>
           <div class="modal-footer">
             <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
           </div>
@@ -45,20 +47,20 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Fecha</th>
         <th>Alumno/a</th>
+        <th>Fecha</th>
         <th>Monto</th>
       </tr>
     </thead>
     <tbody>
       <% @pagos.each do |actual| %>
         <tr>
-          <td><b><%= actual.created_at.strftime("%d - %m - %Y")%></b></td>
-          <td><b><%= actual.alumno.nombre%></b></td>
-          <td><b><%= actual.monto%></b></td>
-          <td><%= link_to 'Editar', editar_pago_path(actual), class: "btn btn-info"%></td>
+          <td><b><%= actual.alumno.nombre %></b></td>
+          <td><b><%= actual.created_at.strftime("%d - %m - %Y") %></b></td>
+          <td><b><%= actual.monto %></b></td>
+          <td><%= link_to 'Editar', editar_pago_path(actual), class: "btn btn-info" %></td>
           <% if can? :eliminar, Pago %>
-            <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
+            <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger" %></td>
           <% end %>
         </tr>
       <%end%>

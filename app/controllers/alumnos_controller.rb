@@ -51,6 +51,6 @@ class AlumnosController < ApplicationController
   end
 
   def alumno_params
-    params.require(:alumno).permit(:nombre, :sexo, :plan_id, :create_at, :rut)
+    params.require(:alumno).permit(:nombre, :sexo, :edad, :plan_id, :create_at, :rut, :desc)
   end
 end

@@ -51,6 +51,6 @@ class FichasController < ApplicationController
   	end
 
   	def ficha_params
-    	params.require(:fichas).permit(:estatura, :peso, :biceps, :triceps, :subescapular, :suprailiaco, :IMC, :grasa, :torax, :cintura, :caderas, :brazo, :muslo, :alumno_id)
+    	params.require(:ficha).permit(:estatura, :peso, :biceps, :triceps, :subescapular, :suprailiaco, :IMC, :grasa, :torax, :cintura, :caderas, :brazo, :muslo, :alumno_id)
   	end
 end

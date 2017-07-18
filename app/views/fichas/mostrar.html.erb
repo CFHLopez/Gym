@@ -2,37 +2,37 @@
   <div class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading">
-  		<h1><b><%= @fichas.alumno.nombre %></b></h1>
+  		<h1><b><%= @fichas.alumno.nombre %><br>
+      <h2>Fecha Evaluación: 
+        <%= @fichas.created_at.strftime("%d/%m/%Y") %></h2></b></h1>
       </div>
-      <big><b>
+      <big>
       <div class="panel-body">
-        Fecha: 
-        <%= @fichas.created_at.strftime("%d/%m/%Y") %>
       </div>
       <div class="row">
         <div class="col-md-4">
           <div class="panel-body">
             Edad:
             <%= @fichas.alumno.edad %>
+            Años
           </div>
           <div class="panel-body">
             Peso:
             <%= @fichas.peso %>
+            Kilogramos.
           </div>
           <div class="panel-body">
             Estatura:
             <%= @fichas.estatura %>
+            Metros.
           </div>
           <div class="panel-body">
-            Edad:
-            <%= @fichas.alumno.edad %>
-          </div><div class="panel-body">
-            <h4> IMC:
-            <%= @fichas.alumno.edad %></h4>
+            Complicación Medica:<br>
+            <%= @fichas.alumno.desc %>
           </div>
         </div>
+        <h3>Pliegometria</h3>
         <div class="col-md-4">
-          <h3>Pliegometria</h3>
           <div class="panel-body">
             Biceps:
             <%= @fichas.biceps %>
@@ -49,13 +49,9 @@
             Suprailiaco:
             <%= @fichas.suprailiaco %>
           </div>
-          <div class="panel-body">
-            <h4>% De Grasa:
-            <%= @fichas.grasa %></h4>
-          </div>
         </div>
+        <h3>Antropometria</h3>
         <div class="col-md-4">
-          <h3>Antropometria</h3>
           <div class="panel-body">
             Torax:
             <%= @fichas.torax %>
@@ -77,8 +73,34 @@
             <%= @fichas.muslo %>
           </div>
         </div>
-      </b></big>
+      </big>
     </div>
   </div>
   <%= link_to "Volver", Ficha, class: "btn btn-primary" %>
+  <a href="#IMC" class="btn btn-default btn-lg" data-toggle="modal">IMC</a>
+  <div class="modal fade" id="IMC">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title"><b>IMC</b></h2>
+          <div class="modal-footer">
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#Grasa" class="btn btn-default btn-lg" data-toggle="modal">% De Grasa</a>
+  <div class="modal fade" id="Grasa">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title"><b>% De Grasa</b></h2>
+          <div class="modal-footer">
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

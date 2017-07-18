@@ -10,6 +10,11 @@
         <%= @alumnos.rut %>
       </div>
       <div class="panel-body">
+        Edad:
+        <%= @alumnos.edad %>
+        Años
+      </div>
+      <div class="panel-body">
       	Sexo:  
       	<%= @alumnos.sexo %>
       </div>
@@ -20,6 +25,10 @@
       <div class="panel-body">
       	Fecha Inscripción: 
       	<%= @alumnos.created_at.strftime("%d - %m - %Y") %>
+      </div>
+      <div class="panel-body">
+        Complicación Medica: 
+        <%= @alumnos.desc %>
       </div>
       </b></big>
     </div>
