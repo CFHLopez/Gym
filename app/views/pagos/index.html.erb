@@ -26,20 +26,24 @@
           <% t3 = Time.local(t1,t0,01,0,0) %>
           <% t4 = Time.now %>
           <% suma = 0 %>
-          <% @pagos.each do |f| %><br>
-            <% t2 = f.created_at %>
-            <!-- Si esta dentro del inicio del mes hasta la fecha-->
-            <% if t2.between?(t3,t4) %>
-              <% suma += f.monto.to_i %>
-            <%end%>
-        <%end%>
           <h1 class="modal-title"><b>Ingresos</b></h1>
-          <h3>Desde: <%=t3.strftime("%d/%m/%Y")%><br> 
-          Hasta: <%=Time.now.strftime("%d/%m/%Y")%><br><br></h3>
-          <h1>Monto: $ <%= suma %> Pesos</h1>
-          <div class="modal-footer">
-            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-          </div>
+          <h3><%= "Desde: "%>
+        <%= t3.strftime("%d/%m/%Y") %><br> 
+        <%= "Hasta: " %>
+        <%= Time.now.strftime("%d/%m/%Y")%><br></h3>
+        <% @pagos.each do |f| %><br>
+          <% t2 = f.created_at %>
+          <!-- Si esta dentro del inicio del mes hasta la fecha-->
+          <% if t2.between?(t3,t4) %>
+            <% suma += f.monto.to_i %>
+          <%end%>
+        <%end%>
+        <h2><%= "Monto: $ " %> 
+        <%= suma %> 
+        <%= " Pesos" %></h2>
+        <div class="modal-footer">
+          <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+        </div>
         </div>
       </div>
     </div>

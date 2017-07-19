@@ -2,19 +2,21 @@
   <div class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading">
-  		<h1><b>CLASE: <%= @asists.clase.nombre %></b></h1>
+  		  <h1><b> Clase: <%= @asists.clase.nombre %></b></h1>
       </div>
       <big><b>
       <div class="panel-body">
-      	FECHA:
+    	  Fecha:
         <%= @asists.created_at.strftime("%d - %m - %Y") %>
       </div>
       <div class="panel-body">
-      	CANTIDAD DE ALUMNOS/AS: 
-      	<%= @asists.cantidad %>
+        Cantidad De Alumnos/as: 
+    	  <%= @asists.cantidad %>
       </div>
+      </b></big>
     </div>
   </div>
+  <%= link_to "Volver", Asist, class: "btn btn-primary" %>
 </div>
 
-<%= link_to "REGRESAR", Asist, class: "btn btn-primary" %>
+

@@ -12,93 +12,307 @@
       <div class="row">
         <div class="col-md-4">
           <div class="panel-body">
-            Edad:
+            <b>Edad:</b>
             <%= @fichas.alumno.edad %>
-            Años
+            <b>Años</b>
           </div>
           <div class="panel-body">
-            Peso:
+            <b>Peso:</b>
             <%= @fichas.peso %>
-            Kilogramos.
+            <b>Kilogramos.</b>
           </div>
           <div class="panel-body">
-            Estatura:
+            <b>Estatura:</b>
             <%= @fichas.estatura %>
-            Metros.
+            <b>Metros.</b>
           </div>
           <div class="panel-body">
-            Complicación Medica:<br>
+            <b>Complicación Medica:</b><br>
             <%= @fichas.alumno.desc %>
           </div>
         </div>
-        <h3>Pliegometria</h3>
         <div class="col-md-4">
+          <div class="panel panel-heading">
+            <big><b>Pliegometria</b></big>
+          </div>
           <div class="panel-body">
-            Biceps:
+            <b>Biceps:</b>
             <%= @fichas.biceps %>
           </div>
           <div class="panel-body">
-            Triceps:
+            <b>Triceps:</b>
             <%= @fichas.triceps %>
           </div>
           <div class="panel-body">
-            Subescapular:
+            <b>Subescapular:</b>
             <%= @fichas.subescapular %>
           </div>
           <div class="panel-body">
-            Suprailiaco:
+            <b>Suprailiaco:</b>
             <%= @fichas.suprailiaco %>
           </div>
         </div>
-        <h3>Antropometria</h3>
         <div class="col-md-4">
+          <div class="panel panel-heading">
+            <big><b>Antropometria</b></big>
+          </div>
           <div class="panel-body">
-            Torax:
+            <b>Torax:</b>
             <%= @fichas.torax %>
           </div>
           <div class="panel-body">
-            Cintura:
+            <b>Cintura:</b>
             <%= @fichas.cintura %>
           </div>
           <div class="panel-body">
-            Caderas/Gluteos:
+            <b>Caderas/Gluteos:</b>
             <%= @fichas.caderas %>
           </div>
           <div class="panel-body">
-            Brazo:
+            <b>Brazo:</b>
             <%= @fichas.brazo %>
           </div>
           <div class="panel-body">
-            Muslo:
+            <b>Muslo:</b>
             <%= @fichas.muslo %>
           </div>
         </div>
       </big>
     </div>
   </div>
-  <%= link_to "Volver", Ficha, class: "btn btn-primary" %>
-  <a href="#IMC" class="btn btn-default btn-lg" data-toggle="modal">IMC</a>
+  <%= link_to "Volver", Ficha, class: "btn btn-primary btn-lg" %>
+  <a href="#IMC" class="btn btn-success btn-lg" data-toggle="modal">IMC</a>
   <div class="modal fade" id="IMC">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h2 class="modal-title"><b>IMC</b></h2>
-          <div class="modal-footer">
-            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-          </div>
+          <% p = @fichas.peso %>
+        <% a = @fichas.estatura %>
+        <% @fichas.IMC = (p/(a*a)) %>
+        <b><h3><%= @fichas.IMC %><br><h3>
+        <%= "Clasificación: "%>
+        <% v0 = @fichas.IMC %>
+        <% v1 = 16.0 %>
+        <% v2 = 16.9 %>
+        <% v3 = 17.0 %>
+        <% v4 = 18.4 %>
+        <% v14 = 18.5 %>
+        <% v5 = 24.9 %>
+        <% v6 = 25.0 %>
+        <% v7 = 29.9 %>
+        <% v8 = 30.0 %>
+        <% v9 = 34.9 %>
+        <% v10 = 35.0 %>
+        <% v11 = 39.9 %>
+        <% v12 = 40.0 %>
+        <% v13 = 45.0 %>
+        <% if v0 < v1 %>
+          <%= "Ingreso Médico Inmediato" %>
+        <%end%>
+        <% if v0.between?(v1,v2) %>
+          <%= "Infrapeso" %>
+        <%end%>
+        <% if v0.between?(v3,v4) %>
+          <%= "Bajo De Peso" %>
+        <%end%>
+        <% if v0.between?(v14,v5) %>
+          <%= "Peso En La Media (Saludable)" %>
+        <%end%>
+        <% if v0.between?(v6,v7) %>
+          <%= "Sobrepeso" %>
+        <%end%>
+        <% if v0.between?(v8,v9) %>
+          <%= "Sobrepeso Crónico (Obesidad Grado 1)" %>
+        <%end%>
+        <% if v0.between?(v10,v11) %>
+          <%= "Obesidad Premórbida (Obesidad Grado 2)" %>
+        <%end%>
+        <% if v0.between?(v12,v13) %>
+          <%= "Obesidad Mórbida (Obesidad Grado 3)" %>
+        <%end%>
+        <% if v0 > v13 %>
+          <%= "Obesidad Hipermórbida (Obesidad Grado 4)"%>
+        <%end%>
+        </b>
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
         </div>
       </div>
     </div>
   </div>
-  <a href="#Grasa" class="btn btn-default btn-lg" data-toggle="modal">% De Grasa</a>
+  <a href="#Grasa" class="btn btn-danger btn-lg" data-toggle="modal">% De Grasa</a>
   <div class="modal fade" id="Grasa">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h2 class="modal-title"><b>% De Grasa</b></h2>
-          <div class="modal-footer">
-            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-          </div>
+          <% e0 = @fichas.alumno.edad %>
+        <% if @fichas.alumno.sexo = 'Masculino' %>
+          <% if e0.between?(16,19) %>
+            <% c0 = 1.1620 %>
+            <% m0 = 0.0630 %>
+          <%end%>
+          <% if e0.between?(20,29) %>
+            <% c0 = 1.1631 %>
+            <% m0 = 0.0632 %>
+          <%end%>
+          <% if e0.between?(30,39) %>
+            <% c0 = 1.1422 %>
+            <% m0 = 0.0544 %>
+          <%end%>
+          <% if e0.between?(40,49) %>
+            <% c0 = 1.1620 %>
+            <% m0 = 0.0700 %>
+          <%end%>
+          <% if e0 > 49 %>
+            <% c0 = 1.1715 %>
+            <% m0 = 0.0779 %>
+          <%end%>
+        <% else %>
+          <% if e0.between?(16,19) %>
+            <% c0 = 1.1549 %>
+            <% m0 = 0.0678 %>
+          <%end%>
+          <% if e0.between?(20,29) %>
+            <% c0 = 1.1599 %>
+            <% m0 = 0.0717 %>
+          <%end%>
+          <% if e0.between?(30,39) %>
+            <% c0 = 1.1423 %>
+            <% m0 = 0.0632 %>
+          <%end%>
+          <% if e0.between?(40,49) %>
+            <% c0 = 1.1333 %>
+            <% m0 = 0.0612 %>
+          <%end%>
+          <% if e0 > 49 %>
+            <% c0 = 1.1339 %>
+            <% m0 = 0.0645 %>
+          <%end%>
+        <% end %>
+        <% s0 = 0 %>
+        <% s0 += @fichas.biceps.to_i %> 
+        <% s0 += @fichas.triceps.to_i %>
+        <% s0 += @fichas.subescapular.to_i %>
+        <% s0 += @fichas.suprailiaco.to_i %>
+        <% d0 = c0 - (m0*(Math.log(s0))) %>
+        <% @fichas.grasa = ((4.95/d0)-4.5)*100 %>
+        <% if @fichas.grasa > 0 %>
+          <b><h3><%= @fichas.grasa %></h3>
+          <% g0 = @fichas.grasa %>
+          <% "Nivel: " %>
+          <% if @fichas.alumno.sexo = 'Masculino' %>
+            <% if @fichas.alumno.edad < 30 %>
+              <% if g0.between?(7.0,11.9) %>
+                <% "* Fitness *" %>
+              <% end %>
+              <% if g0.between?(12.0,18.9) %>
+                <% "Aceptable" %>
+              <% end %>
+              <% if g0.between?(19.0,21.9) %>
+                <% "Sobrepeso Moderado" %>
+              <% end %>
+              <% if g0.between?(22.0,24.9) %>
+                <% "Sobrepeso En Riesgo" %>
+              <% end %>
+              <% if g0.between?(25.0,27.9) %>
+                <% "Obeso" %>
+              <% end %>
+              <% if g0.between?(28.0,30.9) %>
+                <% "Obeso En Riesgo" %>
+              <% end %>
+              <% if g0 > 30.9 %>
+                <% "Obeso Morbido" %>
+              <% end %>
+            <% else %>
+              <% if g0.between?(2.0,4.9) %>
+                <% "Grasa Esencial" %>
+              <% end %>
+              <% if g0.between?(5.0,13.9) %>
+                <% "Atleta" %>
+              <% end %>
+              <% if g0.between?(14.0,16.9) %>
+                <% "* Fitness *" %>
+              <% end %>
+              <% if g0.between?(17.0,23.9) %>
+                <% "Aceptable" %>
+              <% end %>
+              <% if g0.between?(24.0,26.9) %>
+                <% "Sobrepeso Moderado" %>
+              <% end %>
+              <% if g0.between?(27.0,29.9) %>
+                <% "Sobrepeso En Riesgo" %>
+              <% end %>
+              <% if g0.between?(30.0,32.9) %>
+                <% "Obeso" %>
+              <% end %>
+              <% if g0.between?(33.0,35.9) %>
+                <% "Obeso En Riesgo" %>
+              <% end %>
+              <% if g0 > 35.9 %>
+                <% "Obeso Morbido" %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <% if @fichas.alumno.edad < 30 %>
+              <% if g0.between?(10.0,14.9) %>
+                <% "* Fitness *" %>
+              <% end %>
+              <% if g0.between?(15.0,21.9) %>
+                <% "Aceptable" %>
+              <% end %>
+              <% if g0.between?(22.0,24.9) %>
+                <% "Sobrepeso Moderado" %>
+              <% end %>
+              <% if g0.between?(25.0,27.9) %>
+                <% "Sobrepeso En Riesgo" %>
+              <% end %>
+              <% if g0.between?(28.0,30.9) %>
+                <% "Obeso" %>
+              <% end %>
+              <% if g0.between?(31.0,33.9) %>
+                <% "Obeso En Riesgo" %>
+              <% end %>
+              <% if g0 > 33.9 %>
+                <% "Obeso Morbido" %>
+              <% end %>
+            <% else %>
+              <% if g0.between?(10.0,12.9) %>
+                <% "Grasa Esencial" %>
+              <% end %>
+              <% if g0.between?(13.0,16.9) %>
+                <% "Atleta" %>
+              <% end %>
+              <% if g0.between?(17.0,19.9) %>
+                <% "* Fitness *" %>
+              <% end %>
+              <% if g0.between?(20.0,26.9) %>
+                <% "Aceptable" %>
+              <% end %>
+              <% if g0.between?(27.0,29.9) %>
+                <% "Sobrepeso Moderado" %>
+              <% end %>
+              <% if g0.between?(30.0,32.9) %>
+                <% "Sobrepeso En Riesgo" %>
+              <% end %>
+              <% if g0.between?(33.0,35.9) %>
+                <% "Obeso" %>
+              <% end %>
+              <% if g0.between?(36.0,38.9) %>
+                <% "Obeso En Riesgo" %>
+              <% end %>
+              <% if g0 > 38.9 %>
+                <% "Obeso Morbido" %>
+              <% end %>
+            <% end %>
+          <%end%>
+          </b>
+        <% end %>
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
         </div>
       </div>
     </div>

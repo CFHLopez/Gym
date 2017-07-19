@@ -29,13 +29,14 @@
         <i><%=f.collection_select :plan_id, Plan.order("Nombre"), :id, :nombre, include_blank: true %></i><br>
       </div>
       <div class="panel-body">
-        <label class="control-label col-xs-3">Complicación Medica:</label></b>
+        <label class="control-label col-xs-3">¿Complicación Medica?:</label></b>
         <i><%= f.text_area :desc, size: "30x6", placeholder: "En caso de tener algun problema"%></i><br>
       </div>
       </big>
     </div>
     <%= f.submit value="Agregar", class: "btn btn-success"%>
     <input type="reset" class="btn btn-default" value="Limpiar">
-    <%= link_to "Regresar", Alumno, class: "btn btn-primary"%>
+    <%= link_to "Volver", Alumno, class: "btn btn-primary"%>
   </div>
+  <br><br>
 <% end %>

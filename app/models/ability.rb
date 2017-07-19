@@ -6,7 +6,7 @@ class Ability
     #
     user ||= User.new # guest user (not logged in)
        if user.role == "administrador"
-             can :manage, :all
+          can :manage, :all
        elsif user.role == "profesor"
         alias_action :nuevo, :mostrar, :update, :index, :to => :cru
         can :cru, Pago
@@ -14,8 +14,6 @@ class Ability
         can :cru, Alumno
     else
         can :read, :index
-
-    #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
