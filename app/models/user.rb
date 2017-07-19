@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
  #! al poner todas estas validaciones me da problemas e
-	validates :nombre, presence: true, length: { minimum: 2 }
-	validates :sexo, presence: true
-	validates :rut, rut: true, presence: true, uniqueness: true
-	validates :edad, numericality: true, presence: true
+	#validates :nombre, presence: true, length: { minimum: 2 }
+	#validates :sexo, presence: true
+	#validates :rut, rut: true, presence: true, uniqueness: true
+	#validates :edad, numericality: true, presence: true
 
   	devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 end
