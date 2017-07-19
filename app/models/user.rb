@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	#un usuario muchas clases
-	attr_accessible :nombre, :clase_id
+	#attr_accessible :nombre, :clase_id
 	has_many :usersclases
 	has_many :clases, through: :usersclases
 
@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 	#validates :sexo, presence: true
 	#validates :rut, rut: true, presence: true, uniqueness: true
 	#validates :edad, numericality: true, presence: true
-
+	attr_accessible :email, :password, :password_confirmation
   	devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 end
 
