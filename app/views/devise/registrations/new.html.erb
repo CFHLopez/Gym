@@ -1,11 +1,11 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div class="container">
-    <h3><b>Registrar Cuenta</b></h3>
+    <h3><b>Crear Cuenta</b></h3>
     <div class="panel-group"><b>
       <div class="panel-body">
         Nombre:</b><i>
-        <%= f.text_field :nombre, placeholder: "Nombre Completo"%></i><b>
+        <%= f.text_field :nombre, placeholder: "Nombre Completo" %></i><b>
       </div>
       <div class="panel-body">
         Rut:</b><i>
@@ -51,4 +51,3 @@
   </div>
   <br><br>
 <% end %>
-<%= render "devise/shared/links" %>
