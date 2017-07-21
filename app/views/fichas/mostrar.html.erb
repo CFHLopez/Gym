@@ -2,82 +2,77 @@
   <div class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading">
-  		<h1><b><%= @fichas.alumno.nombre %><br>
-      <h2>Fecha Evaluación: 
-        <%= @fichas.created_at.strftime("%d/%m/%Y") %></h2></b></h1>
+  		  <h1><b><%= @fichas.alumno.nombre %><br>
+        <h2>Fecha Evaluación:<%= @fichas.created_at.strftime("%d/%m/%Y") %></h2></h1>
       </div>
-      <big>
       <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel-body">
+              <%= "Edad:" %></b>
+              <%= @fichas.alumno.edad %><b>Años</b>
+            </div>
+            <div class="panel-body">
+              <b><%= "Peso:" %></b>
+              <%= @fichas.peso %><b>Kilogramos</b>
+            </div>
+            <div class="panel-body">
+              <b><%= "Estatura:" %></b>
+              <%= @fichas.estatura %><b>Metros</b>
+            </div>
+            <div class="panel-body">
+              <b><%= "Complicación Medica:" %></b><br>
+                <%= @fichas.alumno.desc %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-heading">
+              <big><b>Pliegometria</b></big>
+            </div>
+            <div class="panel-body">
+              <b><%= "Biceps:" %></b>
+              <%= @fichas.biceps %>
+            </div>
+            <div class="panel-body">
+              <b><%= "Triceps:" %></b>
+              <%= @fichas.triceps %>
+            </div>
+            <div class="panel-body">
+              <b><%= "Subescapular:" %></b>
+              <%= @fichas.subescapular %>
+            </div>
+            <div class="panel-body">
+              <b><%= "Suprailiaco:" %></b>
+              <%= @fichas.suprailiaco %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-heading">
+              <big><b>Antropometria</b></big>
+            </div>
+            <div class="panel-body">
+              <b><%= "Torax:" %></b>
+              <%= @fichas.torax %>
+            </div>
+            <div class="panel-body">
+              <b><%= "Cintura:" %></b>
+              <%= @fichas.cintura %>
+            </div>
+            <div class="panel-body">
+              <b><%= "Caderas/Gluteos:" %></b>
+              <%= @fichas.caderas %>
+            </div>
+            <div class="panel-body">
+              <b><%= "Brazo:" %></b>
+              <%= @fichas.brazo %>
+            </div>
+            <div class="panel-body">
+              <b><%= "Muslo:" %></b>
+              <%= @fichas.muslo %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="panel-body">
-            <b>Edad:</b>
-            <%= @fichas.alumno.edad %>
-            <b>Años</b>
-          </div>
-          <div class="panel-body">
-            <b>Peso:</b>
-            <%= @fichas.peso %>
-            <b>Kilogramos.</b>
-          </div>
-          <div class="panel-body">
-            <b>Estatura:</b>
-            <%= @fichas.estatura %>
-            <b>Metros.</b>
-          </div>
-          <div class="panel-body">
-            <b>Complicación Medica:</b><br>
-            <%= @fichas.alumno.desc %>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="panel panel-heading">
-            <big><b>Pliegometria</b></big>
-          </div>
-          <div class="panel-body">
-            <b>Biceps:</b>
-            <%= @fichas.biceps %>
-          </div>
-          <div class="panel-body">
-            <b>Triceps:</b>
-            <%= @fichas.triceps %>
-          </div>
-          <div class="panel-body">
-            <b>Subescapular:</b>
-            <%= @fichas.subescapular %>
-          </div>
-          <div class="panel-body">
-            <b>Suprailiaco:</b>
-            <%= @fichas.suprailiaco %>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="panel panel-heading">
-            <big><b>Antropometria</b></big>
-          </div>
-          <div class="panel-body">
-            <b>Torax:</b>
-            <%= @fichas.torax %>
-          </div>
-          <div class="panel-body">
-            <b>Cintura:</b>
-            <%= @fichas.cintura %>
-          </div>
-          <div class="panel-body">
-            <b>Caderas/Gluteos:</b>
-            <%= @fichas.caderas %>
-          </div>
-          <div class="panel-body">
-            <b>Brazo:</b>
-            <%= @fichas.brazo %>
-          </div>
-          <div class="panel-body">
-            <b>Muslo:</b>
-            <%= @fichas.muslo %>
-          </div>
-        </div>
-      </big>
     </div>
   </div>
   <%= link_to "Volver", Ficha, class: "btn btn-primary btn-lg" %>
@@ -93,45 +88,31 @@
         <b><h3><%= @fichas.IMC %><br><h3>
         <%= "Clasificación: "%>
         <% v0 = @fichas.IMC %>
-        <% v1 = 16.0 %>
-        <% v2 = 16.9 %>
-        <% v3 = 17.0 %>
-        <% v4 = 18.4 %>
-        <% v14 = 18.5 %>
-        <% v5 = 24.9 %>
-        <% v6 = 25.0 %>
-        <% v7 = 29.9 %>
-        <% v8 = 30.0 %>
-        <% v9 = 34.9 %>
-        <% v10 = 35.0 %>
-        <% v11 = 39.9 %>
-        <% v12 = 40.0 %>
-        <% v13 = 45.0 %>
-        <% if v0 < v1 %>
+        <% if v0 < 16.0 %>
           <%= "Ingreso Médico Inmediato" %>
         <%end%>
-        <% if v0.between?(v1,v2) %>
+        <% if v0.between?(16.0,16.9) %>
           <%= "Infrapeso" %>
         <%end%>
-        <% if v0.between?(v3,v4) %>
+        <% if v0.between?(17.0,18.4) %>
           <%= "Bajo De Peso" %>
         <%end%>
-        <% if v0.between?(v14,v5) %>
+        <% if v0.between?(18.5,24.9) %>
           <%= "Peso En La Media (Saludable)" %>
         <%end%>
-        <% if v0.between?(v6,v7) %>
+        <% if v0.between?(25.0,29.9) %>
           <%= "Sobrepeso" %>
         <%end%>
-        <% if v0.between?(v8,v9) %>
+        <% if v0.between?(30.0,34.9) %>
           <%= "Sobrepeso Crónico (Obesidad Grado 1)" %>
         <%end%>
-        <% if v0.between?(v10,v11) %>
+        <% if v0.between?(35.0,39.9) %>
           <%= "Obesidad Premórbida (Obesidad Grado 2)" %>
         <%end%>
-        <% if v0.between?(v12,v13) %>
+        <% if v0.between?(40.0,45.0) %>
           <%= "Obesidad Mórbida (Obesidad Grado 3)" %>
         <%end%>
-        <% if v0 > v13 %>
+        <% if v0 > 45.0 %>
           <%= "Obesidad Hipermórbida (Obesidad Grado 4)"%>
         <%end%>
         </b>
@@ -316,5 +297,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div><br><br>
 </div>

@@ -2,35 +2,40 @@
   <div class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading">
-  		<h1><b><%= @alumnos.nombre %></b></h1>
-      </div>
-      <big><b>
-      <div class="panel-body">
-        RUT: 
-        <%= @alumnos.rut %>
+  		  <h2><b><%= @alumnos.nombre %></b></h2>
       </div>
       <div class="panel-body">
-        Edad:
-        <%= @alumnos.edad %>
-        Años
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel-body">
+              <b><%= "RUT:" %></b> 
+              <%= @alumnos.rut %>
+            </div>
+            <div class="panel-body">
+              <b><%= "Edad:" %></b>
+              <%= @alumnos.edad %><%= " Años" %>
+            </div>
+            <div class="panel-body">
+      	      <b><%= "Sexo:" %></b>  
+      	      <%= @alumnos.sexo %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel-body">
+      	      <b><%= "Plan:" %></b> 
+      	      <%= @alumnos.plan.nombre %>
+            </div>
+            <div class="panel-body">
+      	      <b><%= "Fecha Inscripción:" %></b> 
+      	      <%= @alumnos.created_at.strftime("%d/%m/%Y") %>
+            </div>
+            <div class="panel-body">
+              <b><%= "Complicación Medica:" %></b> 
+              <%= @alumnos.desc %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="panel-body">
-      	Sexo:  
-      	<%= @alumnos.sexo %>
-      </div>
-      <div class="panel-body">
-      	Plan: 
-      	<%= @alumnos.plan.nombre %>
-      </div>
-      <div class="panel-body">
-      	Fecha Inscripción: 
-      	<%= @alumnos.created_at.strftime("%d - %m - %Y") %>
-      </div>
-      <div class="panel-body">
-        Complicación Medica: 
-        <%= @alumnos.desc %>
-      </div>
-      </b></big>
     </div>
   </div>
   <%= link_to "Volver", Alumno, class: "btn btn-primary" %>
