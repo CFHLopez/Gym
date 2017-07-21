@@ -8,17 +8,26 @@
   <div class="container">
     <div class="form-group">
     <big><b>
+
       <div class="panel-body">
-        <label class="control-label col-xs-3">Clase:</label></b>
+        <label>Clase:</label></b>
         <i><%= f.collection_select :clase_id, Clase.order("Nombre"), :id, :nombre, include_blank: true %></i>
       </div><b>
+      
       <div class="panel-body">
-        <label class="control-label col-xs-3">Cantidad de Alumnos/as:</label></b> 
-        <i><%= f.text_field :cantidad %></i>
+        <label> Cant. Alumnos/as</label></b>
+        <%= f.text_field :cantidad, placeholder: "Ingrese Numero" %>
       </div>
-    </big>
+      <div class="panel-body">
+        <label>Alumnos/as:</label></b>
+        <% @alumnos.each do |alumno| %>
+          <div class="field">
+            <%= check_box_tag "Alumnos[]", alumno.id %><%= alumno.nombre %>
+          </div>
+        <% end %>
+      </div></big>
     </div>
-    <%= f.submit value="Agregar", class: "btn btn-success"%>
+    <%= f.submit value="Guardar", class: "btn btn-success"%>
     <input type="reset" class="btn btn-default" value="Limpiar">
     <%= link_to "Volver", Asist, class: "btn btn-primary"%>
   </div>

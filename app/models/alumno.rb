@@ -3,6 +3,9 @@ class Alumno < ActiveRecord::Base
 	has_many :clases
 	has_many :pagos
 
+	has_many :has_asists
+	has_many :asists, through: :has_asists
+
 	validates :nombre, presence: true, length: { minimum: 2 }
 	validates :sexo, presence: true
 	validates :edad, presence: true, numericality: true

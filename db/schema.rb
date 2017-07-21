@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170715005629) do
+ActiveRecord::Schema.define(version: 20170721035204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,16 @@ ActiveRecord::Schema.define(version: 20170715005629) do
     t.integer  "alumno_id"
   end
 
+  create_table "has_asists", force: :cascade do |t|
+    t.integer  "alumno_id"
+    t.integer  "asist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "has_asists", ["alumno_id"], name: "index_has_asists_on_alumno_id", using: :btree
+  add_index "has_asists", ["asist_id"], name: "index_has_asists_on_asist_id", using: :btree
+
   create_table "pagos", force: :cascade do |t|
     t.integer  "monto"
     t.datetime "created_at", null: false
@@ -157,6 +167,8 @@ ActiveRecord::Schema.define(version: 20170715005629) do
   add_foreign_key "clases", "profesors"
   add_foreign_key "clases", "usersclases", column: "usersclases_id"
   add_foreign_key "fichas", "alumnos"
+  add_foreign_key "has_asists", "alumnos"
+  add_foreign_key "has_asists", "asists"
   add_foreign_key "pagos", "alumnos"
   add_foreign_key "profesors", "clases"
   add_foreign_key "users", "clases"

@@ -13,6 +13,14 @@
         Cantidad De Alumnos/as: 
     	  <%= @asists.cantidad %>
       </div>
+      <div class="panel-body">
+        Alumnos:
+        <% @asists.alumnos.each do |alumno| %>
+          <div>
+            <b><%= link_to(alumno.nombre, alumno) %></b>
+          </div>
+        <% end %>
+      </div>
       </b></big>
     </div>
   </div>

@@ -40,13 +40,12 @@
       </div>
       <div class="panel-body">
         <b><label class="control-label col-xs-3">Observación:</label></b>
-        <i><%= f.text_area :observacion, size: "30x2", placeholder: "Opcional" %></i>
+        <i><%= f.text_area :observacion, size:"30x2", placeholder:"Opcional" %></i>
       </div>
-    </div>
     <div class="actions">   
       <%= f.submit "Registrate", class: "btn btn-success" %>  
       <input type="reset" class="btn btn-default" value="Limpiar">
       <%= link_to "Volver", "/", class: "btn btn-primary" %>
     </div>
-  </div><br><br>
+  <br><br>
 <% end %>

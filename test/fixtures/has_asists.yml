@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  alumno_id: 
+  asist_id: 
+
+two:
+  alumno_id: 
+  asist_id: 

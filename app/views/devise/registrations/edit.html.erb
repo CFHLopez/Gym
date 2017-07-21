@@ -4,62 +4,55 @@
     <div class="container">
       <h2><b>Editar Sesión</b></h2>
       <div class="col-md-6">
-      <big><b>
         <div class="panel-group">
-          <%= "Nombre" %><br></b>
+          <b><%= "Nombre" %></b><br>
           <i><%= f.text_field :nombre, placeholder: "Nombre Completo" %></i>
         </div>
-        <big><b>
         <div class="panel-group">
-          <%= "Rut" %><br></b>
-           <i><%= f.text_field :rut, placeholder: "XXXXXXX-X" %></i>
+          <b><%= "Rut" %></b><br>
+          <i><%= f.text_field :rut, placeholder: "XXXXXXX-X" %></i>
         </div>
-        <big><b>
         <div class="panel-group">
-          <%= "Edad" %><br></b>
-            <i><%= f.select :edad, [["18"],["19"],["20"],["21"],["22"],["23"],["24"],["25"],["26"],["27"],["28"],["29"],["30"],["31"],["32"],["33"],["34"],["35"],["36"],["37"],["38"],["39"],["40"],["41"],["42"],["43"],["44"],["45"],["46"],["47"],["48"],["49"],["50"],["51"],["52"],["53"],["54"],["55"],["56"],["57"],["58"],["59"],["60"],["61"],["62"],["63"],["64"],["65"],["66"],["67"],["68"],["69"],["70"]]%></i><b> Años</b><br>
+          <b><%= "Edad" %></b>
+          <i><%= f.select :edad, [["18"],["19"],["20"],["21"],["22"],["23"],["24"],["25"],["26"],["27"],["28"],["29"],["30"],["31"],["32"],["33"],["34"],["35"],["36"],["37"],["38"],["39"],["40"],["41"],["42"],["43"],["44"],["45"],["46"],["47"],["48"],["49"],["50"],["51"],["52"],["53"],["54"],["55"],["56"],["57"],["58"],["59"],["60"],["61"],["62"],["63"],["64"],["65"],["66"],["67"],["68"],["69"],["70"]]%></i><b> Años</b><br>
         </div>
-        <big><b>
         <div class="panel-group">
-          <%= "Rol" %><br></b>
+          <b><%= "Rol" %></b><br>
           <i><%= f.select :role, [["administrador"], ["profesor"]]%></i>
         </div>
-        <big><b>
         <div class="panel-group">
-          <%= "Sexo" %><br></b>
+          <b><%= "Sexo" %></b><br>
            <i><%= f.select :sexo, [["Masculino"], ["Femenino"]]%></i>
         </div>
-        <big><b>
         <div class="panel-group">
-          <%= "Email" %><br></b>
+          <b><%= "Email" %></b><br>
           <i><%= f.email_field :email, autofocus: true %></i>
         </div>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>En Espera De Confirmacion De:
             <%= resource.unconfirmed_email %>
           </div>
-        <% end %><b>
+        <% end %>
         <div class="panel-group">
-          <%= "Nueva Contraseña" %></b><i>(Dejar En Blanco Si No Desea Cambiarlo)<br>
+          <b><%= "Nueva Contraseña" %></b><i>(Dejar En Blanco Si No Desea Cambiarlo)<br>
           <%= f.password_field :password, autocomplete: "off", placeholder: "********" %></i>
-        </div><b>
+        </div>
         <div class="panel-group">
-          <%= "Confirmar Nueva Contraseña" %><br></b>
+          <b><%= "Confirmar Nueva Contraseña" %><br></b>
           <i><%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "********" %></i>
-        </div><b>
+        </div>
         <div class="panel-group">
-          <%= "Contraseña Actual"%></b><i>(Necesitamos Su Contraseña Actual Para Confirmar Sus Cambios)<br>
+          <b><%= "Contraseña Actual"%></b><i>(Necesitamos Su Contraseña Actual Para Confirmar Sus Cambios)<br>
           <%= f.password_field :current_password, autocomplete: "off", placeholder: "********"%></i>
         </div>
-        <big><b>
         <div class="panel-group">
-          <%= "Observacion" %><br></b>
-            <i><%= f.text_area :observacion, size: "30x2", placeholder: "Opcional" %></i>
+          <b><%= "Observacion" %><br></b>
+          <i><%= f.text_area :observacion, size: "30x2", placeholder: "Opcional" %></i>
         </div>
         <div class="actions">
           <%= f.submit "Actualizar", class: "btn btn-success" %>
           <%= link_to "Volver", "/", class: "btn btn-primary" %>
-        </div></big>
+        </div>
       </div>
       <div class="container">
       <h3><b>Desactivar Cuenta</b></h3>
