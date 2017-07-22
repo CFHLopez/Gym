@@ -26,7 +26,9 @@
                 <li><a #href="/users">Usuarios</a></li>
                 <li><a href="/alumnos">Alumnos/as</a></li>
                 <li><a href="/fichas">Fichas</a></li>
+                 <% if current_user.role == 'Administrador'%>
                 <li><a href="/planes">Planes</a></li>
+                <% end %>
                 <li><a href="/clases">Clases</a></li>
                 <li><a href="/asistencias">Asistencias</a></li>
                 <li><a href="/pagos">Pagos</a></li>
