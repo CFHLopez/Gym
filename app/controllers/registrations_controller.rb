@@ -14,7 +14,7 @@ class RegistrationsController < Devise::RegistrationsController
 	private
 
 	def sign_up_params
-		allow = [:email,:password,:password_confirmation,:nombre,:edad,:role,:sexo,:desc]
+		allow = [:email,:password,:password_confirmation,:nombre,:rut,:edad,:role,:sexo,:observacion]
 		params.require(resource_name).permit(allow)
 	end
 
