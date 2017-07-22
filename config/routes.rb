@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'info/index'
+
   get 'home/index'
 
   devise_for :users, controllers:{registrations: "registrations"}
@@ -81,4 +83,5 @@ Rails.application.routes.draw do
 
   post 'asistencias/', to: 'asists#crear'
   delete 'asistencias/:id',to: 'asists#eliminar'
+
 end
