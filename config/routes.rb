@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   get 'home/index'
 
   devise_for :users, controllers:{registrations: "registrations"}
+  
+  as :user do
+    get "/register", to: "registrations#new", as: "register"
+  end
+  
   root "home#index"
 
   get 'users/', to: 'users#index', as: 'users'
