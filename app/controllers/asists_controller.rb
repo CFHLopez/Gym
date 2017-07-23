@@ -22,7 +22,7 @@ class AsistsController < ApplicationController
     @asists.alumnos = params[:alumnos]
     respond_to do |format|
       if @asists.save
-        format.html{redirect_to @asists, notice:'ASISTENCIA CREADA'}
+        format.html{redirect_to @asists, notice:'Asistencia Creada'}
       else
         format.html{render :nuevo}
       end
@@ -42,7 +42,7 @@ class AsistsController < ApplicationController
   def eliminar
     @asists.destroy
     respond_to do |format|
-      format.html{redirect_to asist_url, notice:'ASISTENCIA ELIMINADO'}
+      format.html{redirect_to asist_url, notice:'Asistencia Eliminada'}
     end
   end
 
