@@ -9,18 +9,18 @@ class Asist < ActiveRecord::Base
 	#valida una inscripcion de clase x dia
 	validates :created_at, uniqueness: { scope: [:clase_id] }
 
-	after_create :save_alumnos
+	#after_create :save_alumnos
 	
 	#Custom Setter
-	def alumnos=(value)
-		@alumnos = value
-	end
+	#def alumnos=(value)
+	#	@alumnos = value
+	#end
 
-	private
+	#private
 
-	def save_alumnos
-		@alumnos.each do |alumno_id|
-			has_asists.create(alumno_id: alumno_id, asist_id: self.id)
-		end
-	end
+	#def save_alumnos
+	#	@alumnos.each do |alumno_id|
+	#		has_asists.create(alumno_id: alumno_id, asist_id: self.id)
+	#	end
+	#end
 end

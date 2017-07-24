@@ -4,21 +4,21 @@
       <div class="panel-heading">
   		  <h1><b><%= @fichas.alumno.nombre %><br>
         <h2>Fecha Evaluación:<%= @fichas.created_at.strftime("%d/%m/%Y") %></h2></h1>
-      </div>
+      </div><big><big>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-4">
             <div class="panel-body">
               <%= "Edad:" %></b>
-              <%= @fichas.alumno.edad %><b>Años</b>
+              <%= @fichas.alumno.edad %><b> Años</b>
             </div>
             <div class="panel-body">
               <b><%= "Peso:" %></b>
-              <%= @fichas.peso %><b>Kilogramos</b>
+              <%= @fichas.peso %><b> Kilogramos</b>
             </div>
             <div class="panel-body">
               <b><%= "Estatura:" %></b>
-              <%= @fichas.estatura %><b>Metros</b>
+              <%= @fichas.estatura %><b> Metros</b>
             </div>
             <div class="panel-body">
               <b><%= "Complicación Medica:" %></b><br>
@@ -74,7 +74,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div></big></big>
   <%= link_to "Volver", Ficha, class: "btn btn-primary btn-lg" %>
   <a href="#IMC" class="btn btn-success btn-lg" data-toggle="modal">IMC</a>
   <div class="modal fade" id="IMC">
@@ -183,113 +183,112 @@
         <% if @fichas.grasa > 0 %>
           <b><h3><%= @fichas.grasa %></h3>
           <% g0 = @fichas.grasa %>
-          <% "Nivel: " %>
+          <%= "Nivel: " %>
           <% if @fichas.alumno.sexo = 'Masculino' %>
             <% if @fichas.alumno.edad < 30 %>
               <% if g0.between?(7.0,11.9) %>
-                <% "* Fitness *" %>
+                <%= "* Fitness *" %>
               <% end %>
               <% if g0.between?(12.0,18.9) %>
-                <% "Aceptable" %>
+                <%= "Aceptable" %>
               <% end %>
               <% if g0.between?(19.0,21.9) %>
-                <% "Sobrepeso Moderado" %>
+                <%= "Sobrepeso Moderado" %>
               <% end %>
               <% if g0.between?(22.0,24.9) %>
-                <% "Sobrepeso En Riesgo" %>
+                <%= "Sobrepeso En Riesgo" %>
               <% end %>
               <% if g0.between?(25.0,27.9) %>
-                <% "Obeso" %>
+                <%= "Obeso" %>
               <% end %>
               <% if g0.between?(28.0,30.9) %>
-                <% "Obeso En Riesgo" %>
+                <%= "Obeso En Riesgo" %>
               <% end %>
               <% if g0 > 30.9 %>
-                <% "Obeso Morbido" %>
+                <%= "Obeso Morbido" %>
               <% end %>
             <% else %>
               <% if g0.between?(2.0,4.9) %>
-                <% "Grasa Esencial" %>
+                <%= "Grasa Esencial" %>
               <% end %>
               <% if g0.between?(5.0,13.9) %>
-                <% "Atleta" %>
+                <%= "Atleta" %>
               <% end %>
               <% if g0.between?(14.0,16.9) %>
-                <% "* Fitness *" %>
+                <%= "* Fitness *" %>
               <% end %>
               <% if g0.between?(17.0,23.9) %>
-                <% "Aceptable" %>
+                <%= "Aceptable" %>
               <% end %>
               <% if g0.between?(24.0,26.9) %>
-                <% "Sobrepeso Moderado" %>
+                <%= "Sobrepeso Moderado" %>
               <% end %>
               <% if g0.between?(27.0,29.9) %>
-                <% "Sobrepeso En Riesgo" %>
+                <%= "Sobrepeso En Riesgo" %>
               <% end %>
               <% if g0.between?(30.0,32.9) %>
-                <% "Obeso" %>
+                <%= "Obeso" %>
               <% end %>
               <% if g0.between?(33.0,35.9) %>
-                <% "Obeso En Riesgo" %>
+                <%= "Obeso En Riesgo" %>
               <% end %>
               <% if g0 > 35.9 %>
-                <% "Obeso Morbido" %>
+                <%= "Obeso Morbido" %>
               <% end %>
             <% end %>
           <% else %>
             <% if @fichas.alumno.edad < 30 %>
               <% if g0.between?(10.0,14.9) %>
-                <% "* Fitness *" %>
+                <%= "* Fitness *" %>
               <% end %>
               <% if g0.between?(15.0,21.9) %>
-                <% "Aceptable" %>
+                <%= "Aceptable" %>
               <% end %>
               <% if g0.between?(22.0,24.9) %>
-                <% "Sobrepeso Moderado" %>
+                <%= "Sobrepeso Moderado" %>
               <% end %>
               <% if g0.between?(25.0,27.9) %>
-                <% "Sobrepeso En Riesgo" %>
+                <%= "Sobrepeso En Riesgo" %>
               <% end %>
               <% if g0.between?(28.0,30.9) %>
-                <% "Obeso" %>
+                <%= "Obeso" %>
               <% end %>
               <% if g0.between?(31.0,33.9) %>
-                <% "Obeso En Riesgo" %>
+                <%= "Obeso En Riesgo" %>
               <% end %>
               <% if g0 > 33.9 %>
-                <% "Obeso Morbido" %>
+                <%= "Obeso Morbido" %>
               <% end %>
             <% else %>
               <% if g0.between?(10.0,12.9) %>
-                <% "Grasa Esencial" %>
+                <%= "Grasa Esencial" %>
               <% end %>
               <% if g0.between?(13.0,16.9) %>
-                <% "Atleta" %>
+                <%= "Atleta" %>
               <% end %>
               <% if g0.between?(17.0,19.9) %>
-                <% "* Fitness *" %>
+                <%= "* Fitness *" %>
               <% end %>
               <% if g0.between?(20.0,26.9) %>
-                <% "Aceptable" %>
+                <%= "Aceptable" %>
               <% end %>
               <% if g0.between?(27.0,29.9) %>
-                <% "Sobrepeso Moderado" %>
+                <%= "Sobrepeso Moderado" %>
               <% end %>
               <% if g0.between?(30.0,32.9) %>
-                <% "Sobrepeso En Riesgo" %>
+                <%= "Sobrepeso En Riesgo" %>
               <% end %>
               <% if g0.between?(33.0,35.9) %>
-                <% "Obeso" %>
+                <%= "Obeso" %>
               <% end %>
               <% if g0.between?(36.0,38.9) %>
-                <% "Obeso En Riesgo" %>
+                <%= "Obeso En Riesgo" %>
               <% end %>
               <% if g0 > 38.9 %>
-                <% "Obeso Morbido" %>
+                <%= "Obeso Morbido" %>
               <% end %>
             <% end %>
-          <%end%>
-          </b>
+          <%end%></b>
         <% end %>
         </div>
         <div class="modal-footer">
