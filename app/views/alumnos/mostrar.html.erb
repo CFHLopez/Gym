@@ -39,4 +39,60 @@
     </div>
   </div>
   <%= link_to "Volver", Alumno, class: "btn btn-primary" %>
+  <a href="#Pagos" class="btn btn-success" data-toggle="modal">Pagos</a>
+  <div class="modal fade" id="Pagos">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title"><b>Pagos</b></h2>
+          <h3><%= "Fecha Actual: "%><%= Time.now.strftime("%d/%m/%Y")%></h3>
+          <div class="panel-body">
+            <!-- id del alumno/a actual -->
+            <% idd = @alumnos.id %>
+            <!-- variable inicializada en 0 -->
+            <% suma = 0 %>
+            <table class="table">
+              <thead><tr>
+                <th>Fecha Pago</th>
+                <th>Monto</th>
+              </tr></thead>
+              <body>
+                <!-- llamamos a la tabla pagos -->
+                <% @pagos.each do |n| %>
+                  <!-- si el id corresponde al alumno/a actual muestra el pago hecho -->
+                  <% if idd == n.alumno_id %>
+                    <tr>
+                      <td><b><%= n.created_at.strftime("%d/%m/%Y") %></b></td>
+                      <td><b><%= n.monto %></b></td>
+                      <!-- sumamos el monto -->
+                      <% suma += n.monto.to_i %>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </body>
+            </table>
+            <% mesins = @alumnos.created_at.strftime("%m").to_i %>
+            <% mesact = Time.now.strftime("%m").to_i %>
+            <% meses = mesact - mesins + 1 %>
+            <% cplan = @alumnos.plan.precio.to_i %>
+            <% tplan = cplan * meses %>
+            <% saldo = suma - tplan %>
+            <h2 class="modal-title"><b>Saldo</b></h2>
+            <% if saldo < 0 %>
+              <big><b><%= "Alumno/a Con Deuda De: " %><%= saldo*-1 %><%= " Pesos"%></b></big>
+            <% end %>
+            <% if saldo == 0 %>
+              <big><b><%= "Alumno/a Al Dia" %></b></big>
+            <% end %>
+            <% if saldo > 0 %>
+              <big><b><%= "Alumno/a Con Saldo a Favor De: " %><%= saldo %><%= " Pesos"%></b></big>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

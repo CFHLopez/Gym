@@ -7,6 +7,7 @@ class AlumnosController < ApplicationController
   end
 
   def mostrar
+    @pagos = Pago.all
   end
 
   def nuevo

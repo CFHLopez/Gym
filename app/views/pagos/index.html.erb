@@ -103,7 +103,7 @@
     <tbody>
       <% @pagos.each do |actual| %>
         <tr>
-          <td><b><%= actual.alumno.nombre %></b></td>
+          <td><b><%= link_to(actual.alumno.nombre, actual) %></b></td>
           <td><b><%= actual.created_at.strftime("%d/%m/%Y") %></b></td>
           <td><b><%= actual.monto %></b></td>
           <td><%= link_to 'Editar', editar_pago_path(actual), class: "btn btn-info" %></td>
