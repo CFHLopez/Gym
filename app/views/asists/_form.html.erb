@@ -8,74 +8,53 @@
   <div class="container">
     <div class="form-group">
     <big><b>
-
       <div class="panel-body">
         <label>Clase:</label></b>
         <i><%= f.collection_select :clase_id, Clase.order("Nombre"), :id, :nombre, include_blank: true %></i>
       </div><b>
-      <% suma = 0 %>
-      <% @alumnos.each do |a| %>
-        <% suma = suma + 1 %>
-      <% end %>
       <div class="panel-body">
-        <label> Cant. Alumnos/as</label></b>
-        <%= f.text_field :cantidad, placeholder: "Ingrese Numero" %>
+        <div class="panel-body">
+          <div class="panel-body">
+            <label> Alumnos/as: </label></b>
+            <% @alumnos.each do |alumno| %>
+              <div class="field">
+                <%= check_box_tag "Alumnos[]", alumno.id %><%= alumno.nombre %>
+              </div>
+            <% end %>
+            <input type="checkbox" id="cantidad" value="1000"><%= "Otros"%>
+          </div></big>
+        </div>
       </div>
-<div class="panel-body">
-  <div class="panel-body">
-      Indica la cantidad que puedes seleccinar: <input type="text" id="cantidad" value="0">
-    <div class="panel-body">
-        <label>Alumnos/as:</label></b>
-        <% @alumnos.each do |alumno| %>
-          <div class="field">
-            <%= check_box_tag "Alumnos[]", alumno.id %><%= alumno.nombre %>
-          </div>
-        <% end %>
-      </div></big>
-    <div>Seleccionados: <span id="seleccionados">0</span></div>
-  </form>
-</body>
-</html>
- 
-<script>
-$(document).ready(function(){
- 
-  // Evento que se ejecuta al soltar una tecla en el input
-  $("#cantidad").keydown(function(){
-    $("input[type=checkbox]").prop('checked', false);
-    $("#seleccionados").html("0");
-  });
- 
-  // Evento que se ejecuta al pulsar en un checkbox
-  $("input[type=checkbox]").change(function(){
- 
-    // Cogemos el elemento actual
-    var elemento=this;
-    var contador=0;
- 
-    // Recorremos todos los checkbox para contar los que estan seleccionados
-    $("input[type=checkbox]").each(function(){
-      if($(this).is(":checked"))
-        contador++;
-    });
- 
-    var cantidadMaxima=parseInt($("#cantidad").val()) || 0;
- 
-    // Comprovamos si supera la cantidad máxima indicada
-    if(contador>cantidadMaxima)
-    {
-      alert("Has seleccionado mas checkbox que los indicados");
- 
-      // Desmarcamos el ultimo elemento
-      $(elemento).prop('checked', false);
-      contador--;
-    }
- 
-    $("#seleccionados").html(contador);
-  });
-});
-
-</script>
+      <div>Cantidad: <span id="select">0</span></div> 
+      <script>
+        $(document).ready(function(){
+          // Evento que se ejecuta al soltar una tecla en el input
+          $("#cantidad").keydown(function(){
+            $("input[type=checkbox]").prop('checked', false);
+            $("#select").html("0");
+          });
+          // Evento que se ejecuta al pulsar en un checkbox
+          $("input[type=checkbox]").change(function(){
+            // Cogemos el elemento actual
+            var elem = this;
+            var cont = 0;
+            // Recorremos todos los checkbox para contar los que estan seleccionados
+            $("input[type=checkbox]").each(function(){
+            if($(this).is(":checked"))
+              cont ++;
+            });
+            var cantMax = parseInt($("#cantidad").val()) || 0;
+            // Comprovamos si supera la cantidad máxima indicada
+            if(cont > cantMax){
+              alert("Has seleccionado mas checkbox que los indicados");
+              // Desmarcamos el ultimo elemento
+              $(elem).prop('checked', false);
+              cont --;
+            }
+            $("#select").html(cont);
+          });
+        });
+      </script>
     </div>
     <%= f.submit value="Guardar", class: "btn btn-success"%>
     <input type="reset" class="btn btn-default" value="Limpiar">

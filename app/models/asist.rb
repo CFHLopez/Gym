@@ -4,7 +4,7 @@ class Asist < ActiveRecord::Base
 	has_many :has_asists
 	has_many :alumnos, through: :has_asists
 
-	validates :cantidad, presence: true, numericality: true
+	#validates :cantidad, presence: true, numericality: true
 	validates :clase_id, presence: true
 	#valida una inscripcion de clase x dia
 	validates :created_at, uniqueness: { scope: [:clase_id] }

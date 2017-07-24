@@ -19,6 +19,7 @@ class AsistsController < ApplicationController
 
   def crear
     @asists = Asist.create(asist_params)
+    @alumnos = Alumno.all
     #@asists.alumnos = params[:alumnos]
     respond_to do |format|
       if @asists.save
