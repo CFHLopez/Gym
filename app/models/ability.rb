@@ -5,9 +5,9 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
     user ||= User.new # guest user (not logged in)
-       if user.role == "Administrador"
+       if user.role == "administrador"
           can :manage, :all
-       elsif user.role == "Profesor"
+       elsif user.role == "profesor"
         alias_action :nuevo, :mostrar, :update, :index, :to => :cru
         can :cru, Pago
         can :cru, Asist   

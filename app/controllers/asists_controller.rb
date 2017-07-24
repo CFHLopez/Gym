@@ -42,7 +42,7 @@ class AsistsController < ApplicationController
   def eliminar
     @asists.destroy
     respond_to do |format|
-      format.html{redirect_to asist_url, notice:'Asistencia Eliminada'}
+      format.html{redirect_to asists_url, notice:'Asistencia Eliminada'}
     end
   end
 
