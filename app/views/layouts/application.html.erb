@@ -23,16 +23,18 @@
           <% if user_signed_in? %>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                <li><a #href="/users">Usuarios</a></li>
+                
                 <li><a href="/alumnos">Alumnos/as</a></li>
-                <li><a href="/fichas">Fichas</a></li>
-                 <% if current_user.role == 'Administrador'%>
-                <li><a href="/planes">Planes</a></li>
-                <li><a href="/register">Crear cuenta</a></li>
-                <% end %>
                 <li><a href="/clases">Clases</a></li>
                 <li><a href="/asistencias">Asistencias</a></li>
                 <li><a href="/pagos">Pagos</a></li>
+                 <% if current_user.role == 'Administrador'%>
+                <li><a href="/planes">Planes</a></li>
+                <li><a href="/fichas">Fichas</a></li>
+                 <li><a href="/usuario/index">Usuarios</a></li>
+                <li><a href="/register">Crear cuenta</a></li>
+                <% end %>
+                
               </ul>
           <%end%>
               <ul class="nav navbar-nav navbar-right">
@@ -42,7 +44,7 @@
                     <%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'navbar-link' %> |
                     <%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %><span class="glyphicon glyphicon-log-in"></span>
                   <%else%>
-                    <%= link_to "Crear Cuenta", new_user_registration_path, :class => 'navbar-link'  %> |
+                   
                    <%= link_to "Iniciar Sesión", new_user_session_path, :class => 'navbar-link'  %><span class="glyphicon glyphicon-user"></span>
                   <%end%>
                 </p>

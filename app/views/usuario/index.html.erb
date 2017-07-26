@@ -1,0 +1,29 @@
+<div class="container">
+  <h1><b><%= "Usuarios" %></b></h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Rut</th>
+        <th>Edad</th>
+        <th>Sexo</th>
+        <th>Rol</th>
+        <th>Email</th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <% @users.each do |actual| %>
+        <tr>
+          <td><b><%= actual.nombre %></b></td>
+          <td><b><%= actual.rut %></b></td>
+          <td><b><%= actual.edad %></b></td>
+          <td><b><%= actual.sexo %></b></td>
+          <td><b><%= actual.role %></b></td>
+          <td><b><%= actual.email %></b></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table><br><br>
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+</div>
