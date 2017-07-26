@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'usuario/index'
+  get 'users/index'
+
+  get 'user/index'
 
   get 'info/index'
 
