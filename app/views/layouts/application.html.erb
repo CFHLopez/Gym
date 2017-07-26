@@ -23,16 +23,15 @@
           <% if user_signed_in? %>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                
                 <li><a href="/alumnos">Alumnos/as</a></li>
-                <li><a href="/clases">Clases</a></li>
                 <li><a href="/asistencias">Asistencias</a></li>
                 <li><a href="/pagos">Pagos</a></li>
-                 <% if current_user.role == 'Administrador'%>
-                <li><a href="/planes">Planes</a></li>
-                <li><a href="/fichas">Fichas</a></li>
-                 <li><a href="/usuario/index">Usuarios</a></li>
-                <li><a href="/register">Crear cuenta</a></li>
+                <% if current_user.role == 'Administrador'%>
+                  <li><a href="/clases">Clases</a></li>
+                  <li><a href="/planes">Planes</a></li>
+                  <li><a href="/fichas">Fichas</a></li>
+                  <li><a href="/usuario/index">Usuarios</a></li>
+                  <li><a href="/register">Crear cuenta</a></li>
                 <% end %>
                 
               </ul>
