@@ -25,7 +25,7 @@
           </div></big>
         </div>
       </div>
-      <div>Cantidad: <span id="select">0</span></div> 
+      <b><div>Cantidad: <span id="select">0</span></div> 
       <script>
         $(document).ready(function(){
           // Evento que se ejecuta al soltar una tecla en el input
@@ -55,6 +55,10 @@
           });
         });
       </script>
+      <div class="panel-body">
+        <%= "Ingrese Cantidad de Alumnos/as: " %></b>
+        <i><%= f.text_field :cantidad, placeholder: "Ej: 5" %></i>
+      </div>
     </div>
     <%= f.submit value="Guardar", class: "btn btn-success"%>
     <input type="reset" class="btn btn-default" value="Limpiar">

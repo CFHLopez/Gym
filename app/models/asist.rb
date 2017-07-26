@@ -8,6 +8,8 @@ class Asist < ActiveRecord::Base
 	validates :clase_id, presence: true
 	#valida una inscripcion de clase x dia
 	validates :created_at, uniqueness: { scope: [:clase_id] }
+	#validar cantidad de alumnos
+	validates :cantidad, presence: true, numericality: {greater_than: 0, less_than: 50}
 
 	#after_create :save_alumnos
 	

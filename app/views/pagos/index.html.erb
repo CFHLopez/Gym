@@ -109,7 +109,7 @@
           <td><b><%= actual.created_at.strftime("%d/%m/%Y") %></b></td>
           <td><b><%= actual.monto %></b></td>
           <td><%= link_to 'Editar', editar_pago_path(actual), class: "btn btn-info" %></td>
-          <% if can? :eliminar, Pago %>
+          <% if current_user.role == 'Administrador'%>
             <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger" %></td>
           <% end %>
         </tr>

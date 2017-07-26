@@ -29,9 +29,7 @@
           <td><b><%= link_to(actual.alumno.nombre, actual) %></b></td>
           <td><b><%= actual.created_at.strftime("%d")%></b></td>
           <td><%= link_to 'Editar', editar_ficha_path(actual), class: "btn btn-info"%></td>
-          <% if can? :eliminar, Ficha %>
-            <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
-          <% end %>
+          <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
         </tr>
       <%end%>
     </tbody>

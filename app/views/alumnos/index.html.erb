@@ -25,7 +25,7 @@
       <tr>
         <th>Nombre Alumno/a</th>
         <th>Plan</th>
-        <th>Fecha</th>
+        <th>Fecha De Pago</th>
       </tr>
     </thead>
     <tbody>
@@ -35,7 +35,7 @@
           <td><b><%= actual.plan.nombre %></b></td>
           <td><b><%= actual.created_at.strftime("%d")%></b></td>
           <td><%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info"%></td>
-          <% if current_user.role == 'administrador'%>
+          <% if current_user.role == 'Administrador'%>
             <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
           <% end %>
         </tr>
