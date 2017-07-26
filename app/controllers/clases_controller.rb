@@ -51,6 +51,6 @@ class ClasesController < ApplicationController
   end
 
   def clase_params
-    params.require(:clase).permit(:nombre,:user_id,:desc)
+    params.require(:clase).permit(:nombre,:desc)
   end
 end

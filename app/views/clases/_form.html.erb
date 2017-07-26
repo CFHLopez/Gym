@@ -13,10 +13,6 @@
         <i><%= f.text_field :nombre, placeholder: "Nombre Completo" %></i><br>
       </div><b>
       <div class="panel-body">
-        <label class="control-label col-xs-3">Profesor/es:</label></b>
-        <i><%= f.collection_select :user_id, User.order("Nombre"), :id, :nombre, include_blank: true %></i><br>
-      </div><b>
-      <div class="panel-body">
         <label class="control-label col-xs-3">Descripción:</label></b>
         <i><%= f.text_area :desc, size: "30x6", placeholder: "Descripción" %></i><br>
       </div>

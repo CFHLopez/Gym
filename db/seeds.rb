@@ -9,7 +9,7 @@
 users = User.new
 users.email = 'funcionalitychris@gmail.com'
 users.encrypted_password = '12345678'
-reset_password_token = '12345678'
+users.reset_password_token = '12345678'
 users.password = '12345678'
 users.password_confirmation = '12345678'
 users.role = 'Administrador'
