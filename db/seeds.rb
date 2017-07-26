@@ -18,4 +18,4 @@ users.edad = '27'
 users.sexo = 'Masculino'
 users.rut = '17386250-4'
 users.observacion = 'Estudiante Ing. Software'
-users.save!
+users.save
