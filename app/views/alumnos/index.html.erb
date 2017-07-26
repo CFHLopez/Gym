@@ -3,7 +3,8 @@
   <% @alumnos.each do |a| %>
     <% suma = suma + 1 %>
   <% end %>
-  <h1><b><%= "Alumnos/as  Cantidad: " %><%= suma %></b></h1>
+  <h1><b><%= "Alumnos/as" %></h1>
+  <h3><%= "Cantidad: " %><%= suma %></h3></b><br>
   <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'Nuevo/a Alumno/a',nuevo_alumno_path %></span>
   <!-- boton buscar aun no configurado
   <a href="#Buscar" class="btn btn-default btn-lg" data-toggle="modal">Buscar</a>
