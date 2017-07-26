@@ -1,7 +1,8 @@
 class Alumno < ActiveRecord::Base
 	belongs_to :plan
 	has_many :clases
-	has_many :pagos
+	has_many :pagos ,dependent: :delete_all
+	has_many :fichas ,dependent: :delete_all
 
 	has_many :has_asists
 	has_many :asists, through: :has_asists
