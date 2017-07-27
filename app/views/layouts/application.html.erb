@@ -40,12 +40,9 @@
                 <p class="navbar-text pull-right">
                   <% if user_signed_in? %>
                     Conectado como <strong><%= current_user.email %></strong>.
-                     <% if current_user.role == 'Administrador'%>
                     <%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'navbar-link' %> |
-                    <%end%>
                     <%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %><span class="glyphicon glyphicon-log-in"></span>
                   <%else%>
-                   
                    <%= link_to "Iniciar Sesión", new_user_session_path, :class => 'navbar-link'  %><span class="glyphicon glyphicon-user"></span>
                   <%end%>
                 </p>

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'users/', to: 'users#index', as: 'users'
   get 'users/nuevo', to: 'users#nuevo', as: 'nuevo_user'
   get 'users/:id', to: 'users#mostrar', as: 'user'
-  get 'users/:id/editar', to: 'users#editar', as: 'editar_user'
+  get 'users/:id/editar', to: 'users#update', as: 'editar_user'
 
   put 'users/:id', to: 'users#update'
   patch 'users/:id', to: 'users#update'
