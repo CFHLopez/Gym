@@ -2,7 +2,7 @@ class Asist < ActiveRecord::Base
 	belongs_to :clase
 
 	has_many :has_asists
-	has_many :alumnos, through: :has_asists
+	has_many :alumnos, through: :has_asists,dependent: :delete_all
 
 	#validates :cantidad, presence: true, numericality: true
 	validates :clase_id, presence: true

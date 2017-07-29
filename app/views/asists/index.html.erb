@@ -30,6 +30,7 @@
         <td><b><%= actual.created_at.strftime("%d - %m - %Y") %></b></td>
         <td><b><%= actual.clase.nombre %></b></td>
         <td><b><%= actual.cantidad %></b></td>
+      
         <td> <%= link_to 'Editar', editar_asist_path(actual), class: "btn btn-info"%></td>
         <% if current_user.role == 'Administrador'%>
         <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>

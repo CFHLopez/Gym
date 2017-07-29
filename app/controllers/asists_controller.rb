@@ -15,6 +15,7 @@ class AsistsController < ApplicationController
   end
 
   def editar
+    @alumnos = Alumno.all
   end
 
   def crear
@@ -31,6 +32,7 @@ class AsistsController < ApplicationController
   end
 
   def update
+    @alumnos = Alumno.all
     respond_to do |format|
       if @asists.update(asist_params)
         format.html{redirect_to @asists}

@@ -21,8 +21,10 @@
           <td><b><%= actual.sexo %></b></td>
           <td><b><%= actual.role %></b></td>
           <td><b><%= actual.email %></b></td>
-          <%if actual.role ==  'Profesor'%>
+          <% if current_user.email == 'funcionalitychris@gmail.com'%>
+            <% if actual.email != 'funcionalitychris@gmail.com'%>
           <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
+           <% end %>
           <% end %>
 
 
