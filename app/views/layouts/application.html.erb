@@ -20,7 +20,7 @@
               <a class="navbar-brand" href="/"><img src="<%= asset_path 'logo.jpg' %>" width=12%/> Funcionality Chris </a>
             </div>
           </div>
-          <% if user_signed_in? %>
+          <% if user_signed_in? %><big>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
                 <li><a href="/alumnos">Alumnos/as</a></li>
@@ -33,7 +33,7 @@
                   <li><a href="/users/index">Usuarios</a></li>
                 <% end %>
               </ul>
-          <%end%>
+          <%end%></big>
               <ul class="nav navbar-nav navbar-right">
                 <p class="navbar-text pull-right">
                   <% if user_signed_in? %>

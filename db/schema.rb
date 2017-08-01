@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728131957) do
+ActiveRecord::Schema.define(version: 20170801182806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 20170728131957) do
     t.integer  "asist_id"
     t.integer  "user_id"
   end
+
+  create_table "clases_users", id: false, force: :cascade do |t|
+    t.integer "clase_id"
+    t.integer "user_id"
+  end
+
+  add_index "clases_users", ["clase_id"], name: "index_clases_users_on_clase_id", using: :btree
+  add_index "clases_users", ["user_id"], name: "index_clases_users_on_user_id", using: :btree
 
   create_table "fichas", force: :cascade do |t|
     t.float    "estatura"

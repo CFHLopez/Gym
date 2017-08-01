@@ -1,5 +1,5 @@
 class Clase < ActiveRecord::Base
-	belongs_to :user
+	has_many :users
 
 	#al borrar una clase, borra todas las asistencias de esa clase
 	has_many :asists, dependent: :delete_all
