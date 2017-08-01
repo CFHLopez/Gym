@@ -1,27 +1,42 @@
-<%= form_for(@alumnos, :html =>{:role => 'form'}) do |f| %>
-  <% if @alumnos.errors.any? %>
-    <%= pluralize(@alumnos.errors.count, "Error")%>
-    <% @alumnos.errors.full_messages.each do |actual| %>
-        <%= actual %>
-    <% end %>
-  <% end %>
-  <div class="container">
-    <div class="form-group"><big><b>
+<%= form_for(@alumnos, :html =>{:class => 'panel-body'}) do |f| %>
+  <div class="container"><big>
+    <div class="panel-body">
+      <% if @alumnos.errors.any? %>
+        <div class="alert fade in alert-error">
+          <% if @alumnos.errors.count == 1 %>
+            <h2><%= pluralize(@alumnos.errors.count, "Error")%><%= " impide realizar esta acción: "%></h2>
+            <ul>
+              <% @alumnos.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <h2><%= pluralize(@alumnos.errors.count, "Errore")%><%= " impiden realizar esta acción: "%></h2>
+            <ul>
+              <% @alumnos.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="form-group"><b>
       <div class="panel-body">
         <label class="control-label col-xs-3">Nombre:</label></b>
-        <i><%= f.text_field :nombre, placeholder: "Nombre Completo"%></i><br>
+        <i><%= f.text_field :nombre, placeholder: "Nombre Completo" %></i><br>
       </div><b>
       <div class="panel-body">
         <label class="control-label col-xs-3">Rut:</label></b> 
-        <i><%= f.text_field :rut, placeholder: "XXXXXXX-X"%></i><br>
+        <i><%= f.text_field :rut, placeholder: "XXXXXXX-X" %></i><br>
       </div><b>
       <div class="panel-body">
         <label class="control-label col-xs-3">Edad:</label></b>
-        <i><%= f.select :edad, [["15"],["16"],["17"],["18"],["19"],["20"],["21"],["22"],["23"],["24"],["25"],["26"],["27"],["28"],["29"],["30"],["31"],["32"],["33"],["34"],["35"],["36"],["37"],["38"],["39"],["40"],["41"],["42"],["43"],["44"],["45"],["46"],["47"],["48"],["49"],["50"],["51"],["52"],["53"],["54"],["55"],["56"],["57"],["58"],["59"],["60"],["61"],["62"],["63"],["64"],["65"],["66"],["67"],["68"],["69"],["70"]]%></i><br>
+        <i><%= f.text_field :edad, placeholder: "Ejemplo: 15" %></i><br>
       </div>
       <div class="panel-body">
         <label class="control-label col-xs-3">Genero:</label></b>
-        <i><%= f.select :sexo, [["Masculino"], ["Femenino"]]%></i><br>
+        <i><%= f.select :sexo, [["Masculino"], ["Femenino"]] %></i><br>
       </div><b>
       <div class="panel-body">
         <label class="control-label col-xs-3">Plan:</label></b>
@@ -29,13 +44,13 @@
       </div>
       <div class="panel-body">
         <label class="control-label col-xs-3">¿Complicación Medica?:</label></b>
-        <i><%= f.text_area :desc, size: "30x6", placeholder: "En caso de tener algun problema"%></i><br>
+        <i><%= f.text_area :desc, size: "30x6", placeholder: "En caso de tener algun problema" %></i><br>
       </div>
       </big>
     </div>
-    <%= f.submit value="Agregar", class: "btn btn-success"%>
+    <%= f.submit value="Guardar", class: "btn btn-success" %>
     <input type="reset" class="btn btn-default" value="Limpiar">
-    <%= link_to "Volver", Alumno, class: "btn btn-primary"%>
+    <%= link_to "Volver", Alumno, class: "btn btn-primary" %>
   </div>
   <br><br>
 <% end %>

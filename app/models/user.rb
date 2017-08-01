@@ -1,17 +1,31 @@
 class User < ActiveRecord::Base
 	#un usuario muchas clases
 	#attr_accessible :nombre, :clase_id
-	has_many :usersclases
-	has_many :clases, through: :usersclases
-
+	has_many :clases
 	has_many :plans
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-	validates :nombre, presence: true, length: { minimum: 2 }
+
+  	attr_accessible :email, :password, :password_confirmation,:nombre,:rut,:edad,:role,:sexo, :observacion
+
+  	#validando nombre
+	validates :nombre, length: { minimum: 2, :message => 'minimo 2 caracteres' }
+	validates :nombre, presence: true,:presence => {:message => "no puede estar vacio"}
+
+	#validar sexo
 	validates :sexo, presence: true
-	validates :rut, rut: true, presence: true, uniqueness: true
-	validates :edad, numericality: true, presence: true
-	attr_accessible :email, :password, :password_confirmation,:nombre,:rut,:edad,:role,:sexo,:desc, :observacion
+
+	#validando rut
+	validates :rut, rut: true, :rut => {:message => "no valido"}
+	validates :rut, presence: true, :presence => {:message => "no puede estar vacio"}
+	validates :rut, uniqueness: true, :uniqueness => {:message => "ya esta ocupado"}
+
+	#validando edad
+	validates :edad, numericality: {greater_than: 13, less_than: 71, :message => 'no puede ser menor a 14 ni mayor a 70'}
+	validates :edad, presence: true, :presence => {:message => "no puede estar vacio"}
+
+	#validando observacion
+	validates :observacion, length: { maximum: 500, :message => 'maximo 500 caracteres' }
+
+	#validar devise
   	devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 end
 

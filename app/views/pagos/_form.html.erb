@@ -1,11 +1,26 @@
-<%= form_for(@pagos, :html =>{:role => 'form'}) do |f| %>
-  <% if @pagos.errors.any? %>
-    <%= pluralize(@pagos.errors.count, "Error")%>
-    <% @pagos.errors.full_messages.each do |actual| %>
-      <%= actual %>
-    <%end%>
-  <%end%>
-  <div class="container">
+<%= form_for(@pagos, :html =>{:class => 'panel-body'}) do |f| %>
+  <div class="container"><big>
+    <div class="panel-body">
+      <% if @pagos.errors.any? %>
+        <div class="alert fade in alert-error">
+          <% if @pagos.errors.count == 1 %>
+            <h2><%= pluralize(@pagos.errors.count, "Error")%><%= " impide realizar esta acción: "%></h2>
+            <ul>
+              <% @pagos.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <h2><%= pluralize(@pagos.errors.count, "Errore")%><%= " impiden realizar esta acción: "%></h2>
+            <ul>
+              <% @pagos.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
     <div class="form-group">
       <big><b>
         <div class="panel-body">
@@ -14,9 +29,9 @@
         </div><b>
         <div class="panel-body">
           <label class="control-label col-xs-3">Monto:</label></b>
-          <i><%= f.select :monto, [["1000"],["2000"],["3000"],["4000"],["5000"],["6000"],["7000"],["8000"],["9000"],["10000"],["11000"],["12000"],["13000"],["14000"],["15000"],["16000"],["17000"],["18000"],["19000"],["20000"],["21000"],["22000"],["23000"],["24000"],["25000"],["26000"],["27000"],["28000"],["29000"],["30000"],["31000"],["32000"],["33000"],["34000"],["35000"]]%></i><br>
+          <i><%= f.text_field :monto, placeholder: "Ejemplo: 1000" %></i><br>
         </div>
-        <%= f.submit value="Agregar", class: "btn btn-success"%>
+        <%= f.submit value="Guardar", class: "btn btn-success"%>
         <input type="reset" class="btn btn-default" value="Limpiar">
         <%= link_to "Volver", Pago, class: "btn btn-primary"%>
       </big>  

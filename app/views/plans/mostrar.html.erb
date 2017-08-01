@@ -2,20 +2,19 @@
   <div class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading">
-  		<h1><b><%= @plans.nombre %></b></h1>
+  		  <h1><b><%= @plans.nombre %></b></h1>
       </div>
       <big><b>
-      <div class="panel-body">
-      	Precio: 
-      	<%= @plans.precio %>
-      </div>
-      <div class="panel-body">
-        Descripción: 
-        <%= @plans.desc %>
-      </div>
+        <div class="panel-body">
+      	  <%= "Precio: " %> 
+      	  <%= @plans.precio %>
+        </div>
+        <div class="panel-body">
+          <b><%= "Descripción: " %></b> 
+          <%= @plans.desc %>
+        </div>
       </b></big>
     </div>
   </div>
+  <%= link_to "Volver", Plan, class: "btn btn-primary" %>
 </div>
-
-<%= link_to "REGRESAR", Plan, class: "btn btn-primary" %>

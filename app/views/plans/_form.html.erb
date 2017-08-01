@@ -1,28 +1,42 @@
-<%= form_for(@plans, :html =>{:role => 'form'}) do |f| %>
-  <% if @plans.errors.any? %>
-    <%= pluralize(@plans.errors.count, "Error")%>
-    <% @plans.errors.full_messages.each do |actual| %>
-      <%= actual %>
-    <% end %>
-  <% end %>
-  <div class="container">
+<%= form_for(@plans, :html =>{:class => 'panel-body'}) do |f| %>
+  <div class="container"><big>
+    <div class="panel-body">
+      <% if @plans.errors.any? %>
+        <div class="alert fade in alert-error">
+          <% if @plans.errors.count == 1 %>
+            <h2><%= pluralize(@plans.errors.count, "Error")%><%= " impide realizar esta acción: "%></h2>
+            <ul>
+              <% @plans.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <h2><%= pluralize(@plans.errors.count, "Errore")%><%= " impiden realizar esta acción: "%></h2>
+            <ul>
+              <% @plans.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
     <div class="form-group">
-    <big><b>
       <div class="panel-body">
-        <label class="control-label col-xs-3">Nombre:</label></b> 
-        <i><%= f.text_field :nombre, placeholder: "Nombre del Plan"%></i><br>
-      </div><b>
-      <div class="panel-body">
-        <label class="control-label col-xs-3">Precio:</label></b>
-        <i><%= f.select :precio, [["1000"],["2000"],["3000"],["4000"],["5000"],["6000"],["7000"],["8000"],["9000"],["10000"],["11000"],["12000"],["13000"],["14000"],["15000"],["16000"],["17000"],["18000"],["19000"],["20000"],["21000"],["22000"],["23000"],["24000"],["25000"],["26000"],["27000"],["28000"],["29000"],["30000"],["31000"],["32000"],["33000"],["34000"],["35000"],]%></i><br>
+        <label class="control-label col-xs-2"><b><%= "Nombre: " %></b></label> 
+        <i><%= f.text_field :nombre, placeholder: "Nombre del Plan" %></i>
       </div>
       <div class="panel-body">
-        <label class="control-label col-xs-3">Descripción:</label></b>
-        <i><%= f.text_area :desc, size: "30x6", placeholder: "Descripción"%></i><br>
+        <label class="control-label col-xs-2"><b><%= "Precio: " %></b></label>
+        <i><%= f.text_field :precio, placeholder: "Ejemplo: 1000" %></i>
       </div>
-      <%= f.submit value="Agregar", class: "btn btn-success"%>
-      <input type="reset" class="btn btn-default" value="Limpiar">
-      <%= link_to "Volver", Plan, class: "btn btn-primary"%>
-    </big>
+      <div class="panel-body">
+        <label class="control-label col-xs-2"><b><%= "Descripción: " %></b></label>
+        <i><%= f.text_area :desc, size: "30x6", placeholder: "Descripción" %></i>
+      </div><big>
+    </div>
+    <%= f.submit value="Agregar", class: "btn btn-success"%>
+    <input type="reset" class="btn btn-default" value="Limpiar">
+    <%= link_to "Volver", Plan, class: "btn btn-primary"%><br><br>
   </div>
 <% end %>

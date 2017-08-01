@@ -31,16 +31,14 @@
                   <li><a href="/planes">Planes</a></li>
                   <li><a href="/fichas">Fichas</a></li>
                   <li><a href="/users/index">Usuarios</a></li>
-                  <li><a href="/register">Crear cuenta</a></li>
                 <% end %>
-                
               </ul>
           <%end%>
               <ul class="nav navbar-nav navbar-right">
                 <p class="navbar-text pull-right">
                   <% if user_signed_in? %>
                     Conectado como <strong><%= current_user.email %></strong>.
-                    <%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'navbar-link' %> |
+                    <%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'navbar-link' %>
                     <%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %><span class="glyphicon glyphicon-log-in"></span>
                   <%else%>
                    <%= link_to "Iniciar Sesión", new_user_session_path, :class => 'navbar-link'  %><span class="glyphicon glyphicon-user"></span>

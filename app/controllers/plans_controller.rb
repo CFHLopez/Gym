@@ -4,6 +4,7 @@ class PlansController < ApplicationController
 
   def index
     @plans = Plan.paginate(:page => params[:page], :per_page => 5)
+    @alumnos = Alumno.all
   end
 
   def mostrar
@@ -20,7 +21,7 @@ class PlansController < ApplicationController
     @plans = Plan.create(plans_params)
     respond_to do |format|
       if @plans.save
-        format.html{redirect_to @plans, notice:'PLAN CREADO'}
+        format.html{redirect_to @plans, notice:'Plan Creado'}
       else
         format.html{render :nuevo}
       end
@@ -40,7 +41,7 @@ class PlansController < ApplicationController
   def eliminar
     @plans.destroy
     respond_to do |format|
-      format.html{redirect_to plans_url, notice:'PLAN ELIMINADO'}
+      format.html{redirect_to plans_url, notice:'Plan Eliminado'}
     end
   end
 

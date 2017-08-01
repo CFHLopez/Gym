@@ -1,11 +1,26 @@
-<%= form_for(@fichas, :html =>{:role => 'form'}) do |f| %>
-  <% if @fichas.errors.any? %>
-    <%= pluralize(@fichas.errors.count, "Error")%>
-    <% @fichas.errors.full_messages.each do |actual| %>
-        <%= actual %>
-    <% end %>
-  <% end %>
-  <div class="container">
+<%= form_for(@fichas, :html =>{:class => 'panel-body'}) do |f| %>
+  <div class="container"><big>
+    <div class="panel-body">
+      <% if @fichas.errors.any? %>
+        <div class="alert fade in alert-error">
+          <% if @fichas.errors.count == 1 %>
+            <h2><%= pluralize(@fichas.errors.count, "Error")%><%= " impide realizar esta acción: "%></h2>
+            <ul>
+              <% @fichas.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <h2><%= pluralize(@fichas.errors.count, "Errore")%><%= " impiden realizar esta acción: "%></h2>
+            <ul>
+              <% @fichas.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
     <div class="form-group">
       <big><b>
       <h3>Datos</h3>

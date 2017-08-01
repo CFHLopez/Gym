@@ -2,12 +2,17 @@ class Ficha < ActiveRecord::Base
 	belongs_to :alumno
 
 	#campos obligatorios en la ficha
-	validates :alumno_id, presence: true
-	#con float
-	# altura minima 1 metro y maxima 3
-	validates :estatura, presence: true, numericality: {greater_than: 1.0, less_than: 3.0} 
-	# peso minimo 40 kg y maximo 200 kg
-	validates :peso, presence: true, numericality: {greater_than: 40.0, less_than: 200}  
+
+	#validar alumno_id
+	validates :alumno_id, presence: true,:presence => {:message => "no puede estar vacio"}
+
+	#validar altura (float) altura minima 1 metro y maxima 3
+	validates :estatura, presence: true,:presence => {:message => "no puede estar vacio"}
+	validates :estatura, numericality: {greater_than: 0.9, less_than: 3.1, :message => 'no puede ser menor a 1.0 ni mayor a 3.0 metros'} 
+	
+	#validar peso (float) minimo 40 kg y maximo 200 kg
+	validates :peso, presence: true,:presence => {:message => "no puede estar vacio"}
+	validates :peso, numericality: {greater_than: 29.9, less_than: 200.1, :message => 'no puede ser menor a 30.0 ni mayor a 200.0 kilos'}  
 
 	#validaciones (no son obligatorios estos campos)
 	#depente el criterio del profesor

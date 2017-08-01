@@ -1,65 +1,77 @@
-<%= form_for(@users, :html =>{:role => 'form'}) do |f| %>
-  <% if @users.errors.any? %>
-    <%= pluralize(@users.errors.count, "Error")%>
-    <% @users.errors.full_messages.each do |actual| %>
-        <%= actual %>
-    <% end %>
-    <% end %>
-
-  <div class="row">
-    <div class="container">
-      <h2><b>Editar Sesión</b></h2>
-      <div class="col-md-6">
-        <div class="panel-group">
-          <b><%= "Nombre" %></b><br>
-          <i><%= f.text_field :nombre, placeholder: "Nombre Completo" %></i>
+<%= form_for(@users, :html =>{:class => 'panel-body'}) do |f| %>
+  <div class="container"><big>
+    <div class="panel-body">
+      <% if @users.errors.any? %>
+        <div class="alert fade in alert-error">
+          <% if @users.errors.count == 1 %>
+            <h2><%= pluralize(@users.errors.count, "Error")%><%= " impide realizar esta acción: "%></h2>
+            <ul>
+              <% @users.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <h2><%= pluralize(@users.errors.count, "Errore")%><%= " impiden realizar esta acción: "%></h2>
+            <ul>
+              <% @users.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% end %>
         </div>
-        <div class="panel-group">
-          <b><%= "Rut" %></b><br>
-          <i><%= f.text_field :rut, placeholder: "XXXXXXX-X" %></i>
-        </div>
-        <div class="panel-group">
-          <b><%= "Edad" %></b>
-          <i><%= f.select :edad, [["18"],["19"],["20"],["21"],["22"],["23"],["24"],["25"],["26"],["27"],["28"],["29"],["30"],["31"],["32"],["33"],["34"],["35"],["36"],["37"],["38"],["39"],["40"],["41"],["42"],["43"],["44"],["45"],["46"],["47"],["48"],["49"],["50"],["51"],["52"],["53"],["54"],["55"],["56"],["57"],["58"],["59"],["60"],["61"],["62"],["63"],["64"],["65"],["66"],["67"],["68"],["69"],["70"]]%></i><b> Años</b><br>
-        </div>
-        <div class="panel-group">
-          <b><%= "Rol" %></b><br>
-          <i><%= f.select :role, [["Administrador"], ["Profesor"]]%></i>
-        </div>
-        <div class="panel-group">
-          <b><%= "Sexo" %></b><br>
-           <i><%= f.select :sexo, [["Masculino"], ["Femenino"]]%></i>
-        </div>
-        <div class="panel-group">
-          <b><%= "Email" %></b><br>
-          <i><%= f.email_field :email, autofocus: true %></i>
-        </div>
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>En Espera De Confirmacion De:
-            <%= resource.unconfirmed_email %>
-          </div>
-        <% end %>
-        <div class="panel-group">
-          <b><%= "Nueva Contraseña" %></b><i>(Dejar En Blanco Si No Desea Cambiarlo)<br>
-          <%= f.password_field :password, autocomplete: "off", placeholder: "********" %></i>
-        </div>
-        <div class="panel-group">
-          <b><%= "Confirmar Nueva Contraseña" %><br></b>
-          <i><%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "********" %></i>
-        </div>
-        <div class="panel-group">
-          <b><%= "Contraseña Actual"%></b><i>(Necesitamos Su Contraseña Actual Para Confirmar Sus Cambios)<br>
-          <%= f.password_field :current_password, autocomplete: "off", placeholder: "********"%></i>
-        </div>
-        <div class="panel-group">
-          <b><%= "Observacion" %><br></b>
-          <i><%= f.text_area :observacion, size: "30x2", placeholder: "Opcional" %></i>
-        </div>
-        <div class="actions">
-          <%= f.submit "Actualizar", class: "btn btn-success" %>
-          <%= link_to "Volver", "/", class: "btn btn-primary" %>
-        </div>
+      <% end %>
+    </div>
+    <h2><b><%= "Editar Perfil" %></b></h2>
+    <div class="col-md-6">
+      <div class="panel-group">
+        <b><%= "Nombre" %></b>
+        <i><%= f.text_field :nombre, placeholder: "Nombre Completo" %></i>
       </div>
-    </div>    
-  </div>
+      <div class="panel-group">
+        <b><%= "Rut" %></b><br>
+        <i><%= f.text_field :rut, placeholder: "XXXXXXX-X" %></i>
+      </div>
+      <div class="panel-group">
+        <b><%= "Edad" %></b>
+        <i><%= f.select :edad, [["18"],["19"],["20"],["21"],["22"],["23"],["24"],["25"],["26"],["27"],["28"],["29"],["30"],["31"],["32"],["33"],["34"],["35"],["36"],["37"],["38"],["39"],["40"],["41"],["42"],["43"],["44"],["45"],["46"],["47"],["48"],["49"],["50"],["51"],["52"],["53"],["54"],["55"],["56"],["57"],["58"],["59"],["60"],["61"],["62"],["63"],["64"],["65"],["66"],["67"],["68"],["69"],["70"]]%></i><b> Años</b><br>
+      </div>
+      <div class="panel-group">
+        <b><%= "Rol" %></b><br>
+        <i><%= f.select :role, [["Administrador"], ["Profesor"]]%></i>
+      </div>
+      <div class="panel-group">
+        <b><%= "Sexo" %></b><br>
+        <i><%= f.select :sexo, [["Masculino"], ["Femenino"]]%></i>
+      </div>
+      <div class="panel-group">
+        <b><%= "Email" %></b><br>
+        <i><%= f.email_field :email, autofocus: true %></i>
+      </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>En Espera De Confirmacion De:
+          <%= resource.unconfirmed_email %>
+        </div>
+      <% end %>
+      <div class="panel-group">
+        <b><%= "Nueva Contraseña" %></b><i>(Dejar En Blanco Si No Desea Cambiarlo)<br>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "********" %></i>
+      </div>
+      <div class="panel-group">
+        <b><%= "Confirmar Nueva Contraseña" %><br></b>
+        <i><%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "********" %></i>
+      </div>
+      <div class="panel-group">
+        <b><%= "Contraseña Actual"%></b><i>(Necesitamos Su Contraseña Actual Para Confirmar Sus Cambios)<br>
+        <%= f.password_field :current_password, autocomplete: "off", placeholder: "********"%></i>
+      </div>
+      <div class="panel-group">
+        <b><%= "Observacion" %><br></b>
+        <i><%= f.text_area :observacion, size: "30x2", placeholder: "Opcional" %></i>
+      </div>
+      <div class="actions">
+        <%= f.submit "Actualizar", class: "btn btn-success" %>
+        <%= link_to "Volver", "/", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>    
 <% end %>
