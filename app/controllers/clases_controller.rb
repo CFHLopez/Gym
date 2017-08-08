@@ -11,12 +11,14 @@ class ClasesController < ApplicationController
 
   def nuevo
     @clases = Clase.new
+    @users = User.all
   end
 
   def editar
   end
 
   def crear
+    @users = User.all
     @clases = Clase.create(clase_params)
     respond_to do |format|
       if @clases.save

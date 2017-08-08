@@ -4,12 +4,15 @@ class Asist < ActiveRecord::Base
 	has_many :has_asists
 	has_many :alumnos, through: :has_asists,dependent: :delete_all
 
-	#validates :cantidad, presence: true, numericality: true
-	validates :clase_id, presence: true
-	#valida una inscripcion de clase x dia
-	validates :created_at, uniqueness: { scope: [:clase_id] }
+	#validar clase
+	validates :clase_id, :presence => {:message => "no puede estar vacio"}
+
+	#validar fecha
+	#validates :fecha, :uniqueness => {:message => "ya esta ocupado"}
+	
 	#validar cantidad de alumnos
-	validates :cantidad, presence: true, numericality: {greater_than: 0, less_than: 50}
+	validates :cantidad, :presence => {:message => "no puede estar vacio"}
+	validates :cantidad, numericality: {greater_than: 0, less_than: 51, :message => 'no puede ser menor a 1 ni mayor a 50'}
 
 	#after_create :save_alumnos
 	

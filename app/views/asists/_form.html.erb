@@ -1,11 +1,26 @@
-<%= form_for(@asists, :html =>{:role => 'form'}) do |f| %>
-  <% if @asists.errors.any? %>
-      <%= pluralize(@asists.errors.count, "Error")%>
-      <% @asists.errors.full_messages.each do |actual| %>
-          <%= actual %>
+<%= form_for(@asists, :html =>{:class => 'panel-body'}) do |f| %>
+  <div class="container"><big>
+    <div class="panel-body">
+      <% if @asists.errors.any? %>
+        <div class="alert fade in alert-error">
+          <% if @asists.errors.count == 1 %>
+            <h2><%= pluralize(@asists.errors.count, "Error")%><%= " impide realizar esta acción: "%></h2>
+            <ul>
+              <% @asists.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <h2><%= pluralize(@asists.errors.count, "Errore")%><%= " impiden realizar esta acción: "%></h2>
+            <ul>
+              <% @asists.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
       <% end %>
-  <% end %>
-  <div class="container">
+    </div>
     <div class="form-group">
     <big><b>
       <div class="panel-body">
@@ -13,18 +28,14 @@
         <i><%= f.collection_select :clase_id, Clase.order("Nombre"), :id, :nombre, include_blank: true %></i>
       </div><b>
       <div class="panel-body">
-        <div class="panel-body">
-          <div class="panel-body">
-            <label> Alumnos/as: </label></b>
-            <% @alumnos.each do |alumno| %>
-              <div class="field">
-                <%= check_box_tag "Alumnos[]", alumno.id %><%= alumno.nombre %>
-              </div>
-            <% end %>
-            <input type="checkbox" id="cantidad" value="1000"><%= "Otros"%>
-          </div></big>
-        </div>
-      </div>
+        <label> Alumnos/as: </label></b>
+        <% @alumnos.each do |alumno| %>
+          <div class="field">
+            <%= check_box_tag "Alumnos[]", alumno.id %><%= alumno.nombre %>
+          </div>
+        <% end %>
+        <input type="checkbox" id="cantidad" value="1000"><%= "Otros"%>
+      </div></big>
       <b><div>Cantidad: <span id="select">0</span></div> 
       <script>
         $(document).ready(function(){

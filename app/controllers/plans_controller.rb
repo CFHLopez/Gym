@@ -12,12 +12,14 @@ class PlansController < ApplicationController
 
   def nuevo
     @plans = Plan.new
+    @clases = Clase.all
   end
 
   def editar
   end
 
   def crear
+    @clases = Clase.all
     @plans = Plan.create(plans_params)
     respond_to do |format|
       if @plans.save

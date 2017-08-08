@@ -8,7 +8,7 @@ class Alumno < ActiveRecord::Base
 
 	#validando nombre
 	validates :nombre, length: { minimum: 2, :message => 'minimo 2 caracteres' }
-	validates :nombre, presence: true,:presence => {:message => "no puede estar vacio"}
+	validates :nombre, :presence => {:message => "no puede estar vacio"}
 
 	#validando sexo
 	validates :sexo, presence: true, :presence => {:message => "no puede estar vacio"}

@@ -1,9 +1,9 @@
 <div class="container">
   <h1><b><%= "Usuarios" %></b></h1>
-  <h4><%= "Instrucciones:" %></h4>
+  <h4><b><p class="text-info"> Instrucciones: </p></b></h4>
   <h5>
-    <%= "1.- Para 'Borrar' un usuario, presionar sobre el boton 'Eliminar'" %><br>
-    <%= "2.- Para 'Crear' un nuevo usuario, presionar sobre el boton 'Nuevo Usuario'" %>
+    <b><p class="text-success"> 1.- Para 'Borrar' un usuario, presionar sobre el boton 'Borrar' </p></b>
+    <b><p class="text-success"> 2.- Para 'Crear' un nuevo usuario, presionar sobre el boton 'Nuevo Usuario' </p></b>
   </h5>
   <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'Nuevo Usuario',"/register" %></span>
   <table class="table">
@@ -16,7 +16,6 @@
         <th>Rol</th>
         <th>Email</th>
       </tr>
-
     </thead>
     <tbody>
       <% @users.each do |actual| %>
@@ -27,13 +26,11 @@
           <td><b><%= actual.sexo %></b></td>
           <td><b><%= actual.role %></b></td>
           <td><b><%= actual.email %></b></td>
-          <% if current_user.email == 'funcionalitychris@gmail.com'%>
-            <% if actual.email != 'funcionalitychris@gmail.com'%>
-          <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
+          <% if current_user.email == 'christian.lopez@alumnos.uda.cl'%>
+            <% if actual.email != 'christian.lopez@alumnos.uda.cl'%>
+              <td><%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
            <% end %>
           <% end %>
-
-
         </tr>
       <%end%>
     </tbody>

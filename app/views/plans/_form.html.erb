@@ -31,6 +31,12 @@
         <i><%= f.text_field :precio, placeholder: "Ejemplo: 1000" %></i>
       </div>
       <div class="panel-body">
+        <label class="control-label col-xs-2"><b><%= "Clase/s: " %></b></label>
+        <i><% @clases.each do |clase| %>
+          <%= check_box_tag "Clase[]", clase.id %><%= clase.nombre %></i>
+        <% end %>
+      </div>
+      <div class="panel-body">
         <label class="control-label col-xs-2"><b><%= "Descripción: " %></b></label>
         <i><%= f.text_area :desc, size: "30x6", placeholder: "Descripción" %></i>
       </div><big>

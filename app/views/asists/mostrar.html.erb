@@ -7,23 +7,12 @@
       <big><b>
       <div class="panel-body">
     	  Fecha:
-        <%= @asists.created_at.strftime("%d - %m - %Y") %>
+        <%= @asists.created_at.strftime("%d/%m/%Y") %>
       </div>
       <div class="panel-body">
         Cantidad De Alumnos/as: 
     	  <%= @asists.cantidad %>
       </div>
-      
-<!--
-      <div class="panel-body">
-        Alumnos:
-        <% @asists.alumnos.each do |alumno| %>
-          <div>
-            <b><%= link_to(alumno.nombre, alumno) %></b>
-          </div>
-        <% end %>
-      </div>
-      -->
       </b></big>
     </div>
   </div>
