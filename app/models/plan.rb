@@ -2,7 +2,7 @@ class Plan < ActiveRecord::Base
 	belongs_to :user
 
 	#validando nombre
-	validates :nombre, presence: true, :presence => {:message => "no puede estar vacio"} 
+	validates :nombre, :presence => {:message => "no puede estar vacio"} 
 	validates :nombre, length: { minimum: 2, :message => 'minimo 2 caracteres' }
 	validates :nombre, uniqueness: true, :uniqueness => {:message => "ya esta ocupado"}
 
