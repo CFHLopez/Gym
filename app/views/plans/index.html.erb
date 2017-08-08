@@ -1,12 +1,12 @@
 <div class="container">
   <h1><b><%= "Planes" %></b></h1>
-  <h4><%= "Instrucciones:" %></h4>
+  <h4><b><p class="text-info"> Instrucciones: </p></b></h4>
   <h5>
-    <%= "1.- Para 'Ver' planes en detalle, presionar sobre el nombre del plan" %><br>
-    <%= "2.- Para 'Editar' un plan, presionar sobre el boton 'Editar'" %><br>
-    <%= "3.- Para 'Borrar' un plan, presionar sobre el boton 'Eliminar'" %><br>
-    <%= "4.- Para 'Crear' un nuevo plan, presionar sobre el boton 'Nuevo Plan'" %><br>
-    <%= "**Si el plan contiene alumnos/as inscritos, este no se podra eliminar. Primero hablar con los alumnos/as para cambiarlos de plan**" %>
+    <b><p class="text-success"> 1.- Para 'Ver' planes en detalle, presionar sobre el nombre del plan </p></b>
+    <b><p class="text-success"> 2.- Para 'Editar' un plan, presionar sobre el boton 'Editar' </p></b>
+    <b><p class="text-success"> 3.- Para 'Borrar' un plan, presionar sobre el boton 'Borrar' </p></b>
+    <b><p class="text-success"> 4.- Para 'Crear' un nuevo plan, presionar sobre el boton 'Nuevo Plan' </p></b>
+    <b><p class="text-danger"> **Si el plan contiene alumnos/as inscritos, este no se podra eliminar. Primero hablar con los alumnos/as para cambiarlos de plan** </p></b>
   </h5>
   <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'Nuevo Plan',nuevo_plan_path %></span><br>
   <!-- boton buscar aun no configurado
@@ -36,15 +36,15 @@
         <tr>
           <td><b><%= link_to(actual.nombre, actual) %></b></td>
           <td><b><%= actual.precio %></b></td>
-          <td> <%= link_to 'Editar', editar_plan_path(actual), class: "btn btn-info"%></td>
+          <td> <%= link_to 'Editar', editar_plan_path(actual), class: "btn btn-info"%>
           <% cant = 0 %>
-          <% @alumnos.each do |x|%>
-            <% if x.plan.nombre == actual.nombre %>
+          <% @alumnos.each do |xxx|%>
+            <% if xxx.plan.nombre == actual.nombre %>
               <% cant = cant + 1 %>
             <% end %>
           <% end %>
           <% if cant == 0 %>
-            <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
+            <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
           <% end %>
         </tr>
       <%end%>

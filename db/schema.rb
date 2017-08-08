@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170801182806) do
+ActiveRecord::Schema.define(version: 20170808200444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,16 @@ ActiveRecord::Schema.define(version: 20170801182806) do
   add_index "has_asists", ["alumno_id"], name: "index_has_asists_on_alumno_id", using: :btree
   add_index "has_asists", ["asist_id"], name: "index_has_asists_on_asist_id", using: :btree
 
+  create_table "has_plans", force: :cascade do |t|
+    t.integer  "plan_id"
+    t.integer  "clase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "has_plans", ["clase_id"], name: "index_has_plans_on_clase_id", using: :btree
+  add_index "has_plans", ["plan_id"], name: "index_has_plans_on_plan_id", using: :btree
+
   create_table "pagos", force: :cascade do |t|
     t.integer  "monto"
     t.datetime "created_at", null: false
@@ -135,6 +145,8 @@ ActiveRecord::Schema.define(version: 20170801182806) do
   add_foreign_key "fichas", "alumnos"
   add_foreign_key "has_asists", "alumnos"
   add_foreign_key "has_asists", "asists"
+  add_foreign_key "has_plans", "clases"
+  add_foreign_key "has_plans", "plans"
   add_foreign_key "pagos", "alumnos"
   add_foreign_key "users", "clases"
   add_foreign_key "users", "plans"

@@ -8,19 +8,19 @@ class User < ActiveRecord::Base
 
   	#validando nombre
 	validates :nombre, length: { minimum: 2, :message => 'minimo 2 caracteres' }
-	validates :nombre, presence: true,:presence => {:message => "no puede estar vacio"}
+	validates :nombre, :presence => {:message => "no puede estar vacio"}
 
 	#validar sexo
 	validates :sexo, presence: true
 
 	#validando rut
-	validates :rut, rut: true, :rut => {:message => "no valido"}
-	validates :rut, presence: true, :presence => {:message => "no puede estar vacio"}
-	validates :rut, uniqueness: true, :uniqueness => {:message => "ya esta ocupado"}
+	validates :rut, :rut => {:message => "no valido"}
+	validates :rut, :presence => {:message => "no puede estar vacio"}
+	validates :rut, :uniqueness => {:message => "ya esta ocupado"}
 
 	#validando edad
 	validates :edad, numericality: {greater_than: 13, less_than: 71, :message => 'no puede ser menor a 14 ni mayor a 70'}
-	validates :edad, presence: true, :presence => {:message => "no puede estar vacio"}
+	validates :edad, :presence => {:message => "no puede estar vacio"}
 
 	#validando observacion
 	validates :observacion, length: { maximum: 500, :message => 'maximo 500 caracteres' }

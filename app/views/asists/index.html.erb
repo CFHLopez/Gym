@@ -1,10 +1,10 @@
 <div class="container">
 <h1><b><%= "Asistencias" %></b></h1>
-<h4><%= "Instrucciones:" %></h4>
+<h4><b><p class="text-info"> Instrucciones: </p></b></h4>
   <h5>
-    <%= "1.- Para 'Editar' la informacion de una asistencia, presionar sobre el boton 'Editar'" %><br>
-    <%= "2.- Para 'Borrar' una asistencia, presionar sobre el boton 'Eliminar'" %><br>
-    <%= "3.- Para 'Crear' una nueva asistencia, presionar sobre el boton 'Nueva Asistencia'" %>
+    <b><p class="text-success"> 1.- Para 'Editar' la informacion de una asistencia, presionar sobre el boton 'Editar' </p></b>
+    <b><p class="text-success"> 2.- Para 'Borrar' una asistencia, presionar sobre el boton 'Borrar' </p></b>
+    <b><p class="text-success"> 3.- Para 'Crear' una nueva asistencia, presionar sobre el boton 'Nueva Asistencia' </p></b>
   </h5>
 <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'Nueva Asistencia',nueva_asist_path %></span>
 <!-- boton buscar aun no configurado
@@ -37,9 +37,9 @@
         <td><b><%= actual.clase.nombre %></b></td>
         <td><b><%= actual.cantidad %></b></td>
       
-        <td> <%= link_to 'Editar', editar_asist_path(actual), class: "btn btn-info"%></td>
+        <td> <%= link_to 'Editar', editar_asist_path(actual), class: "btn btn-info"%>
         <% if current_user.role == 'Administrador'%>
-        <td><%= link_to 'Eliminar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
+        <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
         <% end %>
       </tr>
   </tbody>
