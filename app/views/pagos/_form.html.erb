@@ -22,19 +22,17 @@
       <% end %>
     </div>
     <div class="form-group">
-      <big><b>
-        <div class="panel-body">
-          <label class="control-label col-xs-3">Alumno/a:</label></b> 
-          <i><%=f.collection_select :alumno_id, Alumno.order("Nombre"), :id, :nombre, include_blank: true %></i><br>
-        </div><b>
-        <div class="panel-body">
-          <label class="control-label col-xs-3">Monto:</label></b>
-          <i><%= f.text_field :monto, placeholder: "Ejemplo: 1000" %></i><br>
-        </div>
-        <%= f.submit value="Guardar", class: "btn btn-success"%>
-        <input type="reset" class="btn btn-default" value="Limpiar">
-        <%= link_to "Volver", Pago, class: "btn btn-primary"%>
-      </big>  
+      <div class="panel-body">
+        <label class="control-label col-xs-2">Alumno/a:</label></b> 
+        <i><%=f.collection_select :alumno_id, Alumno.order("Nombre"), :id, :nombre, include_blank: true %></i><br>
+      </div>
+      <div class="panel-body">
+        <b><label class="control-label col-xs-2">Monto:</label></b>
+        <i><%= f.text_field :monto, placeholder: "Ejemplo: 1000" %></i><br>
+      </div>
+      <%= f.submit value="Guardar", class: "btn btn-success"%>
+      <input type="reset" class="btn btn-default" value="Limpiar">
+      <%= link_to "Volver", Pago, class: "btn btn-primary"%>  
     </div>
   </div>
 <%end%>

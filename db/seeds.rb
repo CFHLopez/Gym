@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = User.new
-users.email = 'funcionalitychris@gmail.com'
-users.encrypted_password = '12345678'
-users.reset_password_token = '12345678'
-users.password = '12345678'
-users.password_confirmation = '12345678'
+users.email = 'christian.lopez@alumnos.uda.cl'
+users.encrypted_password = 'dx15071990'
+users.reset_password_token = 'dx15071990'
+users.password = 'dx15071990'
+users.password_confirmation = 'dx15071990'
 users.role = 'Administrador'
 users.nombre = 'Christian Lopez'
 users.edad = '27'

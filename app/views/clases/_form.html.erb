@@ -28,10 +28,8 @@
         <i><%= f.text_field :nombre, placeholder: "Nombre Completo" %></i>
       </div>
       <div class="panel-body">
-        <label class="control-label col-xs-2"><b><%= "Profesor/es: " %></b></label>
-        <i><% @users.each do |user| %>
-          <%= check_box_tag "User[]", user.id %><%= user.nombre %></i>
-        <% end %>
+        <label class="control-label col-xs-2"><b><%= "Profesor/a:" %></b></label>
+        <i><%= f.collection_select :user_id, User.order("Nombre"), :id, :nombre, include_blank: true %></i>
       </div><b>
       <div class="panel-body">
         <label class="control-label col-xs-2">Descripción:</label></b>

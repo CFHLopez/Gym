@@ -22,59 +22,63 @@
       <% end %>
     </div>
     <div class="form-group">
-      <big><b>
-      <h3>Datos</h3>
+      <h3><b>Datos</b></h3>
       <div class="panel-body">
-        <label class="control-label col-xs-3">Alumno:</label></b>
-        <i><%=f.collection_select :alumno_id, Alumno.order("Nombre"), :id, :nombre, include_blank: true %></i><br>
+        <label class="control-label col-xs-2">Alumno:</label>
+        <i><%=f.collection_select :alumno_id, Alumno.order("Nombre"), :id, :nombre, include_blank: true %></i>
       </div>
       <div class="panel-body">
-        <label class="control-label col-xs-3">Peso:</label></b>
-        <i><%= f.text_field :peso, placeholder: "Ej: 50.5" %></i><b><%= " Kilogramos" %><br>
+        <label class="control-label col-xs-2">Peso:</label>
+        <i><%= f.text_field :peso, placeholder: "Ej: 50.5" %></i><b><%= " Kilogramos" %></b>
       </div>
       <div class="panel-body">
-        <label class="control-label col-xs-3">Estatura:</label></b>
-        <i><%= f.text_field :estatura, placeholder: "Ej: 1.5"%><b></i><%= " Metros" %><br>
-      </div><br>
-      </b><i>**No Es Obligatorio Rellenar Los Siguientes Campos**</i><b><br>
-      <h3>Piegometria</h3>
-      <div class="panel-body">
-        <label class="control-label col-xs-3">Biceps:</label></b>
-        <i><%= f.text_field :biceps, placeholder: "Ej: 20"%></i><b><%= " Centimetros" %><br>
+        <label class="control-label col-xs-2">Estatura:</label>
+        <i><%= f.text_field :estatura, placeholder: "Ej: 1.5"%><b></i><%= " Metros" %></b>
       </div>
-      <div class="panel-body">
-        <label class="control-label col-xs-3">Triceps:</label></b>
-        <i><%= f.text_field :triceps, placeholder: "Ej: 30"%></i><b><%= " Centimetros" %><br>
+      <i>**No Es Obligatorio Rellenar Los Siguientes Campos**</i>
+      <div class="row">
+        <div class="col-md-5">
+          <h3><b>Piegometria</b></h3>
+          <div class="panel-body">
+            <label class="control-label col-xs-4">Biceps:</label>
+            <i><%= f.text_field :biceps, placeholder: "Ej: 20"%></i><b><%= " Centimetros" %></b>
+          </div>
+          <div class="panel-body">
+            <label class="control-label col-xs-4">Triceps:</label>
+            <i><%= f.text_field :triceps, placeholder: "Ej: 30"%></i><b><%= " Centimetros" %></b>
+          </div>
+          <div class="panel-body">
+            <label class="control-label col-xs-4">Subescapular:</label>
+            <i><%= f.text_field :subescapular, placeholder: "Ej: 10"%></i><b><%= " Centimetros" %></b>
+          </div>
+          <div class="panel-body">
+            <label class="control-label col-xs-4">Suprailiaco:</label>
+            <i><%= f.text_field :suprailiaco, placeholder: "Ej: 30"%></i><b><%= " Centimetros" %></b>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <h3><b>Antropometria</b></h3>
+          <div class="panel-body">
+            <label class="control-label col-xs-3">Torax:</label>
+            <i><%= f.text_field :torax, placeholder: "Ej: 90"%></i><b><%= " Centimetros" %></b>
+          </div>
+          <div class="panel-body">
+            <label class="control-label col-xs-3">Cintura:</label>
+            <i><%= f.text_field :cintura, placeholder: "Ej: 100"%></i><b><%= " Centimetros" %></b>
+          </div>
+          <div class="panel-body">
+            <label class="control-label col-xs-3">Brazo:</label>
+            <i><%= f.text_field :brazo, placeholder: "Ej: 20"%></i><b><%= " Centimetros" %></b>
+          </div>
+          <div class="panel-body">
+            <label class="control-label col-xs-3">Muslo:</label>
+            <i><%= f.text_field :muslo, placeholder: "Ej: 40"%></i><b><%= " Centimetros" %></b>
+          </div>
+        </div>
       </div>
-      <div class="panel-body">
-        <label class="control-label col-xs-3">Subescapular:</label></b>
-        <i><%= f.text_field :subescapular, placeholder: "Ej: 10"%></i><b><%= " Centimetros" %><br>
-      </div>
-      <div class="panel-body">
-        <label class="control-label col-xs-3">Suprailiaco:</label></b>
-        <i><%= f.text_field :suprailiaco, placeholder: "Ej: 30"%></i><b><%= " Centimetros" %><br>
-      </div>
-      <h3>Antropometria</h3>
-      <div class="panel-body">
-        <label class="control-label col-xs-3">Torax:</label></b>
-        <i><%= f.text_field :torax, placeholder: "Ej: 90"%></i><b><%= " Centimetros" %><br>
-      </div>
-      <div class="panel-body">
-        <label class="control-label col-xs-3">Cintura:</label></b>
-        <i><%= f.text_field :cintura, placeholder: "Ej: 100"%></i><b><%= " Centimetros" %><br>
-      </div>
-      <div class="panel-body">
-        <label class="control-label col-xs-3">Brazo:</label></b>
-        <i><%= f.text_field :brazo, placeholder: "Ej: 20"%></i><b><%= " Centimetros" %><br>
-      </div>
-      <div class="panel-body">
-        <label class="control-label col-xs-3">Muslo:</label></b>
-        <i><%= f.text_field :muslo, placeholder: "Ej: 40"%></i><b><%= " Centimetros" %></b><br>
-      </div>
-      </big>
+      <%= f.submit value="Guardar", class: "btn btn-success"%>
+      <input type="reset" class="btn btn-default" value="Limpiar">
+      <%= link_to "Volver", Ficha, class: "btn btn-primary"%>
     </div>
-    <%= f.submit value="Guardar", class: "btn btn-success"%>
-    <input type="reset" class="btn btn-default" value="Limpiar">
-    <%= link_to "Volver", Ficha, class: "btn btn-primary"%>
   </div><br><br>
 <% end %>

@@ -21,32 +21,31 @@
         </div>
       <% end %>
     </div>
-    <div class="form-group"><b>
+    <div class="form-group">
       <div class="panel-body">
-        <label class="control-label col-xs-3">Nombre:</label></b>
-        <i><%= f.text_field :nombre, placeholder: "Nombre Completo" %></i><br>
-      </div><b>
-      <div class="panel-body">
-        <label class="control-label col-xs-3">Rut:</label></b> 
-        <i><%= f.text_field :rut, placeholder: "XXXXXXX-X" %></i><br>
-      </div><b>
-      <div class="panel-body">
-        <label class="control-label col-xs-3">Edad:</label></b>
-        <i><%= f.text_field :edad, placeholder: "Ejemplo: 15" %></i><br>
+        <b><label class="control-label col-xs-3">Nombre:</label></b>
+        <i><%= f.text_field :nombre, placeholder: "Nombre Completo" %></i>
       </div>
       <div class="panel-body">
-        <label class="control-label col-xs-3">Genero:</label></b>
-        <i><%= f.select :sexo, [["Masculino"], ["Femenino"]] %></i><br>
-      </div><b>
-      <div class="panel-body">
-        <label class="control-label col-xs-3">Plan:</label></b>
-        <i><%=f.collection_select :plan_id, Plan.order("Nombre"), :id, :nombre, include_blank: true %></i><br>
+        <b><label class="control-label col-xs-3">Rut:</label></b> 
+        <i><%= f.text_field :rut, placeholder: "XXXXXXX-X" %></i>
       </div>
       <div class="panel-body">
-        <label class="control-label col-xs-3">¿Complicación Medica?:</label></b>
-        <i><%= f.text_area :desc, size: "30x6", placeholder: "En caso de tener algun problema" %></i><br>
+        <b><label class="control-label col-xs-3">Edad:</label></b>
+        <i><%= f.text_field :edad, placeholder: "Ejemplo: 15" %></i>
       </div>
-      </big>
+      <div class="panel-body">
+        <b><label class="control-label col-xs-3">Genero:</label></b>
+        <i><%= f.select :sexo, [["Masculino"], ["Femenino"]] %></i>
+      </div>
+      <div class="panel-body">
+        <b><label class="control-label col-xs-3">Plan:</label></b>
+        <i><%=f.collection_select :plan_id, Plan.order("Nombre"), :id, :nombre, include_blank: true %></i>
+      </div>
+      <div class="panel-body">
+        <b><label class="control-label col-xs-3">¿Complicación Medica?:</label></b>
+        <i><%= f.text_area :desc, size: "30x6", placeholder: "En caso de tener algun problema" %></i>
+      </div>
     </div>
     <%= f.submit value="Guardar", class: "btn btn-success" %>
     <input type="reset" class="btn btn-default" value="Limpiar">

@@ -8,7 +8,7 @@
     <b><p class="text-success"> 4.- Para 'Crear' un nuevo plan, presionar sobre el boton 'Nuevo Plan' </p></b>
     <b><p class="text-danger"> **Si el plan contiene alumnos/as inscritos, este no se podra eliminar. Primero hablar con los alumnos/as para cambiarlos de plan** </p></b>
   </h5>
-  <span class="tn btn-warning btn-lg bt pull-leght glyphicon glyphicon-plus"><%= link_to 'Nuevo Plan',nuevo_plan_path %></span><br>
+  <%= link_to 'Nuevo Plan', nuevo_plan_path, class: "btn btn-warning btn-lg" %>
   <!-- boton buscar aun no configurado
   <a href="#Buscar" class="btn btn-default btn-lg" data-toggle="modal">Buscar</a>
   <div class="modal fade" id="Buscar">

@@ -4,12 +4,16 @@
       <div class="panel-heading">
   		<h1><b><%= @clases.nombre %></b></h1>
       </div>
-      <big><b>
-      <div class="panel-body">
-      	Descripción: 
-      	<%= @clases.desc %>
-      </div>
-      </b></big>
+      <big>
+        <div class="panel-body">
+          Profesor/a: 
+          <%= @clases.user.nombre %>
+        </div>
+        <div class="panel-body">
+      	  Descripción: 
+      	  <%= @clases.desc %>
+        </div>
+      </big>
     </div>
   </div>
   <%= link_to "Volver", Clase, class: "btn btn-primary" %>
