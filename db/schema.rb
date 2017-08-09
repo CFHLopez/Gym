@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808200444) do
+ActiveRecord::Schema.define(version: 20170809035553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,15 +45,8 @@ ActiveRecord::Schema.define(version: 20170808200444) do
     t.datetime "updated_at", null: false
     t.integer  "asist_id"
     t.integer  "user_id"
+    t.integer  "plan_id"
   end
-
-  create_table "clases_users", id: false, force: :cascade do |t|
-    t.integer "clase_id"
-    t.integer "user_id"
-  end
-
-  add_index "clases_users", ["clase_id"], name: "index_clases_users_on_clase_id", using: :btree
-  add_index "clases_users", ["user_id"], name: "index_clases_users_on_user_id", using: :btree
 
   create_table "fichas", force: :cascade do |t|
     t.float    "estatura"
@@ -74,26 +67,6 @@ ActiveRecord::Schema.define(version: 20170808200444) do
     t.integer  "alumno_id"
   end
 
-  create_table "has_asists", force: :cascade do |t|
-    t.integer  "alumno_id"
-    t.integer  "asist_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "has_asists", ["alumno_id"], name: "index_has_asists_on_alumno_id", using: :btree
-  add_index "has_asists", ["asist_id"], name: "index_has_asists_on_asist_id", using: :btree
-
-  create_table "has_plans", force: :cascade do |t|
-    t.integer  "plan_id"
-    t.integer  "clase_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "has_plans", ["clase_id"], name: "index_has_plans_on_clase_id", using: :btree
-  add_index "has_plans", ["plan_id"], name: "index_has_plans_on_plan_id", using: :btree
-
   create_table "pagos", force: :cascade do |t|
     t.integer  "monto"
     t.datetime "created_at", null: false
@@ -107,6 +80,7 @@ ActiveRecord::Schema.define(version: 20170808200444) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "desc"
+    t.integer  "clase_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -141,13 +115,15 @@ ActiveRecord::Schema.define(version: 20170808200444) do
   add_foreign_key "asists", "alumnos"
   add_foreign_key "asists", "clases"
   add_foreign_key "clases", "asists"
-  add_foreign_key "clases", "plans", column: "user_id"
+  add_foreign_key "clases", "plans"
+  add_foreign_key "clases", "users"
   add_foreign_key "fichas", "alumnos"
   add_foreign_key "has_asists", "alumnos"
   add_foreign_key "has_asists", "asists"
   add_foreign_key "has_plans", "clases"
   add_foreign_key "has_plans", "plans"
   add_foreign_key "pagos", "alumnos"
+  add_foreign_key "plans", "clases"
   add_foreign_key "users", "clases"
   add_foreign_key "users", "plans"
 end
