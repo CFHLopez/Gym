@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	#un usuario muchas clases
 	#attr_accessible :nombre, :clase_id
-	has_many :clases
+	has_and_belongs_to_many :clases
 	has_many :plans
 
   	attr_accessible :email, :password, :password_confirmation,:nombre,:rut,:edad,:role,:sexo, :observacion
