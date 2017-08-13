@@ -20,7 +20,11 @@
     <tbody>
       <% @users.each do |actual| %>
         <tr>
-          <td><b><%= actual.nombre %></b></td>
+          <% if actual.email == current_user.email %>
+            <td><b><%= link_to(actual.nombre, actual) %></b></td>
+          <% else %>
+            <td><b><%= actual.nombre %></b></td>
+          <% end %>
           <td><b><%= actual.rut %></b></td>
           <td><b><%= actual.edad %></b></td>
           <td><b><%= actual.sexo %></b></td>

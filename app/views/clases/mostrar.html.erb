@@ -6,11 +6,11 @@
       </div>
       <big>
         <div class="panel-body">
-          Profesor/a: 
-          <%= @clases.user.nombre %>
+          <%= "Profesor/a:" %>
+          <%= @clases.clases_users.collect(&:users) %>
         </div>
         <div class="panel-body">
-      	  Descripción: 
+      	  <%=" Descripción:" %> 
       	  <%= @clases.desc %>
         </div>
       </big>

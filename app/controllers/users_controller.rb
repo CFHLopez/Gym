@@ -3,7 +3,10 @@ class UsersController < ApplicationController
   def index
   	@users = User.paginate(:page => params[:page], :per_page => 5)
   end
- 
+
+  def mostrar
+    @users = User.all
+  end
 
   def eliminar
   	@users = User.find(params[:id]) #tener en cuenta, tomar params:id
@@ -12,5 +15,4 @@ class UsersController < ApplicationController
       format.html{redirect_to users_url, notice:'Usuario Eliminado'}
     end
   end
-
 end

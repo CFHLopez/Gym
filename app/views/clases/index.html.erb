@@ -27,7 +27,6 @@
     <thead>
       <tr>
         <th>Nombre</th>
-        <th>Profesor/a</th>
         <th>Opciones</th>
       </tr>
     </thead>
@@ -35,7 +34,6 @@
       <% @clases.each do |actual| %>
         <tr>
           <td><b><%= link_to(actual.nombre, actual) %></b></td>
-          <td><b><%= actual.user.nombre %></b></td>
           <td><%= link_to 'Editar', editar_clase_path(actual), class: "btn btn-info"%>
           <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
         </tr>

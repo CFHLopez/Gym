@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+  		  <h2><b><%= current_user.nombre %></b></h2>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel-body">
+              <b><%= "RUT:" %></b> 
+              <%= current_user.rut %>
+            </div>
+            <div class="panel-body">
+              <b><%= "Edad:" %></b>
+              <%= current_user.edad %><%= " Años" %>
+            </div>
+            <div class="panel-body">
+      	      <b><%= "Sexo:" %></b>  
+      	      <%= current_user.sexo %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel-body">
+      	      <b><%= "Rol:" %></b> 
+      	      <%= current_user.role %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to "Volver", User, class: "btn btn-primary" %>
+</div>
