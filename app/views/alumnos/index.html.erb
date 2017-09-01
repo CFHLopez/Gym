@@ -4,31 +4,37 @@
     <% suma = suma + 1 %>
   <% end %>
   <h1><b><%= "Alumnos/as" %></b></h1>
-  <h4><b><p class="text-warning"> Total Alumnos/as: <%= suma %></p></b></h4>
-  <h4><b><p class="text-info"> Instrucciones: </p></b></h4>
-  <h5>
-    <b><p class="text-success"> 1.- Para 'Ver' un alumno/a en detalle, presionar sobre el nombre de el/la alumno/a </p></b>
-    <b><p class="text-success"> 2.- Para 'Editar' la informacion de un alumno/a, presionar sobre el boton 'Editar' </p></b>
-    <b><p class="text-success"> 3.- Para 'Borrar' un alumno/a, presionar sobre el boton 'Borrar' </p></b>
-    <b><p class="text-success"> 4.- Para 'Crear' un/a nuevo/a alumno/a, presionar sobre el boton 'Nuevo/a Alumno/a' </p></b>
-    <b><p class="text-danger"> **Si 'Borra' un alumno/a se eliminara de igual manera todos sus pagos y fichas** </p></b>
-  </h5>
-  <%= link_to 'Nuevo Alumno', nuevo_alumno_path, class: "btn btn-warning btn-lg" %>
-  <!-- boton buscar aun no configurado
-  <a href="#Buscar" class="btn btn-default btn-lg" data-toggle="modal">Buscar</a>
-  <div class="modal fade" id="Buscar">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title"><b>Buscar</b></h2>
-          <div class="modal-footer">
-            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+  <% cont = 0 %>
+  <% @plans.each do |x| %>
+    <% cont = cont + 1 %>
+  <% end %>
+  <% if cont == 0 %>
+    <b><p class="text-danger">**PARA CREAR NUEVOS ALUMNOS/AS PRIMERO CREAR UN PLAN**</p></b>
+    <%= link_to 'Nuevo Plan', nuevo_plan_path, class: "btn btn-danger btn-lg" %>
+  <% else %>
+    <h4><b><p class="text-warning"> Total Alumnos/as: <%= suma %></p></b></h4>
+    <a href="#Inst" class="btn btn-primary btn-lg" data-toggle="modal">Instrucciones</a>
+    <div class="modal fade" id="Inst">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title"><b><p class="text-info"> Instrucciones: </p></b></h2>
+            <h5>
+              <b><p class="text-success"> 1.- Para 'Ver' un alumno/a en detalle, presionar sobre el nombre de el/la alumno/a </p></b>
+              <b><p class="text-success"> 2.- Para 'Editar' la informacion de un alumno/a, presionar sobre el boton 'Editar' </p></b>
+              <b><p class="text-success"> 3.- Para 'Borrar' un alumno/a, presionar sobre el boton 'Borrar' </p></b>
+              <b><p class="text-success"> 4.- Para 'Crear' un/a nuevo/a alumno/a, presionar sobre el boton 'Nuevo/a Alumno/a' </p></b>
+              <b><p class="text-danger"> **Si 'Borra' un alumno/a se eliminara de igual manera todos sus pagos y "fichas"** </p></b>
+            </h5>
+            <div class="modal-footer">
+              <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  -->
+    <%= link_to 'Nuevo Alumno', nuevo_alumno_path, class: "btn btn-warning btn-lg" %>
+  <% end %>
   <table class="table">
     <thead>
       <tr>

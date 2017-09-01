@@ -1,21 +1,18 @@
 <div class="container">
   <h1><b><%= "Planes" %></b></h1>
-  <h4><b><p class="text-info"> Instrucciones: </p></b></h4>
-  <h5>
-    <b><p class="text-success"> 1.- Para 'Ver' planes en detalle, presionar sobre el nombre del plan </p></b>
-    <b><p class="text-success"> 2.- Para 'Editar' un plan, presionar sobre el boton 'Editar' </p></b>
-    <b><p class="text-success"> 3.- Para 'Borrar' un plan, presionar sobre el boton 'Borrar' </p></b>
-    <b><p class="text-success"> 4.- Para 'Crear' un nuevo plan, presionar sobre el boton 'Nuevo Plan' </p></b>
-    <b><p class="text-danger"> **Si el plan contiene alumnos/as inscritos, este no se podra eliminar. Primero hablar con los alumnos/as para cambiarlos de plan** </p></b>
-  </h5>
-  <%= link_to 'Nuevo Plan', nuevo_plan_path, class: "btn btn-warning btn-lg" %>
-  <!-- boton buscar aun no configurado
-  <a href="#Buscar" class="btn btn-default btn-lg" data-toggle="modal">Buscar</a>
-  <div class="modal fade" id="Buscar">
+  <a href="#Inst" class="btn btn-primary btn-lg" data-toggle="modal">Instrucciones</a>
+  <div class="modal fade" id="Inst">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title"><b>Buscar</b></h2>
+          <h2 class="modal-title"><b><p class="text-info"> Instrucciones: </p></b></h2>
+          <h5>
+            <b><p class="text-success"> 1.- Para 'Ver' planes en detalle, presionar sobre el nombre del plan </p></b>
+            <b><p class="text-success"> 2.- Para 'Editar' un plan, presionar sobre el boton 'Editar' </p></b>
+            <b><p class="text-success"> 3.- Para 'Borrar' un plan, presionar sobre el boton 'Borrar' </p></b>
+            <b><p class="text-success"> 4.- Para 'Crear' un nuevo plan, presionar sobre el boton 'Nuevo Plan' </p></b>
+            <b><p class="text-danger"> **Si el plan contiene alumnos/as inscritos, este no se podra eliminar. Primero hablar con los alumnos/as para cambiarlos de plan** </p></b>
+          </h5>
           <div class="modal-footer">
             <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
           </div>
@@ -23,7 +20,7 @@
       </div>
     </div>
   </div>
-  -->
+  <%= link_to 'Nuevo Plan', nuevo_plan_path, class: "btn btn-warning btn-lg" %>
   <table class="table">
     <thead>
       <tr>

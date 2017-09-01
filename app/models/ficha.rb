@@ -3,8 +3,9 @@ class Ficha < ActiveRecord::Base
 
 	#campos obligatorios en la ficha
 
+	#eliminar el usuario id añadir rut como atributo y comparar con la tabla alumno
 	#validar alumno_id
-	validates :alumno_id, :presence => {:message => "no puede estar vacio"}
+	#validates :alumno_id, :presence => {:message => "no puede estar vacio"}
 
 	#validar altura (float) altura minima 1 metro y maxima 3
 	validates :estatura, :presence => {:message => "no puede estar vacio"}

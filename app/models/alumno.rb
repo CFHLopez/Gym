@@ -3,8 +3,12 @@ class Alumno < ActiveRecord::Base
 	has_many :asists
 
 	#al eliminar un alumno/a, se borran todos sus pagos y fichas
-	has_many :pagos ,dependent: :delete_all
-	has_many :fichas ,dependent: :delete_all
+	
+	#se guardaran los pagos para realizar estadisticas de meses
+	#has_many :pagos ,dependent: :delete_all
+	
+	#se guardaran las fichas <--- guardadas con rut del usuario
+	#has_many :fichas ,dependent: :delete_all
 
 	#validando nombre
 	validates :nombre, length: { minimum: 2, :message => 'minimo 2 caracteres' }

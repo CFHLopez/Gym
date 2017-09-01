@@ -1,10 +1,22 @@
 <div class="container">
   <h1><b><%= "Usuarios" %></b></h1>
-  <h4><b><p class="text-info"> Instrucciones: </p></b></h4>
-  <h5>
-    <b><p class="text-success"> 1.- Para 'Borrar' un usuario, presionar sobre el boton 'Borrar' </p></b>
-    <b><p class="text-success"> 2.- Para 'Crear' un nuevo usuario, presionar sobre el boton 'Nuevo Usuario' </p></b>
-  </h5>
+  <a href="#Inst" class="btn btn-primary btn-lg" data-toggle="modal">Instrucciones</a>
+  <div class="modal fade" id="Inst">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title"><b><p class="text-info"> Instrucciones: </p></b></h2>
+          <h5>
+            <b><p class="text-success"> 1.- Para 'Borrar' un usuario, presionar sobre el boton 'Borrar' </p></b>
+            <b><p class="text-success"> 2.- Para 'Crear' un nuevo usuario, presionar sobre el boton 'Nuevo Usuario' </p></b>
+          </h5>
+          <div class="modal-footer">
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <%= link_to 'Nuevo Usuario', "/register", class: "btn btn-warning btn-lg" %>
   <table class="table">
     <thead>

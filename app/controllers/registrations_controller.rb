@@ -23,5 +23,4 @@ class RegistrationsController < Devise::RegistrationsController
 		allow = [:email,:password,:password_confirmation,:current_password,:nombre,:rut,:edad,:role,:sexo,:observacion]
 		params.require(resource_name).permit(allow)
 	end
-
 end
