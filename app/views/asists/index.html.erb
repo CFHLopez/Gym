@@ -1,24 +1,42 @@
 <div class="container">
   <h1><b><%= "Asistencias" %></b></h1>
-  <a href="#Inst" class="btn btn-primary btn-lg" data-toggle="modal">Instrucciones</a>
-  <div class="modal fade" id="Inst">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title"><b><p class="text-info"> Instrucciones: </p></b></h2>
-          <h5>
-            <b><p class="text-success"> 1.- Para 'Editar' la informacion de una asistencia, presionar sobre el boton 'Editar' </p></b>
-            <b><p class="text-success"> 2.- Para 'Borrar' una asistencia, presionar sobre el boton 'Borrar' </p></b>
-            <b><p class="text-success"> 3.- Para 'Crear' una nueva asistencia, presionar sobre el boton 'Nueva Asistencia' </p></b>
-          </h5>
-          <div class="modal-footer">
-            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+  <% cont = 0 %>
+  <% cont1 = 0 %>
+  <% @plans.each do |x| %>
+    <% cont1 = cont1 + 1 %>
+  <% end %>
+  <% @alumnos.each do |x| %>
+    <% cont = cont + 1 %>
+  <% end %>
+  <% if cont1 == 0 %>
+    <b><p class="text-danger">**PARA CREAR NUEVAS ASISTENCIAS PRIMERO CREAR PLAN/ES**</p></b>
+    <%= link_to 'Nuevo Plan', nuevo_plan_path, class: "btn btn-danger btn-lg" %>
+  <% else %>
+    <% if cont == 0 %>
+      <b><p class="text-danger">**PARA CREAR NUEVAS ASISTENCIAS PRIMERO AGREGAR ALUMNOS/AS**</p></b>
+      <%= link_to 'Nuevo Alumno/a', nuevo_alumno_path, class: "btn btn-danger btn-lg" %>
+    <% else %>
+      <a href="#Inst" class="btn btn-primary btn-lg" data-toggle="modal">Instrucciones</a>
+      <div class="modal fade" id="Inst">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title"><b><p class="text-info"> Instrucciones: </p></b></h2>
+              <h5>
+                <b><p class="text-success"> 1.- Para 'Editar' la informacion de una asistencia, presionar sobre el boton 'Editar' </p></b>
+                <b><p class="text-success"> 2.- Para 'Borrar' una asistencia, presionar sobre el boton 'Borrar' </p></b>
+                <b><p class="text-success"> 3.- Para 'Crear' una nueva asistencia, presionar sobre el boton 'Nueva Asistencia' </p></b>
+              </h5>
+              <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <%= link_to 'Nueva Asistencia', nueva_asist_path, class: "btn btn-warning btn-lg" %>
+      <%= link_to 'Nueva Asistencia', nueva_asist_path, class: "btn btn-warning btn-lg" %>
+    <% end %>
+  <% end %>
   <table class="table">
     <thead><tr>
       <th>Fecha</th>

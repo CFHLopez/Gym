@@ -1,25 +1,43 @@
 <div class="container">
   <h1><b><%= "Fichas" %></b></h1>
-  <a href="#Inst" class="btn btn-primary btn-lg" data-toggle="modal">Instrucciones</a>
-  <div class="modal fade" id="Inst">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title"><b><p class="text-info"> Instrucciones: </p></b></h2>
-          <h5>
-            <b><p class="text-success"> 1.- Para 'Ver' una ficha en detalle, presionar sobre el nombre de el/la alumno/a </p></b>
-            <b><p class="text-success"> 2.- Para 'Editar' la informacion de una ficha, presionar sobre el boton 'Editar' </p></b>
-            <b><p class="text-success"> 3.- Para 'Borrar' una ficha, presionar sobre el boton 'Borrar' </p></b>
-            <b><p class="text-success"> 4.- Para 'Crear' una nueva ficha, presionar sobre el boton 'Nueva ficha' </p></b>
-          </h5>
-          <div class="modal-footer">
-            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+  <% cont = 0 %>
+  <% cont1 = 0 %>
+  <% @plans.each do |x| %>
+    <% cont1 = cont1 + 1 %>
+  <% end %>
+  <% @alumnos.each do |x| %>
+    <% cont = cont + 1 %>
+  <% end %>
+  <% if cont1 == 0 %>
+    <b><p class="text-danger">**PARA CREAR NUEVAS FICHAS PRIMERO CREAR PLAN/ES**</p></b>
+    <%= link_to 'Nuevo Plan', nuevo_plan_path, class: "btn btn-danger btn-lg" %>
+  <% else %>
+    <% if cont == 0 %>
+      <b><p class="text-danger">**PARA CREAR NUEVAS FICHAS PRIMERO AGREGAR ALUMNOS/AS**</p></b>
+      <%= link_to 'Nuevo Alumno/a', nuevo_alumno_path, class: "btn btn-danger btn-lg" %>
+    <% else %>
+      <a href="#Inst" class="btn btn-primary btn-lg" data-toggle="modal">Instrucciones</a>
+      <div class="modal fade" id="Inst">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title"><b><p class="text-info"> Instrucciones: </p></b></h2>
+              <h5>
+                <b><p class="text-success"> 1.- Para 'Ver' una ficha en detalle, presionar sobre el nombre de el/la alumno/a </p></b>
+                <b><p class="text-success"> 2.- Para 'Editar' la informacion de una ficha, presionar sobre el boton 'Editar' </p></b>
+                <b><p class="text-success"> 3.- Para 'Borrar' una ficha, presionar sobre el boton 'Borrar' </p></b>
+                <b><p class="text-success"> 4.- Para 'Crear' una nueva ficha, presionar sobre el boton 'Nueva ficha' </p></b>
+              </h5>
+              <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <%= link_to 'Nueva Ficha', nueva_ficha_path, class: "btn btn-warning btn-lg" %>
+      <%= link_to 'Nueva Ficha', nueva_ficha_path, class: "btn btn-warning btn-lg" %>
+    <% end %>
+  <% end %>
   <table class="table">
     <thead>
       <tr>

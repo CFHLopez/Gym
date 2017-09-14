@@ -4,6 +4,8 @@ class AsistsController < ApplicationController
 
   def index
     @asists = Asist.paginate(:page => params[:page], :per_page => 5)
+    @alumnos = Alumno.all
+    @plans = Plan.all
   end
 
   def mostrar

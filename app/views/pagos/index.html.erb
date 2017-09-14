@@ -1,116 +1,135 @@
 <div class="container">
   <h1><b><%= "Pagos" %></b></h1>
-  <a href="#Inst" class="btn btn-primary btn-lg" data-toggle="modal">Instrucciones</a>
-  <div class="modal fade" id="Inst">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title"><b><p class="text-info"> Instrucciones: </p></b></h2>
-          <h5>
-            <b><p class="text-success"> 1.- Para 'Ver' un pago en detalle, presionar sobre el nombre de el/la alumno/a </p></b>
-            <b><p class="text-success"> 2.- Para 'Editar' la informacion un pago, presionar sobre el boton 'Editar' </p></b>
-            <b><p class="text-success"> 3.- Para 'Borrar' un pago, presionar sobre el boton 'Borrar' </p></b>
-            <b><p class="text-success"> 4.- Para 'Crear' un nuevo pago, presionar sobre el boton 'Nuevo Pago' </p></b>
-          </h5>
-          <div class="modal-footer">
-            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+  <% cont = 0 %>
+  <% cont1 = 0 %>
+  <% @plans.each do |x| %>
+    <% cont1 = cont1 + 1 %>
+  <% end %>
+  <% @alumnos.each do |x| %>
+    <% cont = cont + 1 %>
+  <% end %>
+  <% if cont1 == 0 %>
+    <b><p class="text-danger">**PARA CREAR NUEVAS PAGOS PRIMERO CREAR PLAN/ES**</p></b>
+    <%= link_to 'Nuevo Plan', nuevo_plan_path, class: "btn btn-danger btn-lg" %>
+  <% else %>
+    <% if cont == 0 %>
+      <b><p class="text-danger">**PARA CREAR NUEVAS PAGOS PRIMERO AGREGAR ALUMNOS/AS**</p></b>
+      <%= link_to 'Nuevo Alumno/a', nuevo_alumno_path, class: "btn btn-danger btn-lg" %>
+    <% else %>
+      <a href="#Inst" class="btn btn-primary btn-lg" data-toggle="modal">Instrucciones</a>
+      <div class="modal fade" id="Inst">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title"><b><p class="text-info"> Instrucciones: </p></b></h2>
+              <h5>
+                <b><p class="text-success"> 1.- Para 'Ver' un pago en detalle, presionar sobre el nombre de el/la alumno/a </p></b>
+                <b><p class="text-success"> 2.- Para 'Editar' la informacion un pago, presionar sobre el boton 'Editar' </p></b>
+                <b><p class="text-success"> 3.- Para 'Borrar' un pago, presionar sobre el boton 'Borrar' </p></b>
+                <b><p class="text-success"> 4.- Para 'Crear' un nuevo pago, presionar sobre el boton 'Nuevo Pago' </p></b>
+              </h5>
+              <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <%= link_to 'Nuevo Pago', nuevo_pago_path, class: "btn btn-warning btn-lg" %> 
-  <a href="#Morosos" class="btn btn-danger btn-lg" data-toggle="modal">Morosos/as</a>
-  <div class="modal fade" id="Morosos">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title"><b>Alumnos/as Morosos/as</b></h2>
-          <h3><%= "No Han Pagado Este Mes" %><br><%= "Fecha Actual " %><%= Time.now.strftime("%d/%m/%Y") %></h3>
-          <div class="panel-body">
-            <!-- tomo el dia actual y lo guardo en una variable -->
-            <% t0 = Time.now.strftime("%d") %>
-            <% t1 = Time.now.strftime("%m") %>
-            <% t2 = Time.now.strftime("%Y") %>
-            <% t3 = Time.local(t2,t1,01,0,0) %>
-            <% t4 = Time.now %>
-            <% c0 = 0 %>
-            <table class="table">
-              <thead><tr>
-                <th>Nombre Alumno/a</th>
-                <th>Plan</th>
-                <th>Fecha Pago</th>
-              </tr></thead>
-              <tbody>
-                <!-- listamos los alumnos -->
-                <% @alumnos.each do |n| %>
-                  <% v0 = n.id %>
-                  <% t6 = n.created_at.strftime("%d") %>
-                  <!-- Si el dia actual es mayor o igual al de pago -->
-                  <% if t0 >= t6 %>
-                    <!-- listamos los pagos -->
-                    <% @pagos.each do |prueba| %>
-                      <% v1 = prueba.alumno_id %>
-                      <!-- si el id del alumno corresponde al 
-                      id del pago hecho por un alumno -->
-                      <% if v0 == v1 %>
-                        <% t5 = prueba.created_at.strftime("%m") %>
-                        <!-- si el pago es en el mismo mes -->
-                        <% if t5 == t1 %>
-                          <% c0 = 1 %>
+      <%= link_to 'Nuevo Pago', nuevo_pago_path, class: "btn btn-warning btn-lg" %>
+      <a href="#Morosos" class="btn btn-danger btn-lg" data-toggle="modal">Morosos/as</a>
+      <div class="modal fade" id="Morosos">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title"><b>Alumnos/as Morosos/as</b></h2>
+              <h3><%= "No Han Pagado Este Mes" %><br><%= "Fecha Actual " %><%= Time.now.strftime("%d/%m/%Y") %></h3>
+              <div class="panel-body">
+              <!-- tomo el dia actual y lo guardo en una variable -->
+              <% t0 = Time.now.strftime("%d") %>
+              <% t1 = Time.now.strftime("%m") %>
+              <% t2 = Time.now.strftime("%Y") %>
+              <% t3 = Time.local(t2,t1,01,0,0) %>
+              <% t4 = Time.now %>
+              <% c0 = 0 %>
+              <table class="table">
+                <thead><tr>
+                  <th>Nombre Alumno/a</th>
+                  <th>Plan</th>
+                  <th>Fecha Pago</th>
+                </tr></thead>
+                <tbody>
+                  <!-- listamos los alumnos -->
+                  <% @alumnos.each do |n| %>
+                    <% v0 = n.id %>
+                    <% t6 = n.created_at.strftime("%d") %>
+                    <!-- Si el dia actual es mayor o igual al de pago -->
+                    <% if t0 >= t6 %>
+                      <!-- listamos los pagos -->
+                      <% @pagos.each do |prueba| %>
+                        <% v1 = prueba.alumno_id %>
+                        <!-- si el id del alumno corresponde al 
+                        id del pago hecho por un alumno -->
+                        <% if v0 == v1 %>
+                          <% t5 = prueba.created_at.strftime("%m") %>
+                          <!-- si el pago es en el mismo mes -->
+                          <% if t5 == t1 %>
+                            <% c0 = 1 %>
+                          <% end %>
                         <% end %>
                       <% end %>
                     <% end %>
+                    <% if c0 == 0 %>
+                      <tr>
+                        <td><b><%= n.nombre %></b></td>
+                        <td><b><%= n.plan.nombre %></b></td>
+                        <td><b><%= n.created_at.strftime("%d")%></b></td>
+                      </tr>
+                    <% end %>
+                    <% c0 = 0 %>
                   <% end %>
-                  <% if c0 == 0 %>
-                    <tr>
-                      <td><b><%= n.nombre %></b></td>
-                      <td><b><%= n.plan.nombre %></b></td>
-                      <td><b><%= n.created_at.strftime("%d")%></b></td>
-                    </tr>
-                  <% end %>
-                  <% c0 = 0 %>
-                <% end %>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
             </div>
-          <div class="modal-footer">
-            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+            <div class="modal-footer">
+              <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <a href="#Fondos" class="btn btn-success btn-lg" data-toggle="modal">Ingresos</a>
-  <div class="modal fade" id="Fondos">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <% t0 = Time.now.strftime("%m") %>
-          <% t1 = Time.now.strftime("%Y") %>
-          <% t3 = Time.local(t1,t0,01,0,0) %>
-          <% t4 = Time.now %>
-          <% suma = 0 %>
-          <h1 class="modal-title"><b>Ingresos</b></h1>
-          <h3><%= "Desde: "%>
-          <%= t3.strftime("%d/%m/%Y") %><br> 
-          <%= "Hasta: " %>
-          <%= Time.now.strftime("%d/%m/%Y")%></h3>
-          <% @pagos.each do |f| %><br>
-            <% t2 = f.created_at %>
-            <!-- Si esta dentro del inicio del mes hasta la fecha-->
-            <% if t2.between?(t3,t4) %>
-              <% suma += f.monto.to_i %>
+    <a href="#Fondos" class="btn btn-success btn-lg" data-toggle="modal">Ingresos</a>
+    <div class="modal fade" id="Fondos">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <% t0 = Time.now.strftime("%m") %>
+            <% t1 = Time.now.strftime("%Y") %>
+            <% t3 = Time.local(t1,t0,01,0,0) %>
+            <% t4 = Time.now %>
+            <% suma = 0 %>
+            <h1 class="modal-title"><b>Ingresos</b></h1>
+            <h3><%= "Desde: "%>
+              <%= t3.strftime("%d/%m/%Y") %><br> 
+              <%= "Hasta: " %>
+              <%= Time.now.strftime("%d/%m/%Y")%>
+            </h3>
+            <% @pagos.each do |f| %><br>
+              <% t2 = f.created_at %>
+              <!-- Si esta dentro del inicio del mes hasta la fecha-->
+              <% if t2.between?(t3,t4) %>
+                <% suma += f.monto.to_i %>
+              <%end%>
             <%end%>
-          <%end%>
-          <h2><%= "Monto: $ " %><%= suma %> <%= " Pesos" %></h2>
-          <div class="modal-footer">
-            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+            <h2><%= "Monto: $ " %><%= suma %> <%= " Pesos" %></h2>
+            <div class="modal-footer">
+              <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </div> 
+  <% end %>
+  <% end %>
   <table class="table">
     <thead>
       <tr>
