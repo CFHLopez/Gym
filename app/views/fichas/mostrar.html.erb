@@ -2,6 +2,20 @@
   <div class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading">
+        <% rut = @fichas.rut.to_s %>
+        <% cont = 0 %>
+        <% @alunnos.each do |x| %>
+          <% rr = x.rut.to_s %>
+          <% if rut == rr %>
+            <% nombre = rr.nombre.to_s %>
+            <% cont = cont + 1 %>
+          <% end %>
+        <% end %>
+        <% if cont != 0 %>
+          <h1><b><%= nombre %><br>
+        <% else %>
+          <h1><b><%= "Anonimo/a" %><br>
+        <% end %>
   		  <h1><b><%= @fichas.alumno.nombre %><br>
         <h2>Fecha Evaluación:<%= @fichas.created_at.strftime("%d/%m/%Y") %></h2></h1>
       </div><big><big>

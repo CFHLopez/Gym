@@ -9,6 +9,7 @@ class FichasController < ApplicationController
 	end
 
  	def mostrar
+    @alumnos = Alumno.all
   end
 
   def nuevo
@@ -53,6 +54,6 @@ class FichasController < ApplicationController
   end
 
   def ficha_params
-  	params.require(:ficha).permit(:estatura, :peso, :biceps, :triceps, :subescapular, :suprailiaco, :IMC, :grasa, :torax, :cintura, :caderas, :brazo, :muslo, :alumno_id)
+  	params.require(:ficha).permit(:estatura, :rut, :peso, :biceps, :triceps, :subescapular, :suprailiaco, :IMC, :grasa, :torax, :cintura, :caderas, :brazo, :muslo)
   end
 end

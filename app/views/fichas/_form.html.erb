@@ -24,8 +24,8 @@
     <div class="form-group">
       <h3><b>Datos</b></h3>
       <div class="panel-body">
-        <label class="control-label col-xs-2">Alumno:</label>
-        <i><%=f.collection_select :alumno_id, Alumno.order("Nombre"), :id, :nombre, include_blank: true %></i>
+        <b><label class="control-label col-xs-3">Rut Alumno/a:</label></b> 
+        <i><%= f.text_field :rut, placeholder: "XXXXXXX-X" %></i>
       </div>
       <div class="panel-body">
         <label class="control-label col-xs-2">Peso:</label>

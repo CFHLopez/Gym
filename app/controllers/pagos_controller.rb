@@ -53,6 +53,6 @@ class PagosController < ApplicationController
   end
 
   def pagos_params
-    params.require(:pago).permit(:monto, :alumno_id, :create_at)
+    params.require(:pago).permit(:monto, :rut, :create_at)
  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170813055704) do
+ActiveRecord::Schema.define(version: 20170923030527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,14 +77,14 @@ ActiveRecord::Schema.define(version: 20170813055704) do
     t.integer  "muslo"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "alumno_id"
+    t.string   "rut"
   end
 
   create_table "pagos", force: :cascade do |t|
     t.integer  "monto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "alumno_id"
+    t.string   "rut"
   end
 
   create_table "plans", force: :cascade do |t|
@@ -126,8 +126,6 @@ ActiveRecord::Schema.define(version: 20170813055704) do
   add_foreign_key "asists", "clases"
   add_foreign_key "clases", "asists"
   add_foreign_key "clases", "users"
-  add_foreign_key "fichas", "alumnos"
-  add_foreign_key "pagos", "alumnos"
   add_foreign_key "users", "clases"
   add_foreign_key "users", "plans"
 end
