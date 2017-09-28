@@ -14,12 +14,15 @@ class FichasController < ApplicationController
 
   def nuevo
   	@fichas = Ficha.new
+    @alumnos = Alumno.all
   end
 
   def editar
+    @alumnos = Alumno.all
 	end
 
   def crear
+    @alumnos = Alumno.all
     @fichas = Ficha.create(ficha_params)
     respond_to do |format|
       if @fichas.save
@@ -31,6 +34,7 @@ class FichasController < ApplicationController
   end
 
   def update
+    @alumnos = Alumno.all
     respond_to do |format|
       if @fichas.update(ficha_params)
         format.html{redirect_to @fichas, notice:'Ficha Modificada'}

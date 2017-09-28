@@ -4,27 +4,40 @@
       <div class="panel-heading">
         <% rut = @fichas.rut.to_s %>
         <% cont = 0 %>
-        <% @alunnos.each do |x| %>
-          <% rr = x.rut.to_s %>
+        <% ano = 0 %>
+        <% nomb = "" %>
+        <% falla = "" %>
+        <% sex = "Masculino" %>
+        <% @alumnos.each do |x| %>
+          <% rr = x.rut %>
           <% if rut == rr %>
-            <% nombre = rr.nombre.to_s %>
+            <% nomb = x.nombre %>
+            <% ano = x.edad %>
+            <% falla = x.desc %>
+            <% sex = x.sexo %>
             <% cont = cont + 1 %>
           <% end %>
         <% end %>
         <% if cont != 0 %>
-          <h1><b><%= nombre %><br>
+          <h1><b><%= nomb %><br>
         <% else %>
           <h1><b><%= "Anonimo/a" %><br>
+          <% ano = 15 %>
+          <% falla = "Alumno/a no inscrito" %>
+          <% sex = "Alumno/a no inscrito" %>
         <% end %>
-  		  <h1><b><%= @fichas.alumno.nombre %><br>
         <h2>Fecha Evaluación:<%= @fichas.created_at.strftime("%d/%m/%Y") %></h2></h1>
       </div><big><big>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-4">
             <div class="panel-body">
-              <%= "Edad:" %></b>
-              <%= @fichas.alumno.edad %><b> Años</b>
+              <b><%= "Edad:" %></b>
+              <%= ano %><b> Años</b>
+            </div>
+            <div class="panel-body">
+              <b><%= "Sexo:" %></b>
+              <%= sex %>
             </div>
             <div class="panel-body">
               <b><%= "Peso:" %></b>
@@ -36,7 +49,7 @@
             </div>
             <div class="panel-body">
               <b><%= "Complicación Medica:" %></b><br>
-                <%= @fichas.alumno.desc %>
+                <%= falla %>
             </div>
           </div>
           <div class="col-md-4">
@@ -143,8 +156,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <h2 class="modal-title"><b>% De Grasa</b></h2>
-          <% e0 = @fichas.alumno.edad %>
-        <% if @fichas.alumno.sexo = 'Masculino' %>
+          <% e0 = ano %>
+        <% if sex == 'Masculino' %>
           <% if e0.between?(10,19) %>
             <% c0 = 1.1620 %>
             <% m0 = 0.0630 %>
@@ -166,7 +179,7 @@
             <% m0 = 0.0779 %>
           <%end%>
         <% else %>
-          <% if e0.between?(16,19) %>
+          <% if e0.between?(10,19) %>
             <% c0 = 1.1549 %>
             <% m0 = 0.0678 %>
           <%end%>
