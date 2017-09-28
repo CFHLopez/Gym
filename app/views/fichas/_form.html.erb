@@ -24,7 +24,7 @@
     <div class="form-group">
       <h3><b>Datos</b></h3>
       <div class="panel-body">
-        <b><label class="control-label col-xs-3">Rut Alumno/a:</label></b> 
+        <b><label class="control-label col-xs-2">Rut Alumno/a:</label></b> 
         <i><%= f.text_field :rut, placeholder: "XXXXXXX-X" %></i>
       </div>
       <div class="panel-body">
@@ -35,7 +35,10 @@
         <label class="control-label col-xs-2">Estatura:</label>
         <i><%= f.text_field :estatura, placeholder: "Ej: 1.5"%><b></i><%= " Metros" %></b>
       </div>
-      <i>**No Es Obligatorio Rellenar Los Siguientes Campos**</i>
+      <i>**No Es Obligatorio Rellenar Los Siguientes Campos**</i><br>
+      <i>**Hacer Click En El Siguiente Link Para Rellenar Los Demas Campos**</i><br>
+      <a onclick="$('#div_mostrar_ocultar').slideToggle()">Pliegometria/Antropometria</a>
+      <div id="div_mostrar_ocultar">
       <div class="row">
         <div class="col-md-5">
           <h3><b>Piegometria</b></h3>
@@ -76,6 +79,7 @@
           </div>
         </div>
       </div>
+      </div><br>
       <%= f.submit value="Guardar", class: "btn btn-success"%>
       <input type="reset" class="btn btn-default" value="Limpiar">
       <%= link_to "Volver", Ficha, class: "btn btn-primary"%>
