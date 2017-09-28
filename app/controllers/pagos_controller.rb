@@ -9,16 +9,20 @@ class PagosController < ApplicationController
   end
 
   def mostrar
+    @alumnos = Alumno.all
   end
 
   def nuevo
     @pagos = Pago.new
+    @alumnos = Alumno.all
   end
 
   def editar
+    @alumnos = Alumno.all
   end
 
   def crear
+    @alumnos = Alumno.all
     @pagos = Pago.create(pagos_params)
     respond_to do |format|
       if @pagos.save
@@ -30,6 +34,7 @@ class PagosController < ApplicationController
   end
 
   def update
+    @alumnos = Alumno.all
     respond_to do |format|
       if @pagos.update(pagos_params)
         format.html{redirect_to @pagos}

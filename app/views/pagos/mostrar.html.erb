@@ -2,16 +2,30 @@
   <div class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading">
+      <% rut = @pagos.rut.to_s %>
+        <% cont = 0 %>
+        <% ano = 0 %>
+        <% nomb = "Anonimo/a" %>
+        <% pln = "Alumno/a No Inscrito" %>
+        <% @alumnos.each do |x| %>
+          <% rr = x.rut %>
+          <% if rut == rr %>
+            <% nomb = x.nombre %>
+            <% ano = x.edad %>
+            <% pln = x.plan.nombre %>
+            <% cont = cont + 1 %>
+          <% end %>
+        <% end %>
   		<h1><b><%= "Fecha Del Pago: " %><%= @pagos.created_at.strftime("%d/%m/%Y") %></b></h1>
       </div>
       <big><b>
       <div class="panel-body">
       	Alumno/a: 
-      	<%= @pagos.alumno.nombre %>
+      	<%= nomb %>
       </div>
       <div class="panel-body">
         Plan: 
-        <%= @pagos.alumno.plan.nombre %>
+        <%= pln %>
       </div>
       <div class="panel-body">
       	Monto: 
