@@ -12,6 +12,8 @@ class Ability
         can :crud, Alumno
         can :crud, Asist
         can :crud, Pago
+      elsif user.role == "Alumno"
+        can :read , :visit
     else
         can :read, :index
     # The first argument to `can` is the action you are giving the user

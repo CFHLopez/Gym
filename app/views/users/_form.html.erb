@@ -37,7 +37,7 @@
       </div>
       <div class="panel-group">
         <b><%= "Rol" %></b><br>
-        <i><%= f.select :role, [["Administrador"], ["Profesor"],["ALumno"]]%></i>
+        <i><%= f.options_for_select :role, [["Administrador"], ["Profesor"],["Alumno"]]%></i>
       </div>
       <div class="panel-group">
         <b><%= "Sexo" %></b><br>
