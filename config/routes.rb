@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'visitas/index'
 
+  get 'classprofe/index'
+
   get 'users/index'
 
   get 'user/index'

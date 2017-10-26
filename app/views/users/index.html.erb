@@ -26,6 +26,7 @@
         <th>Edad</th>
         <th>Sexo</th>
         <th>Rol</th>
+        <th>Clase/s</th>
         <th>Email</th>
       </tr>
     </thead>
@@ -41,6 +42,23 @@
           <td><b><%= actual.edad %></b></td>
           <td><b><%= actual.sexo %></b></td>
           <td><b><%= actual.role %></b></td>
+          <td><b>
+          <% cc = 0 %>
+          <% cl = "" %>
+          <% esp = " " %>
+          <% @clases.each do |xx| %>
+            <% cid = xx.user_id.to_i %>
+            <% aid = actual.id %> 
+            <% if cid == aid %>
+              <% cl = cl + xx.nombre + esp %>
+              <% cc = cc + 1 %>
+            <% end %>
+          <% end %>
+          <% if cc == 0 %>
+            <%= "Sin Clases" %></b></td>
+          <% else %>
+            <%= cl %></b></td>
+          <% end %>
           <td><b><%= actual.email %></b></td>
           <% if current_user.email == 'christian.lopez@alumnos.uda.cl'%>
             <% if actual.email != 'christian.lopez@alumnos.uda.cl'%>

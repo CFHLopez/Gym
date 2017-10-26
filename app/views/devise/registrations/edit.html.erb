@@ -2,8 +2,9 @@
   <%= devise_error_messages! %>
   <div class="container">
     <h2><b><%= "Editar Perfil" %></b></h2>
-    <div class="form-group">
-      <div class="panel-body"><big>
+    <div class="form-group"><big>
+      <!--
+      <div class="panel-body">
         <label class="control-label col-xs-3">Nombre:</label>
         <i><%= f.text_field :nombre, placeholder: "Nombre Completo" %></i>
       </div>
@@ -11,18 +12,25 @@
         <label class="control-label col-xs-3">Rut:</label>
         <i><%= f.text_field :rut, placeholder: "XXXXXXX-X" %></i>
       </div>
+      -->
+      <!--
       <div class="panel-body">
         <label class="control-label col-xs-3">Edad:</label></b>
         <i><%= f.text_field :edad, placeholder: "Ejemplo: 15" %></i><br>
       </div>
+      -->
+      <!--
       <div class="panel-body">
         <label class="control-label col-xs-3">Rol:</label>
         <i><%= f.select :role, [["Administrador"], ["Profesor"]]%></i>
       </div>
+      -->
+      <!--
       <div class="panel-body">
         <label class="control-label col-xs-3">Sexo:</label>
         <i><%= f.select :sexo, [["Masculino"], ["Femenino"]]%></i>
       </div>
+      -->
       <div class="panel-body">
         <label class="control-label col-xs-3">Email:</label>
         <i><%= f.email_field :email, autofocus: true, placeholder: "ejemplo@ejemplo.cl" %></i>
