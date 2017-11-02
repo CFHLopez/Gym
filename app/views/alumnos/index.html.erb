@@ -44,7 +44,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @alumnos.each do |actual| %>
+      <% @alumnos.order(:created_at).each do |actual| %>
         <tr>
           <td><b><%= link_to(actual.nombre, actual) %></b></td>
           <td><b><%= actual.plan.nombre %></b></td>
