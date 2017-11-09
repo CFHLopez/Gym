@@ -30,8 +30,10 @@
         <label class="control-label col-xs-2"><b><%= "Precio: " %></b></label>
         <i><%= f.text_field :precio, placeholder: "Ejemplo: 1000" %></i>
       </div>
+      
       <div class="panel-body">
-        <label class="control-label col-xs-2"><b><%= "Clase/s: " %></b></label>
+        <label class="control-label col-xs-2"><b><%= f.label "Clase/s: " %></b></label>
+        <%= f.select('clases', Clase.all.collect {|c| [c.nombre, c.id]}, { include_blank: false }, {class: 'chosen-select', multiple:true}) %>
       </div>
       <div class="panel-body">
         <label class="control-label col-xs-2"><b><%= "Descripción: " %></b></label>

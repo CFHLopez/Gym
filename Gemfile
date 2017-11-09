@@ -41,6 +41,7 @@ gem 'will_paginate-bootstrap'
 gem 'rut_validation'
 #gema para attr_accessible
 gem 'protected_attributes'
+gem 'chosen-rails'
 #gema buscar
 # gem 'ransack' <--- no me funciono, buscar mas informacion
 # gem 'sunspot_rails' <--- tampoco funciono u.u
