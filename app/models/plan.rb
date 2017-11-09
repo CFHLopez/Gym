@@ -1,6 +1,8 @@
 class Plan < ActiveRecord::Base
 	belongs_to :user
-	has_and_belongs_to_many :clases
+	#has_and_belongs_to_many :clases
+	has_many :planclases
+	has_many :clases, through: :planclases
 
 	#validando nombre
 	validates :nombre, :presence => {:message => "no puede estar vacio"} 

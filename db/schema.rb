@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109163035) do
+ActiveRecord::Schema.define(version: 20171109170203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,11 +81,28 @@ ActiveRecord::Schema.define(version: 20171109163035) do
     t.string   "rut"
   end
 
+  create_table "has_asists", force: :cascade do |t|
+    t.integer  "alumno_id"
+    t.integer  "asist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "has_asists", ["alumno_id"], name: "index_has_asists_on_alumno_id", using: :btree
+  add_index "has_asists", ["asist_id"], name: "index_has_asists_on_asist_id", using: :btree
+
   create_table "pagos", force: :cascade do |t|
     t.integer  "monto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "rut"
+  end
+
+  create_table "planclases", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "plan_id"
+    t.integer  "clase_id"
   end
 
   create_table "plans", force: :cascade do |t|
