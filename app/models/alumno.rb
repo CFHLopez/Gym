@@ -24,6 +24,9 @@ class Alumno < ActiveRecord::Base
 	#validando plan_id
 	validates :plan_id, :presence => {:message => "no puede estar vacio"}
 
+	#validando diapago
+	validates :diapago, :presence => {:message => "no puede estar vacio"}
+
 	#validando rut
 	validates :rut, :rut => {:message => "no valido"}
 	validates :rut, :presence => {:message => "no puede estar vacio"}

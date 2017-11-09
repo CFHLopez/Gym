@@ -1,17 +1,11 @@
 Rails.application.routes.draw do
 
   get 'visitas/index'
-
-  get 'classprofe/index'
-
   get 'users/index'
-
   get 'user/index'
-
   get 'info/index'
-
   get 'home/index'
-
+  
   devise_for :users, controllers:{registrations: "registrations"}
   
   as :user do

@@ -48,7 +48,7 @@
         <tr>
           <td><b><%= link_to(actual.nombre, actual) %></b></td>
           <td><b><%= actual.plan.nombre %></b></td>
-          <td><b><%= actual.created_at.strftime("%d")%></b></td>
+          <td><b><%= actual.diapago %></b></td>
           <td><%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info"%>
           <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
         </tr>

@@ -45,9 +45,9 @@
               <h3><%= "No Han Pagado Este Mes" %><br><%= "Fecha Actual " %><%= Time.now.strftime("%d/%m/%Y") %></h3>
               <div class="panel-body">
               <!-- tomo el dia actual y lo guardo en una variable -->
-              <% t0 = Time.now.strftime("%d") %>
-              <% t1 = Time.now.strftime("%m") %>
-              <% t2 = Time.now.strftime("%Y") %>
+              <% t0 = Time.now.strftime("%d").to_i %>
+              <% t1 = Time.now.strftime("%m").to_i %>
+              <% t2 = Time.now.strftime("%Y").to_i %>
               <% t3 = Time.local(t2,t1,01,0,0) %>
               <% t4 = Time.now %>
               <% c0 = 0 %>
@@ -61,7 +61,7 @@
                   <!-- listamos los alumnos -->
                   <% @alumnos.each do |n| %>
                     <% v0 = n.rut %>
-                    <% t6 = n.created_at.strftime("%d") %>
+                    <% t6 = n.diapago %>
                     <!-- Si el dia actual es mayor o igual al de pago -->
                     <% if t0 >= t6 %>
                       <!-- listamos los pagos -->
@@ -82,7 +82,7 @@
                       <tr>
                         <td><b><%= n.nombre %></b></td>
                         <td><b><%= n.plan.nombre %></b></td>
-                        <td><b><%= n.created_at.strftime("%d")%></b></td>
+                        <td><b><%= n.diapago %></b></td>
                       </tr>
                     <% end %>
                     <% c0 = 0 %>

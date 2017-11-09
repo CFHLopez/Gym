@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923030527) do
+ActiveRecord::Schema.define(version: 20171109163035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170923030527) do
     t.string   "desc"
     t.integer  "edad"
     t.integer  "plan_id"
+    t.integer  "diapago"
   end
 
   create_table "asists", force: :cascade do |t|
@@ -79,16 +80,6 @@ ActiveRecord::Schema.define(version: 20170923030527) do
     t.datetime "updated_at",   null: false
     t.string   "rut"
   end
-
-  create_table "has_asists", force: :cascade do |t|
-    t.integer  "alumno_id"
-    t.integer  "asist_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "has_asists", ["alumno_id"], name: "index_has_asists_on_alumno_id", using: :btree
-  add_index "has_asists", ["asist_id"], name: "index_has_asists_on_asist_id", using: :btree
 
   create_table "pagos", force: :cascade do |t|
     t.integer  "monto"
