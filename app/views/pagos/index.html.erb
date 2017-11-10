@@ -63,7 +63,7 @@
                     <% v0 = n.rut %>
                     <% t6 = n.diapago %>
                     <!-- Si el dia actual es mayor o igual al de pago -->
-                    <% if t0 >= t6 %>
+                    <% if t0 <= t6 %>
                       <!-- listamos los pagos -->
                       <% @pagos.each do |prueba| %>
                         <% v1 = prueba.rut %>

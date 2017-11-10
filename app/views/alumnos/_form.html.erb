@@ -39,7 +39,8 @@
         <i><%= f.select :sexo, [["Masculino"], ["Femenino"]] %></i>
       </div>
       <div class="panel-body">
-        <b><label class="control-label col-xs-3">Plan:</label></b>
+        <b><label class="control-label col-xs-3"><%= f.label "Plan:" %></label></b>
+        <!-- FILTRAR CUANDO SE PONGA EDITAR COLOCAR UN PLAN DEL MISMO PRECIO DEL CASO CONTRARIO NO SE PODRA EDITAR EL PLAN -->
         <i><%=f.collection_select :plan_id, Plan.order("Nombre"), :id, :nombre, include_blank: true %></i>
       </div>
       <div class="panel-body">

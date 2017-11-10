@@ -29,10 +29,7 @@
       </div>
       <div class="panel-body">
         <label class="control-label col-xs-2"><b><%= f.label "Profesor:" %></b></label>
-        <!-- filtrar para que una clase tenga un profesor designado ... solo 1 y que tenga rol de profesor
-        <i><%= f.collection_select :user_id, User.order("Nombre"), :id, :nombre, include_blank: true %></i>
-        -->
-        <%= f.select('user_id',User.where(role: 'Profesor').collect {|c| [c.nombre, c.id] }) %>
+        <i><%= f.select('user_id',User.where(role: 'Profesor').collect {|c| [c.nombre, c.id] }) %></i>
       </div><b>
       <div class="panel-body">
         <label class="control-label col-xs-2">Descripción:</label></b>

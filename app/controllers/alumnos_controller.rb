@@ -5,6 +5,7 @@ class AlumnosController < ApplicationController
   def index
     @alumnos = Alumno.paginate(:page => params[:page], :per_page => 5)
     @plans = Plan.all
+    @pagos = Pago.all
   end
 
   def mostrar
