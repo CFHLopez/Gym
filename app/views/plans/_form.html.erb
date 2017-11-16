@@ -33,8 +33,15 @@
       
       <div class="panel-body">
         <label class="control-label col-xs-2"><b><%= f.label "Clase/s: " %></b></label>
+         <%= f.select :clases,
+              Clase.all.map { |u| [u.nombre, u.id] },
+               { include_blank: true },
+               { class: 'chosen-select' }%>
+        =begin
         <%= f.select('clases', Clase.all.collect {|c| [c.nombre, c.id]}, { include_blank: false }, {class: 'chosen-select', multiple:true}) %>
+        =end
       </div>
+      
       <div class="panel-body">
         <label class="control-label col-xs-2"><b><%= "Descripción: " %></b></label>
         <i><%= f.text_area :desc, size: "30x6", placeholder: "Descripción" %></i>
