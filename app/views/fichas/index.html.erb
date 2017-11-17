@@ -47,7 +47,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @fichas.each do |actual| %>
+      <% @fichas.order(:rut).each do |actual| %>
         <tr>
           <% xxx = "" %>
           <% cont = 0 %>

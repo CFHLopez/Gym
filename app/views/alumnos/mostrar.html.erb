@@ -48,7 +48,7 @@
           <h3><%= "Fecha Actual: "%><%= Time.now.strftime("%d/%m/%Y")%></h3>
           <div class="panel-body">
             <!-- id del alumno/a actual -->
-            <% idd = @alumnos.id %>
+            <% rut_actual = @alumnos.rut %>
             <!-- variable inicializada en 0 -->
             <% suma = 0 %>
             <table class="table">
@@ -60,7 +60,8 @@
                 <!-- llamamos a la tabla pagos -->
                 <% @pagos.each do |n| %>
                   <!-- si el id corresponde al alumno/a actual muestra el pago hecho -->
-                  <% if idd == n.alumno_id %>
+                  <% rut_alumno = n.rut %>
+                  <% if rut_actual == rut_alumno %>
                     <tr>
                       <td><b><%= n.created_at.strftime("%d/%m/%Y") %></b></td>
                       <td><b><%= n.monto %></b></td>
@@ -71,12 +72,21 @@
                 <% end %>
               </body>
             </table>
-            <% mesins = @alumnos.created_at.strftime("%m").to_i %>
-            <% mesact = Time.now.strftime("%m").to_i %>
-            <% meses = mesact - mesins + 1 %>
-            <% cplan = @alumnos.plan.precio.to_i %>
-            <% tplan = cplan * meses %>
-            <% saldo = suma - tplan %>
+            <% a_ins = @alumnos.created_at.strftime("%Y").to_i %>
+            <% a_actual = Time.now.strftime("%Y").to_i %>
+            <%= meses = (a_actual - a_ins)*12 %>
+            <% mes_ins = @alumnos.created_at.strftime("%m").to_i %>
+            <% mes_act = Time.now.strftime("%m").to_i %>
+            <% dia_ins = @alumnos.diapago.to_i %>
+            <% dia_act = Time.now.strftime("%d").to_i %>
+            <% if dia_ins <= dia_act %>
+              <% meses = meses + mes_act - mes_ins + 1 %>
+            <% else %>
+              <% meses = meses + mes_act - mes_ins %>
+            <% end %>
+            <% costo_plan = @alumnos.plan.precio.to_i %>
+            <%= total_plan = costo_plan * meses %>
+            <% saldo = suma - total_plan %>
             <h2 class="modal-title"><b>Saldo</b></h2>
             <% if saldo < 0 %>
               <big><b><%= "Alumno/a Con Deuda De: " %><%= saldo*-1 %><%= " Pesos"%></b></big>

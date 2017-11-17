@@ -26,6 +26,7 @@
       <tr>
         <th>Nombre</th>
         <th>Precio</th>
+        <th>Cant. Alumnos/as</th>
       </tr>
     </thead>
     <tbody>
@@ -33,13 +34,15 @@
         <tr>
           <td><b><%= link_to(actual.nombre, actual) %></b></td>
           <td><b><%= actual.precio %></b></td>
-          <td> <%= link_to 'Editar', editar_plan_path(actual), class: "btn btn-info"%>
           <% cant = 0 %>
           <% @alumnos.each do |xxx|%>
             <% if xxx.plan.nombre == actual.nombre %>
               <% cant = cant + 1 %>
             <% end %>
           <% end %>
+          <td><b><%= cant %></b></td>
+          <td><%= link_to 'Mostrar', plan_url(actual), class: "btn btn-success" %>
+          <%= link_to 'Editar', editar_plan_path(actual), class: "btn btn-info"%>
           <% if cant == 0 %>
             <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
           <% end %>
