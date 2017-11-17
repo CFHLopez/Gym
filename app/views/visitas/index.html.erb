@@ -1,2 +1,22 @@
-<h1>Visitas#index</h1>
-<p>Find me in app/views/visitas/index.html.erb</p>
+<div class="container">
+  <h1><b><%= current_user.nombre %></b></h1>
+  <h3><b><%= current_user.rut %></b></h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @fichas.each do |actual| %>
+        <tr>
+          <% if actual.rut == current_user.rut %>
+            <td><b><%= actual.created_at.strftime("%d/%m/%Y")%></b></td>
+            <td><%= link_to 'Mostrar', ficha_path(actual), class: "btn btn-success"%></td>
+          <% end %>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
