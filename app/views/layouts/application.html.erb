@@ -27,6 +27,7 @@
                   <li><a href="/alumnos">Alumnos/as</a></li>
                   <li><a href="/asistencias">Asistencias</a></li>
                   <li><a href="/pagos">Pagos</a></li>
+                  <li><a href="/visitas/index"> Fichas Personales </a></li>
                   <% if current_user.role == 'Administrador'%>
                     <li><a href="/clases">Clases</a></li>
                     <li><a href="/planes">Planes</a></li>
@@ -35,11 +36,6 @@
                   <% end %>
                 <% else %>
                   <li><a href="/visitas/index"> Fichas/Pagos </a></li>
-                <% end %>
-                <% @alumnos.each do |actual| %>%>
-                  <% if current_user.rut == actual.rut %>
-                    <li><a href="/visitas/index"> Fichas/Pagos </a></li>  
-                  <% end %>
                 <% end %>
               </ul>
           <%end%></big>
