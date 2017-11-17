@@ -59,7 +59,7 @@
               <body>
                 <!-- llamamos a la tabla pagos -->
                 <% @pagos.each do |n| %>
-                  <!-- si el id corresponde al alumno/a actual muestra el pago hecho -->
+                  <!-- si el rut corresponde al alumno/a actual muestra el pago hecho -->
                   <% rut_alumno = n.rut %>
                   <% if rut_actual == rut_alumno %>
                     <tr>
@@ -72,20 +72,28 @@
                 <% end %>
               </body>
             </table>
+            <!-- guardamos el año actual y el año de inscripcion -->
             <% a_ins = @alumnos.created_at.strftime("%Y").to_i %>
             <% a_actual = Time.now.strftime("%Y").to_i %>
-            <%= meses = (a_actual - a_ins)*12 %>
+            <!-- restamos los años y los multiplicamos por 12 para sacarlos meses anteriores al año actual -->
+            <% meses = (a_actual - a_ins)*12 %>
+            <!-- guardamos el mes actual y el mes de inscripcion -->
             <% mes_ins = @alumnos.created_at.strftime("%m").to_i %>
             <% mes_act = Time.now.strftime("%m").to_i %>
+            <!-- guardamos el dia actual y el dia de inscripcion -->
             <% dia_ins = @alumnos.diapago.to_i %>
             <% dia_act = Time.now.strftime("%d").to_i %>
+            <!-- comparamos si el dia de inscripcion es menor o igual a al dia actual, si lo es a la diferencia de meses le sumamos 1, en caso contrario solo hacemos la resta de la diferencia de meses -->
             <% if dia_ins <= dia_act %>
               <% meses = meses + mes_act - mes_ins + 1 %>
             <% else %>
               <% meses = meses + mes_act - mes_ins %>
             <% end %>
+            <!-- traemos el costo del plan y lo guardamos -->
             <% costo_plan = @alumnos.plan.precio.to_i %>
-            <%= total_plan = costo_plan * meses %>
+            <!-- multiplicamos el costo del plan por la cantidad de meses -->
+            <% total_plan = costo_plan * meses %>
+            <!-- restamos la suma total de pagos menos la deuda por meses -->
             <% saldo = suma - total_plan %>
             <h2 class="modal-title"><b>Saldo</b></h2>
             <% if saldo < 0 %>
