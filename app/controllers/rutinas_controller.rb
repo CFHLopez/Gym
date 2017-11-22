@@ -44,7 +44,7 @@ class RutinasController < ApplicationController
   def eliminar
     @rutinas.destroy
     respond_to do |format|
-      format.html{redirect_to rutinas_url, notice:'Rutina Eliminada'}
+      format.html{redirect_to "/total/index", notice:'Rutina Eliminada'}
     end
   end
 

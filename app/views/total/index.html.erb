@@ -11,19 +11,22 @@
           <div class="col-md-6">
             <h4><b><%= "Clases" %></b></h4>
             <table class="table">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Cant. Alumnos/as</th>
-                  <th>Fecha</th>
-                </tr>
-              </thead>
+              <thead><tr>
+                <th>Clase</th>
+                <th>Fecha</th>
+                <th>Cant. Alumnos</th>
+                <th>Opciones</th>
+              </tr></thead>
               <tbody>
                 <% @asists.each do |actual| %>
                   <tr>
-                    <td><b><%= actual.nombre %></b></td>
+                    <td><b><%= actual.clase.nombre %></b></td>
+                    <td><b><%= actual.created_at.strftime("%d - %m - %Y") %></b></td>
                     <td><b><%= actual.cantidad %></b></td>
-                    <td><b><%= actual.created_at.strftime("%d/%m/%Y")%></b></td>
+                    <td> <%= link_to 'Editar', editar_asist_path(actual), class: "btn btn-info"%>
+                    <% if current_user.role == 'Administrador'%>
+                      <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
+                    <% end %>
                   </tr>
                 <%end%>
               </tbody>
@@ -37,6 +40,7 @@
                   <th>Nombre</th>
                   <th>Plan</th>
                   <th>Fecha</th>
+                  <th>Opciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,7 +56,10 @@
                   <tr>
                     <td><b><%= xxx %></b></td>
                     <td><b><%= pln %></b></td>
-                    <td><b><%= actual.created_at.strftime("%d/%m/%Y")%></b></td>
+                    <td><b><%= ruti.fecha %></b></td>
+                    <td><%= link_to 'Mostrar', rutina_path(ruti), class: "btn btn-success"%>
+                    <%= link_to 'Editar', editar_rutina_path(ruti), class: "btn btn-info"%>
+                    <%= link_to 'Borrar', ruti, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
                   </tr>
                 <%end%>
               </tbody>

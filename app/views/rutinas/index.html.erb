@@ -7,10 +7,10 @@
         <div class="modal-header">
           <h2 class="modal-title"><b><p class="text-info"> Instrucciones: </p></b></h2>
           <h5>
-            <b><p class="text-success"> 1.- Para 'Ver' un pago en detalle, presionar sobre el nombre de el/la alumno/a </p></b>
-            <b><p class="text-success"> 2.- Para 'Editar' la informacion un pago, presionar sobre el boton 'Editar' </p></b>
-            <b><p class="text-success"> 3.- Para 'Borrar' un pago, presionar sobre el boton 'Borrar' </p></b>
-            <b><p class="text-success"> 4.- Para 'Crear' un nuevo pago, presionar sobre el boton 'Nuevo Pago' </p></b>
+            <b><p class="text-success"> 1.- Para 'Ver' una rutina en detalle, presionar sobre el nombre el boton 'Mostrar' </p></b>
+            <b><p class="text-success"> 2.- Para 'Editar' la informacion una rutina, presionar sobre el boton 'Editar' </p></b>
+            <b><p class="text-success"> 3.- Para 'Borrar' una rutina, presionar sobre el boton 'Borrar' </p></b>
+            <b><p class="text-success"> 4.- Para 'Crear' una nueva rutina, presionar sobre el boton 'Nueva Rutina' </p></b>
           </h5>
           <div class="modal-footer">
             <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
@@ -44,7 +44,8 @@
           <td><b><%= actual.rut %></b></td>
           <td><b><%= pln %></b></td>
           <td><b><%= actual.created_at.strftime("%d/%m/%Y") %></b></td>
-          <td><%= link_to 'Editar', editar_rutina_path(actual), class: "btn btn-info" %>
+          <td><td><%= link_to 'Mostrar', rutina_path(actual), class: "btn btn-success"%>
+          <%= link_to 'Editar', editar_rutina_path(actual), class: "btn btn-info" %>
           <% if current_user.role == 'Administrador'%>
             <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger" %></td>
           <% end %>
