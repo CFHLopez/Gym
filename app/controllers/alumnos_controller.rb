@@ -10,6 +10,7 @@ class AlumnosController < ApplicationController
 
   def mostrar
     @pagos = Pago.all
+    @rutinas = Rutina.all
   end
 
   def nuevo

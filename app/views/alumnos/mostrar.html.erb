@@ -6,7 +6,7 @@
       </div>
       <div class="panel-body">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="panel-body">
               <b><%= "RUT:" %></b> 
               <%= @alumnos.rut %>
@@ -20,7 +20,7 @@
       	      <%= @alumnos.sexo %>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="panel-body">
       	      <b><%= "Plan:" %></b> 
       	      <%= @alumnos.plan.nombre %>
@@ -33,6 +33,35 @@
               <b><%= "Complicación Medica:" %></b> 
               <%= @alumnos.desc %>
             </div>
+          </div>
+          <div class="col-md-3">
+            <% rut_alumno = @alumnos.rut.to_s %>
+            <% cont = 0 %>
+            <% f_rutina = Time.now %>
+            <% n_rutina = "" %>
+            <% desc_rutina = "" %>
+            <% @rutinas.each do |ruti| %>
+              <% if ruti.rut == rut_alumno %>
+                <% cont = cont + 1 %>
+                <% f_rutina = ruti.created_at %>
+                <% n_rutina = ruti.nombre %>
+                <% desc_rutina = ruti.desc %>
+              <% end %>
+            <% end %>
+            <% if cont != 0 %>
+              <div class="panel-body">
+                <b><%= "Ultima Rutina:" %></b> 
+                <%= f_rutina %>
+              </div>
+              <div class="panel-body">
+                <b><%= "Trabajo:" %></b> 
+                <%= n_rutina %>
+              </div>
+              <div class="panel-body">
+                <b><%= "Descripción:" %></b> 
+                <%= desc_rutina %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

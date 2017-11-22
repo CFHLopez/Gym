@@ -43,7 +43,7 @@
           <td><b><%= xxx %></b></td>
           <td><b><%= actual.rut %></b></td>
           <td><b><%= pln %></b></td>
-          <td><b><%= actual.fecha %></b></td>
+          <td><b><%= actual.created_at.strftime("%d/%m/%Y") %></b></td>
           <td><%= link_to 'Editar', editar_rutina_path(actual), class: "btn btn-info" %>
           <% if current_user.role == 'Administrador'%>
             <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger" %></td>
