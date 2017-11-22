@@ -43,7 +43,7 @@
             <% @rutinas.each do |ruti| %>
               <% if ruti.rut == rut_alumno %>
                 <% cont = cont + 1 %>
-                <% f_rutina = ruti.created_at %>
+                <% f_rutina = ruti.created_at.strftime("%d/%m/%Y") %>
                 <% n_rutina = ruti.nombre %>
                 <% desc_rutina = ruti.desc %>
               <% end %>
