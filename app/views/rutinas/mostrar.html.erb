@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+      <% rut = @rutinas.rut.to_s %>
+        <% cont = 0 %>
+        <% ano = 0 %>
+        <% nomb = "Anonimo/a" %>
+        <% pln = "Alumno/a No Inscrito" %>
+        <% @alumnos.each do |x| %>
+          <% rr = x.rut %>
+          <% if rut == rr %>
+            <% nomb = x.nombre %>
+            <% ano = x.edad %>
+            <% pln = x.plan.nombre %>
+            <% cont = cont + 1 %>
+          <% end %>
+        <% end %>
+      </div>
+      <big><b>
+      <div class="panel-body">
+        Alumno/a: 
+        <%= nomb %>
+      </div>
+      <div class="panel-body">
+        Plan: 
+        <%= pln %>
+      </div>
+      <div class="panel-body">
+        Rutina: 
+        <%= @rutinas.nombre %>
+      </div>
+      <div class="panel-body">
+        Descripción: 
+        <%= @rutinas.desc %>
+      </div>
+      </b></big>
+    </div>
+  </div>
+  <%= link_to "Volver", Rutina, class: "btn btn-primary" %>
+</div>

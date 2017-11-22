@@ -1,0 +1,46 @@
+<%= form_for(@rutinas, :html =>{:class => 'panel-body'}) do |f| %>
+  <div class="container"><big>
+    <div class="panel-body">
+      <% if @rutinas.errors.any? %>
+        <div class="alert fade in alert-error">
+          <% if @rutinas.errors.count == 1 %>
+            <h2><%= pluralize(@rutinas.errors.count, "Error")%><%= " impide realizar esta acción: "%></h2>
+            <ul>
+              <% @rutinas.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <h2><%= pluralize(@rutinas.errors.count, "Errore")%><%= " impiden realizar esta acción: "%></h2>
+            <ul>
+              <% @rutinas.errors.full_messages.each do |actual| %>
+                <li><%= actual %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <div class="panel-body">
+        <b><label class="control-label col-xs-3">Rut Alumno/a:</label></b> 
+        <i><%= f.text_field :rut, placeholder: "XXXXXXX-X" %></i>
+      </div>
+      <div class="panel-body">
+        <b><label class="control-label col-xs-3">Fecha:</label></b>
+        <i><%= f.date_select :fecha, {:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} %></i>
+      </div>
+      <div class="panel-body">
+        <b><label class="control-label col-xs-3">Tipo De Rutina:</label></b>
+        <i><%= f.select :nombre, [["Funcional"],["Pecho"],["Espalda"],["Piernas"]] %></i>
+      </div>
+      <div class="panel-body">
+        <label class="control-label col-xs-3">Descripción Rutina:</label></b>
+        <i><%= f.text_area :desc, size: "30x6", placeholder: "Descripción" %></i>
+      </div>
+      <%= f.submit value="Guardar", class: "btn btn-success"%>
+      <input type="reset" class="btn btn-default" value="Limpiar">
+      <%= link_to "Volver", Rutina, class: "btn btn-primary"%>  
+    </div>
+  </div>
+<%end%>

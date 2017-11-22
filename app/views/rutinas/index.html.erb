@@ -1,0 +1,56 @@
+<div class="container">
+  <h1><b><%= "Rutinas" %></b></h1>
+  <a href="#Inst" class="btn btn-primary btn-lg" data-toggle="modal">Instrucciones</a>
+  <div class="modal fade" id="Inst">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title"><b><p class="text-info"> Instrucciones: </p></b></h2>
+          <h5>
+            <b><p class="text-success"> 1.- Para 'Ver' un pago en detalle, presionar sobre el nombre de el/la alumno/a </p></b>
+            <b><p class="text-success"> 2.- Para 'Editar' la informacion un pago, presionar sobre el boton 'Editar' </p></b>
+            <b><p class="text-success"> 3.- Para 'Borrar' un pago, presionar sobre el boton 'Borrar' </p></b>
+            <b><p class="text-success"> 4.- Para 'Crear' un nuevo pago, presionar sobre el boton 'Nuevo Pago' </p></b>
+          </h5>
+          <div class="modal-footer">
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'Nueva Rutina', nueva_rutina_path, class: "btn btn-warning btn-lg" %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Alumno/a</th>
+        <th>Rut</th>
+        <th>Plan</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rutinas.each do |actual| %>
+        <% xxx = "Anonimo/a" %>
+        <% pln = "Alumno/a no Inscrito" %>
+        <% @alumnos.each do |x| %>
+          <% if actual.rut == x.rut %>
+            <% xxx = x.nombre %>
+            <% pln = x.plan.nombre %>
+          <% end %>
+        <% end %>
+        <tr>
+          <td><b><%= xxx %></b></td>
+          <td><b><%= actual.rut %></b></td>
+          <td><b><%= pln %></b></td>
+          <td><b><%= actual.fecha %></b></td>
+          <td><%= link_to 'Editar', editar_rutina_path(actual), class: "btn btn-info" %>
+          <% if current_user.role == 'Administrador'%>
+            <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger" %></td>
+          <% end %>
+        </tr>
+      <%end%>
+    </tbody>
+  </table><br><br>
+  <%= will_paginate @rutinas, renderer: BootstrapPagination::Rails %>
+</div>

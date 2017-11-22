@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'visitas/index'
+  get 'total/index'
   get 'users/index'
   get 'user/index'
   get 'info/index'
@@ -91,4 +92,14 @@ Rails.application.routes.draw do
   post 'asistencias/', to: 'asists#crear'
   delete 'asistencias/:id',to: 'asists#eliminar'
 
+  get 'rutinas/', to: 'rutinas#index', as: 'rutinas'
+  get 'rutinas/nuevo', to: 'rutinas#nuevo', as: 'nueva_rutina'
+  get 'rutinas/:id', to: 'rutinas#mostrar', as: 'rutina'
+  get 'rutinas/:id/editar', to: 'asists#editar', as: 'editar_rutina'
+
+  put 'rutinas/:id', to: 'rutinas#update'
+  patch 'rutinas/:id', to: 'rutinas#update'
+
+  post 'rutinas/', to: 'rutinas#crear'
+  delete 'rutinas/:id',to: 'rutinas#eliminar'
 end
