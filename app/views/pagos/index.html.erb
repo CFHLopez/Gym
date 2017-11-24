@@ -44,35 +44,45 @@
               <h3><%= "No Han Pagado Este Mes" %><br><%= "Fecha Actual " %><%= Time.now.strftime("%d/%m/%Y") %></h3>
               <div class="panel-body">
               <!-- tomo el dia actual y lo guardo en una variable -->
-              <% t0 = Time.now.strftime("%d").to_i %>
-              <% t1 = Time.now.strftime("%m").to_i %>
-              <% t2 = Time.now.strftime("%Y").to_i %>
-              <% t3 = Time.local(t2,t1,01,0,0) %>
-              <% t4 = Time.now %>
+              <% dia_actual = Time.now.strftime("%d").to_i %>
+              <% mes_actual = Time.now.strftime("%m").to_i %>
+              <% year_actual = Time.now.strftime("%Y").to_i %>
               <% c0 = 0 %>
+              <% deuda = 0 %> 
               <table class="table">
                 <thead><tr>
                   <th>Nombre Alumno/a</th>
                   <th>Plan</th>
                   <th>Fecha Pago</th>
+                  <th>Monto a Pagar</th>
                 </tr></thead>
                 <tbody>
                   <!-- listamos los alumnos -->
                   <% @alumnos.each do |n| %>
-                    <% v0 = n.rut %>
-                    <% t6 = n.diapago %>
+                    <% rut_alumno = n.rut %>
+                    <% dia_pago = n.diapago.to_i %>
                     <!-- Si el dia actual es mayor o igual al de pago -->
-                    <% if t0 <= t6 %>
+                    <% if dia_pago <= dia_actual %>
                       <!-- listamos los pagos -->
-                      <% @pagos.each do |prueba| %>
-                        <% v1 = prueba.rut %>
+                      <% @pagos.each do |x| %>
+                        <% rut_pago = x.rut %>
                         <!-- si el id del alumno corresponde al 
                         id del pago hecho por un alumno -->
-                        <% if v0 == v1 %>
-                          <% t5 = prueba.created_at.strftime("%m") %>
-                          <!-- si el pago es en el mismo mes -->
-                          <% if t5 == t1 %>
-                            <% c0 = 1 %>
+                        <% if rut_pago == rut_alumno %>
+                          <% mes_pago = x.created_at.strftime("%m").to_i %>
+                          <% year_pago = x.created_at.strftime("%Y").to_i %>
+                          <!-- si el pago es en el mismo año -->
+                          <% if year_pago == year_actual %>
+                            <!-- si el pago es en el mismo mes -->
+                            <% if mes_pago == mes_actual %>
+                              <%= n.plan.precio %><%="="%><%= x.monto %>
+                              <% if n.plan.precio > x.monto %>
+                                <% c0 = 1 %>
+                                <% deuda = n.plan.precio - x.monto %>
+                              <% else %>
+                                <% c0 = 2 %>
+                              <% end %>
+                            <% end %>
                           <% end %>
                         <% end %>
                       <% end %>
@@ -82,7 +92,17 @@
                         <td><b><%= n.nombre %></b></td>
                         <td><b><%= n.plan.nombre %></b></td>
                         <td><b><%= n.diapago %></b></td>
+                        <td><b><%= n.plan.precio %></b></td>
                       </tr>
+                    <% else %>
+                      <% if c0 == 1 %>
+                        <tr>
+                          <td><b><%= n.nombre %></b></td>
+                          <td><b><%= n.plan.nombre %></b></td>
+                          <td><b><%= n.diapago %></b></td>
+                          <td><b><%= deuda %></b></td>
+                        </tr>
+                      <% end %>
                     <% end %>
                     <% c0 = 0 %>
                   <% end %>

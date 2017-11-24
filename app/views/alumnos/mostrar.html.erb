@@ -142,4 +142,40 @@
       </div>
     </div>
   </div>
+  <a href="#Clases" class="btn btn-warning" data-toggle="modal">Clases</a>
+  <div class="modal fade" id="Clases">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title"><b>Clases: <%= @alumnos.nombre %></b></h2>
+          <h3><%= "Fecha Actual: "%><%= Time.now.strftime("%d/%m/%Y")%></h3>
+          <div class="panel-body">
+            <table class="table">
+              <thead><tr>
+                <th>Fecha Clase</th>
+                <th>Rutina</th>
+                <th>Descripción</th>
+              </tr></thead>
+              <body>
+                <!-- llamamos a la tabla rutinas -->
+                <% @rutinas.each do |n| %>
+                  <% rut_alumno = n.rut %>
+                  <% if rut_actual == rut_alumno %>
+                    <tr>
+                      <td><b><%= n.created_at.strftime("%d/%m/%Y") %></b></td>
+                      <td><b><%= n.nombre %></b></td>
+                      <td><b><%= n.desc %></b></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </body>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
