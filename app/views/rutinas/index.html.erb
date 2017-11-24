@@ -43,7 +43,7 @@
           <td><b><%= xxx %></b></td>
           <td><b><%= actual.rut %></b></td>
           <td><b><%= pln %></b></td>
-          <td><b><%= actual.created_at.strftime("%d/%m/%Y") %></b></td>
+          <td><b><%= actual.fecha.strftime("%d/%m/%Y") %></b></td>
           <td><td><%= link_to 'Mostrar', rutina_path(actual), class: "btn btn-success"%>
           <%= link_to 'Editar', editar_rutina_path(actual), class: "btn btn-info" %>
           <% if current_user.role == 'Administrador'%>
