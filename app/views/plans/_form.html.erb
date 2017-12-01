@@ -33,13 +33,11 @@
       
       <div class="panel-body">
         <label class="control-label col-xs-2"><b><%= f.label "Clase/s: " %></b></label>
-         <%= f.select :clases,
-              Clase.all.map { |u| [u.nombre, u.id] },
-               { include_blank: true },
-               { class: 'chosen-select' }%>
-        =begin
-        <%= f.select('clases', Clase.all.collect {|c| [c.nombre, c.id]}, { include_blank: false }, {class: 'chosen-select', multiple:true}) %>
-        =end
+         <%= hidden_field_tag "plan[clase_ids][]", nil %>
+        <% Clase.all.each do |clase| %>
+        <%= check_box_tag "plan[clase_ids][]", clase.id, id: dom_id(clase) %>
+        <%= label_tag dom_id(clase), clase.nombre %><br>
+      <% end %>
       </div>
       
       <div class="panel-body">
