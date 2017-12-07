@@ -5,15 +5,17 @@ class PlansController < ApplicationController
   def index
     @plans = Plan.paginate(:page => params[:page], :per_page => 5)
     @alumnos = Alumno.all
+    @clases = Clase.all
   end
 
   def mostrar
     @clases = Clase.all
+    @users = User.all
   end
 
   def nuevo
-    @plans = Plan.new
     @clases = Clase.all
+    @plans = Plan.new
   end
 
   def editar

@@ -23,12 +23,6 @@ users.observacion = 'Estudiante Ing. Software'
 users.save
 
 #planes
-pl1 = Plan.new
-pl1.nombre = '3xS'
-pl1.precio = '15000'
-pl1.desc = 'Asistencia 3 veces por semana'
-pl1.save
-
 pl2 = Plan.new
 pl2.nombre = 'Libre'
 pl2.precio = '18000'

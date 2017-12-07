@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><b><%= "Asistencias" %></b></h1>
+  <h1><b><%= "Asistencia Clases" %></b></h1>
   <% cont = 0 %>
   <% cont1 = 0 %>
   <% @plans.each do |x| %>
@@ -35,6 +35,7 @@
         </div>
       </div>
       <%= link_to 'Nueva Asistencia', nueva_asist_path, class: "btn btn-warning btn-lg" %>
+      <%= link_to 'Volver','/total/index', class: "btn btn-info btn-lg" %>
     <% end %>
   <% end %>
   <table class="table">

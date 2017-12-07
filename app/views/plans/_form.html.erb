@@ -30,16 +30,6 @@
         <label class="control-label col-xs-2"><b><%= "Precio: " %></b></label>
         <i><%= f.text_field :precio, placeholder: "Ejemplo: 1000" %></i>
       </div>
-      
-      <div class="panel-body">
-        <label class="control-label col-xs-2"><b><%= f.label "Clase/s: " %></b></label>
-         <%= hidden_field_tag "plan[clase_ids][]", nil %>
-        <% Clase.all.each do |clase| %>
-        <%= check_box_tag "plan[clase_ids][]", clase.id, id: dom_id(clase) %>
-        <%= label_tag dom_id(clase), clase.nombre %><br>
-      <% end %>
-      </div>
-      
       <div class="panel-body">
         <label class="control-label col-xs-2"><b><%= "Descripción: " %></b></label>
         <i><%= f.text_area :desc, size: "30x6", placeholder: "Descripción" %></i>

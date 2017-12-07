@@ -2,16 +2,38 @@
   <div class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading">
-  		<h1><b><%= @clases.nombre %></b></h1>
+  		  <h1><b><%= @clases.nombre %></b></h1>
       </div>
       <big>
         <div class="panel-body">
-          <%= "Profesor/a:" %>
-          <%= @clases.user_id %>
-        </div>
-        <div class="panel-body">
-      	  <%=" Descripción:" %> 
-      	  <%= @clases.desc %>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="panel-body">
+                <b><%= "Plan:" %></b>
+                <% @plans.each do |xx| %>
+                  <% code = xx.id %>
+                  <% if code == @clases.plan_id.to_i %>
+                    <i><%= xx.nombre %></i>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="panel-body">
+                <b><%= "Profesor/a:" %></b>
+                <% @users.each do |x| %>
+                  <% codigo = x.id %>
+                  <% if codigo == @clases.user_id.to_i %>
+                    <i><%= x.nombre %></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="panel-body">
+      	        <b><%=" Descripción:" %></b> 
+      	        <i><%= @clases.desc %></i>
+              </div>
+            </div>
+          </div>
         </div>
       </big>
     </div>

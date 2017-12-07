@@ -4,23 +4,35 @@
       <div class="panel-heading">
   		  <h1><b><%= @plans.nombre %></b></h1>
       </div>
-      <big><b>
-        <div class="panel-body">
-      	  <%= "Precio: " %> 
-      	  <%= @plans.precio %>
+      <div class="panel-body"><big>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel-body">
+      	      <b><%= "Precio: " %></b> 
+      	      <i><%= @plans.precio %></i>
+            </div>
+            <div class="panel-body">
+              <b><%= "Descripción: " %></b><br> 
+              <i><%= @plans.desc %></i>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel-body">
+              <b><%= "Clase/s: " %></b><br> 
+              <% @clases.each do |actual| %>
+                <% if actual.plan_id == @plans.id %>
+                  <%= actual.nombre %>
+                  <% @users.each do |usuario| %>
+                    <% if usuario.id == actual.user_id %>  
+                      <%= " - " %><%= usuario.nombre %>
+                    <% end %>
+                  <% end %><br>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
-        <div class="panel-body">
-          <b><%= "Descripción: " %></b> 
-          <%= @plans.desc %>
-        </div>
-        <div class="panel-body">
-          <b><%= "Clase: " %></b> 
-          <%= PlanClase.where(plan_id: @plans.id).each do |actual| %>
-            <%= actual.plan.plan %>
-            <br>
-          <% end %>
-        </div>
-      </b></big>
+      </div></big>
     </div>
   </div>
   <%= link_to "Volver", Plan, class: "btn btn-primary" %>

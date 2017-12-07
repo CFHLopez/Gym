@@ -1,5 +1,5 @@
 <%= form_for(@clases, :html =>{:class => 'panel-body'}) do |f| %>
-  <div class="container"><big>
+  <div class="container">
     <div class="panel-body">
       <% if @clases.errors.any? %>
         <div class="alert fade in alert-error">
@@ -20,24 +20,29 @@
           <% end %>
         </div>
       <% end %>
-    </div>
-  <div class="container">
-    <div class="form-group"><b>
-      <div class="panel-body">
-        <label class="control-label col-xs-2">Nombre:</label></b> 
-        <i><%= f.text_field :nombre, placeholder: "Nombre Completo" %></i>
+    </div><big>
+    <div class="container">
+      <div class="form-group">
+        <div class="panel-body">
+          <b><label class="control-label col-xs-2">Nombre:</label></b> 
+          <i><%= f.text_field :nombre, placeholder: "Nombre Completo" %></i>
+        </div>
+        <div class="panel-body">
+          <b><label class="control-label col-xs-2"><%= f.label "Profesor:" %></label></b>
+          <i><%= f.select('user_id',User.where(role: 'Profesor').collect {|c| [c.nombre, c.id] }) %></i>
+        </div>
+        <div class="panel-body">
+          <b><label class="control-label col-xs-2"><%= f.label "Plan:" %></label></b>
+          <i><%= f.collection_select :plan_id, Plan.order("Nombre"), :id, :nombre, include_blank: true %></i>
+        </div>
+        <div class="panel-body">
+          <b><label class="control-label col-xs-2">Descripción:</label></b>
+          <i><%= f.text_area :desc, size: "30x6", placeholder: "Descripción" %></i>
+        </div>
+        <%= f.submit value="Guardar", class: "btn btn-success"%>
+        <input type="reset" class="btn btn-default" value="Limpiar">
+        <%= link_to "Volver", Clase, class: "btn btn-primary"%>
       </div>
-      <div class="panel-body">
-        <label class="control-label col-xs-2"><b><%= f.label "Profesor:" %></b></label>
-        <i><%= f.select('user_id',User.where(role: 'Profesor').collect {|c| [c.nombre, c.id] }) %></i>
-      </div><b>
-      <div class="panel-body">
-        <label class="control-label col-xs-2">Descripción:</label></b>
-        <i><%= f.text_area :desc, size: "30x6", placeholder: "Descripción" %></i>
-      </div>
-      <%= f.submit value="Guardar", class: "btn btn-success"%>
-      <input type="reset" class="btn btn-default" value="Limpiar">
-      <%= link_to "Volver", Clase, class: "btn btn-primary"%>
-    </big>
+    </div></big>
   </div>
 <% end %>

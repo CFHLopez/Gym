@@ -7,6 +7,8 @@ class ClasesController < ApplicationController
   end
 
   def mostrar
+    @users = User.all
+    @plans = Plan.all
   end
 
   def nuevo
@@ -53,6 +55,6 @@ class ClasesController < ApplicationController
   end
 
   def clase_params
-    params.require(:clase).permit(:clase, :nombre, :desc, :user_id)
+    params.require(:clase).permit(:clase, :nombre, :desc, :user_id, :plan_id)
   end
 end
