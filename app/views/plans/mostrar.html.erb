@@ -15,7 +15,10 @@
         </div>
         <div class="panel-body">
           <b><%= "Clase: " %></b> 
-          <%= "Ayudaaa!!!" %>
+          <%= PlanClase.where(plan_id: @plans.id).each do |actual| %>
+            <%= actual.plan.plan %>
+            <br>
+          <% end %>
         </div>
       </b></big>
     </div>

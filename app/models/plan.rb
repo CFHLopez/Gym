@@ -1,7 +1,8 @@
 class Plan < ActiveRecord::Base
-	belongs_to :user
-	has_one :planclases
-	accepts_nested_attributes_for :planclases
+	has_many :clases
+
+	has_many :planclase
+	has_many :clases, through: :planclases
 
 	#validando nombre
 	validates :nombre, :presence => {:message => "no puede estar vacio"} 

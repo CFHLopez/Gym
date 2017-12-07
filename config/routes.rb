@@ -102,4 +102,13 @@ Rails.application.routes.draw do
 
   post 'rutinas/', to: 'rutinas#crear'
   delete 'rutinas/:id',to: 'rutinas#eliminar'
+
+  get 'planclase/', to: 'planclase#index', as: 'planclases'
+  get 'planclase/nuevo/:id/pregunta', to: 'planclase#nuevo', as: 'nuevo_planclase'
+  get 'planclase/:id',to: 'planclase#mostrar', as: 'planclase'
+  #get 'planclase/:id/editar', to: 'pregunta_informes#editar', as: 'editar_planclase'
+  post 'planclase', to: 'planclase#crear', as: 'crear_planclase'
+  put 'planclase/:id' , to: 'planclase#update'
+  patch 'planclase/:id' ,to: 'planclase#update'
+  delete 'planclase/:id', to: 'planclase#eliminar'
 end
