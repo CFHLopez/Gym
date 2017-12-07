@@ -1,6 +1,6 @@
 class ClasesController < ApplicationController
   load_and_authorize_resource
-  before_action :set_clase, only: [:mostrar, :editar, :update, :eliminar]
+  before_action :set_clase, only: [:clase, :mostrar, :editar, :update, :eliminar]
 
   def index
     @clases = Clase.paginate(:page => params[:page], :per_page => 5)

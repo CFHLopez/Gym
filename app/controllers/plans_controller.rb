@@ -8,6 +8,7 @@ class PlansController < ApplicationController
   end
 
   def mostrar
+    @clases = Clase.all
   end
 
   def nuevo
@@ -54,6 +55,6 @@ class PlansController < ApplicationController
   end
 
   def plans_params
-    params.require(:plan).permit(:nombre, :precio, :desc, {:clase_ids => []})
+    params.require(:plan).permit(:nombre, :precio, :desc, :clase_ids)
   end
 end
