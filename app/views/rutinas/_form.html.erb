@@ -28,11 +28,11 @@
       </div>
       <div class="panel-body">
         <b><label class="control-label col-xs-3">Fecha:</label></b> 
-        <i><%= f.date_select :fecha, start_year: Time.now.strftime("%Y").to_i, end_year: Time.now.strftime("%Y").to_i, start_month: Time.now.strftime("%m").to_i, end_month: Time.now.strftime("%m").to_i %></i>
+        <i><%= f.date_select :fecha, start_year: Time.now.strftime("%Y").to_i, end_year: Time.now.strftime("%Y").to_i %></i>
       </div>
       <div class="panel-body">
         <b><label class="control-label col-xs-3">Tipo De Rutina:</label></b>
-        <i><%= f.select :nombre, [["Funcional"],["Pecho"],["Espalda"],["Piernas"]] %></i>
+        <i><%= f.select :nombre, [["Funcional"],["Abdominales"],["Pecho"],["Espalda"],["Piernas"],["Localizado"]] %></i>
       </div>
       <div class="panel-body">
         <label class="control-label col-xs-3">Descripción Rutina:</label></b>
