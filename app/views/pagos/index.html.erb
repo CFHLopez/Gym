@@ -24,8 +24,9 @@
               <h2 class="modal-title"><b><p class="text-info"> Instrucciones: </p></b></h2>
               <h5>
                 <b><p class="text-success"> 1.- Para 'Editar' la informacion un pago, presionar sobre el boton 'Editar' </p></b>
-                <b><p class="text-success"> 2.- Para 'Borrar' un pago, presionar sobre el boton 'Borrar' </p></b>
-                <b><p class="text-success"> 3.- Para 'Crear' un nuevo pago, presionar sobre el boton 'Nuevo Pago' </p></b>
+                <b><p class="text-success"> 2.- Para 'Crear' un nuevo pago, presionar sobre el boton 'Nuevo Pago' </p></b>
+                <b><p class="text-success"> 3.- Para 'Borrar' un pago, presionar sobre el boton 'Borrar' </p></b>
+                <b><p class="text-danger">** Solo el Administrador puede borrar pagos **</p></b>
               </h5>
               <div class="modal-footer">
                 <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
@@ -116,37 +117,39 @@
         </div>
       </div>
     </div>
-    <a href="#Fondos" class="btn btn-success btn-lg" data-toggle="modal">Ingresos</a>
-    <div class="modal fade" id="Fondos">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <% t0 = Time.now.strftime("%m") %>
-            <% t1 = Time.now.strftime("%Y") %>
-            <% t3 = Time.local(t1,t0,01,0,0) %>
-            <% t4 = Time.now %>
-            <% suma = 0 %>
-            <h1 class="modal-title"><b>Ingresos</b></h1>
-            <h3><%= "Desde: "%>
-              <%= t3.strftime("%d/%m/%Y") %><br> 
-              <%= "Hasta: " %>
-              <%= Time.now.strftime("%d/%m/%Y")%>
-            </h3>
-            <% @pagos.each do |f| %><br>
-              <% t2 = f.created_at %>
-              <!-- Si esta dentro del inicio del mes hasta la fecha-->
-              <% if t2.between?(t3,t4) %>
-                <% suma += f.monto.to_i %>
+    <% if current_user.role == 'Administrador' %>
+      <a href="#Fondos" class="btn btn-success btn-lg" data-toggle="modal">Ingresos</a>
+      <div class="modal fade" id="Fondos">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <% t0 = Time.now.strftime("%m") %>
+              <% t1 = Time.now.strftime("%Y") %>
+              <% t3 = Time.local(t1,t0,01,0,0) %>
+              <% t4 = Time.now %>
+              <% suma = 0 %>
+              <h1 class="modal-title"><b>Ingresos</b></h1>
+              <h3><%= "Desde: "%>
+                <%= t3.strftime("%d/%m/%Y") %><br> 
+                <%= "Hasta: " %>
+                <%= Time.now.strftime("%d/%m/%Y")%>
+              </h3>
+              <% @pagos.each do |f| %><br>
+                <% t2 = f.created_at %>
+                <!-- Si esta dentro del inicio del mes hasta la fecha-->
+                <% if t2.between?(t3,t4) %>
+                  <% suma += f.monto.to_i %>
+                <%end%>
               <%end%>
-            <%end%>
-            <h2><%= "Monto: $ " %><%= suma %> <%= " Pesos" %></h2>
-            <div class="modal-footer">
-              <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+              <h2><%= "Monto: $ " %><%= suma %> <%= " Pesos" %></h2>
+              <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div> 
+    <% end %> 
   <% end %>
   <% end %>
   <table class="table">
@@ -162,26 +165,41 @@
     </thead>
     <tbody>
       <% @pagos.each do |actual| %>
-        <% xxx = "Anonimo/a" %>
+        <% nom_alumno = "Anonimo/a" %>
         <% pln = "Alumno/a no Inscrito" %>
+        <% pln_id = 0 %>
         <% @alumnos.each do |x| %>
           <% if actual.rut == x.rut %>
-            <% xxx = x.nombre %>
+            <% nom_alumno = x.nombre %>
             <% pln = x.plan.nombre %>
+            <% pln_id = x.plan_id.to_i %>
           <% end %>
         <% end %>
         <tr>
-          <td><b><%= xxx %></b></td>
-          <td><b><%= actual.rut %></b></td>
-          <td><b><%= pln %></b></td>
-          <td><b><%= actual.created_at.strftime("%d/%m/%Y") %></b></td>
-          <td><b><%= actual.monto %></b></td>
-          <td><%= link_to 'Editar', editar_pago_path(actual), class: "btn btn-info" %>
           <% if current_user.role == 'Administrador'%>
+            <td><b><%= nom_alumno %></b></td>
+            <td><b><%= actual.rut %></b></td>
+            <td><b><%= pln %></b></td>
+            <td><b><%= actual.created_at.strftime("%d/%m/%Y") %></b></td>
+            <td><b><%= actual.monto %></b></td>
+            <td><%= link_to 'Editar', editar_pago_path(actual), class: "btn btn-info" %>
             <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger" %></td>
-          <% end %>
         </tr>
-      <%end%>
+          <% else %>
+          <% @clases.each do |xxx| %>
+            <% if xxx.plan_id == pln_id %>
+              <% if current_user.id == xxx.user_id %>
+                <td><b><%= nom_alumno %></b></td>
+                <td><b><%= actual.rut %></b></td>
+                <td><b><%= pln %></b></td>
+                <td><b><%= actual.created_at.strftime("%d/%m/%Y") %></b></td>
+                <td><b><%= actual.monto %></b></td>
+                <td><%= link_to 'Editar', editar_pago_path(actual), class: "btn btn-info" %></td>
+              <% end %>
+            <% end %>
+          <% end %>
+          <% end %>
+      <% end %>
     </tbody>
   </table><br><br>
   <%= will_paginate @pagos, renderer: BootstrapPagination::Rails %>

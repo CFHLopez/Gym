@@ -6,6 +6,7 @@ class PagosController < ApplicationController
     @pagos = Pago.paginate(:page => params[:page], :per_page => 5)
     @alumnos = Alumno.all
     @plans = Plan.all
+    @clases = Clase.all
   end
 
   def mostrar

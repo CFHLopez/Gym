@@ -6,6 +6,7 @@ class AlumnosController < ApplicationController
     @alumnos = Alumno.paginate(:page => params[:page], :per_page => 5)
     @plans = Plan.all
     @pagos = Pago.all
+    @clases = Clase.all
   end
 
   def mostrar
@@ -55,6 +56,6 @@ class AlumnosController < ApplicationController
   end
 
   def alumno_params
-    params.require(:alumno).permit(:nombre, :sexo, :edad, :plan_id, :create_at, :rut, :desc, :diapago)
+    params.require(:alumno).permit(:nombre, :sexo, :edad, :plan_id, :rut, :desc, :diapago)
   end
 end

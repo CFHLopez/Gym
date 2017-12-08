@@ -45,15 +45,30 @@
     </thead>
     <tbody>
       <% @alumnos.order(:diapago).each do |actual| %>
-        <tr>
-          <td><b><%= link_to(actual.nombre, actual) %></b></td>
-          <td><b><%= actual.plan.nombre %></b></td>
-          <td><b><%= actual.diapago %></b></td>
-          <td><%= link_to 'Mostrar', alumno_url(actual), class: "btn btn-success" %>
-          <%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info" %>
-          <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
-         </td>
-        </tr>
+        <% if current_user.role == 'Administrador'%>
+          <tr>
+            <td><b><%= link_to(actual.nombre, actual) %></b></td>
+            <td><b><%= actual.plan.nombre %></b></td>
+            <td><b><%= actual.diapago %></b></td>
+            <td><%= link_to 'Mostrar', alumno_url(actual), class: "btn btn-success" %>
+            <%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info" %>
+            <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
+          </tr>
+        <% else %>
+          <% plan_alumno = actual.plan.id.to_i %>
+          <% @clases.each do |xxx| %>
+            <% if xxx.plan_id == plan_alumno %>
+              <% if current_user.id == xxx.user_id %>
+                <td><b><%= link_to(actual.nombre, actual) %></b></td>
+                <td><b><%= actual.plan.nombre %></b></td>
+                <td><b><%= actual.diapago %></b></td>
+                <td><%= link_to 'Mostrar', alumno_url(actual), class: "btn btn-success" %>
+                <%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info" %>
+                <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
       <%end%>
     </tbody>
   </table>

@@ -25,7 +25,11 @@
               <ul class="nav navbar-nav">
                 <% if current_user.role != 'Alumno' %>
                   <li><a href="/alumnos">Alumnos/as</a></li>
-                  <li><a href="/total/index">Asistencias</a></li>
+                  <% if current_user.role == 'Administrador' %>
+                    <li><a href="/total/index">Asistencias</a></li>
+                  <% else %>
+                    <li><a href="/asistencias">Asistencias</a></li>
+                  <% end %>
                   <li><a href="/pagos">Pagos</a></li>
                   <li><a href="/visitas/index"> Fichas Personales </a></li>
                   <% if current_user.role == 'Administrador'%>
