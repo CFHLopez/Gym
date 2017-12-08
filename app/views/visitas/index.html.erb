@@ -6,6 +6,51 @@
         <h3><b><%= current_user.rut %></b></h3>
       </div>
       <div class="panel-body">
+        <a href="#Horarios" class="btn btn-info btn-lg" data-toggle="modal">Horarios</a>
+        <div class="modal fade" id="Horarios">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title"><b><p class="text-info"> Horario Funcionamiento Gimnasio: </p></b></h1>
+                <h4><b>
+                  <p class="text-success">Lunes a Viernes: 09:00-13:00 hrs y 16:00-23:00 hrs</p>
+                  <p class="text-success">Sabados: 10:00-14:00 hrs</p>
+                  <p class="text-danger">Domingos y Festivos: Cerrado</p>
+                </h4></b>
+                <div class="modal-footer">
+                  <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#Clases" class="btn btn-success btn-lg" data-toggle="modal">Clases</a>
+        <div class="modal fade" id="Clases">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title"><b><p class="text-danger">Inscrito Para Clases De: </p></b></h1>
+                <h4><b>
+                  <% pln = 0 %>
+                  <% @alumnos.each do |alum| %>
+                    <% if alum.rut == current_user.rut %>
+                      <% pln = alum.plan_id.to_i %>
+                    <% end %>
+                  <% end %>
+                  <% @clases.each do |xlass| %>
+                    <% if xlass.plan_id == pln %>
+                      <h2><p class="text-primary"><%= xlass.nombre %><%= " - " %><%= xlass.desc %></p></h2>
+                    <% end %>
+                  <% end %>
+                  </p>
+                </h4></b>
+                <div class="modal-footer">
+                  <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-6">
             <h4><b><%= "Fichas" %></b></h4>

@@ -35,7 +35,9 @@
         </div>
       </div>
       <%= link_to 'Nueva Asistencia', nueva_asist_path, class: "btn btn-warning btn-lg" %>
-      <%= link_to 'Volver','/total/index', class: "btn btn-info btn-lg" %>
+      <% if current_user.role == 'Administrador'%>
+        <%= link_to 'Volver','/total/index', class: "btn btn-info btn-lg" %>
+      <% end %>
     <% end %>
   <% end %>
   <table class="table">
@@ -54,7 +56,7 @@
       
         <td> <%= link_to 'Editar', editar_asist_path(actual), class: "btn btn-info"%>
         <% if current_user.role == 'Administrador'%>
-        <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
+          <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
         <% end %>
       </tr>
   </tbody>

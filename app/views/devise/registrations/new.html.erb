@@ -15,10 +15,17 @@
         <label class="control-label col-xs-3">Edad:</label></b>
         <i><%= f.text_field :edad, placeholder: "Ejemplo: 15" %></i><br>
       </div>
-      <div class="panel-body">
-        <label class="control-label col-xs-3">Rol:</label>
-        <i><%= f.select :role, [["Administrador"], ["Profesor"],["Alumno"]]%></i>
-      </div>
+      <% if user_signed_in? %>
+        <div class="panel-body">
+          <label class="control-label col-xs-3">Rol:</label>
+          <i><%= f.select :role, [["Administrador"], ["Profesor"],["Alumno"]]%></i>
+        </div>
+      <% else %>
+        <div class="panel-body">
+          <label class="control-label col-xs-3">Rol:</label>
+          <i><%= f.select :role, [["Alumno"]]%></i>
+        </div>
+      <% end %>
       <div class="panel-body">
         <label class="control-label col-xs-3">Sexo:</label>
         <i><%= f.select :sexo, [["Masculino"], ["Femenino"]]%></i>
@@ -38,10 +45,12 @@
         <b><label class="control-label col-xs-3">Confirmar Contraseña:</label></b>
         <i><%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "********" %></i>
       </div>
-      <div class="panel-body">
-        <b><label class="control-label col-xs-3">Observación:</label></b>
-        <i><%= f.text_area :observacion, size:"30x2", placeholder:"Opcional" %></i>
-      </div></big>
+      <% if user_signed_in? %>
+        <div class="panel-body">
+          <b><label class="control-label col-xs-3">Observación:</label></b>
+          <i><%= f.text_area :observacion, size:"30x2", placeholder:"Opcional" %></i>
+        </div></big>
+      <% end %>
     <div class="actions">   
       <%= f.submit "Registrate", class: "btn btn-success" %>  
       <input type="reset" class="btn btn-default" value="Limpiar">

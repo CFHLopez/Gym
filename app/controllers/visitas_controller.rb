@@ -3,5 +3,6 @@ class VisitasController < ApplicationController
   	@alumnos = Alumno.all
     @pagos = Pago.all
     @fichas = Ficha.all
+    @clases = Clase.all
   end
 end
