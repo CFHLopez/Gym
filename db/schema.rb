@@ -11,19 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130235851) do
+ActiveRecord::Schema.define(version: 20171209013310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "activs", force: :cascade do |t|
-    t.datetime "fecha"
-    t.string   "rutina"
-    t.string   "desc"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "rut"
-  end
 
   create_table "alumnos", force: :cascade do |t|
     t.string   "nombre"
@@ -44,6 +35,7 @@ ActiveRecord::Schema.define(version: 20171130235851) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "clase_id"
+    t.string   "desc"
   end
 
   create_table "clases", force: :cascade do |t|
@@ -90,6 +82,16 @@ ActiveRecord::Schema.define(version: 20171130235851) do
     t.datetime "updated_at",   null: false
     t.string   "rut"
   end
+
+  create_table "has_asists", force: :cascade do |t|
+    t.integer  "alumno_id"
+    t.integer  "asist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "has_asists", ["alumno_id"], name: "index_has_asists_on_alumno_id", using: :btree
+  add_index "has_asists", ["asist_id"], name: "index_has_asists_on_asist_id", using: :btree
 
   create_table "pagos", force: :cascade do |t|
     t.integer  "monto"
