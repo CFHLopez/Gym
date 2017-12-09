@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'contacto/index'
+
   get 'visitas/index'
   get 'total/index'
   get 'users/index'
