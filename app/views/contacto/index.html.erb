@@ -1,70 +1,72 @@
-<html>
-<head>
-	<h1>Contacto</h1>
-	<br>
-	<br>
-	<script>
-	function validacion(id)
-	{
-		var elem=document.getElementById(id);
-		if(elem.checkvalidity())
-			elem.style.borderColor="blue";
-		else
-			elem.style.borderColor="red";
-	}
-	</script>	
-</head>
-<!--==============================content================================-->
-	<section id="content">
-		<div class="main">
-			<div class="indent-left">
-				<div class="wrapper">
-					<article class="col-1">
-					<br>
-					<br>
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.195698454598!2d-70.66866484952635!3d-33.52229720849417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662dae3229d34f7%3A0xa48f177dde0fc86d!2sAv.+Fern%C3%A1ndez+Albano+565%2C+La+Cisterna%2C+Regi%C3%B3n+Metropolitana!5e0!3m2!1ses!2scl!4v1447628614073" width="260" height="223" frameborder="0" style="border:0" allowfullscreen></iframe>
-						<h3>Nuestra dirección:</h3>
-						<dl>
-							<dt>Vicuña Mackenna #10422,<br>La Florida.</dt>
-							<dd><span>Teléfono: +569 73464561</span>  </dd>
-							<dd><span>E-mail:</span> <a class="link-2" href="#">funcionality.chris@gym.cl</a></dd>
-						</dl>
-					</article>
-					<article class="col-2">
-					<div class="indent-left">
-						<h3>Contáctanos</h3>
-						<form id="contact-form">
-							<fieldset>
-								<label>
-									<input type="text" name="nombre" value="Nombre" id="nombre"  onblur="this.checkValidity();" />
-								</label>
-								<label>
-								  <input type="text" name="email"id="email" placeholder="example@example.com"oninput="validacion('email') required" />
-								</label>
-								<label>
-								  <input type="text" value="Telefono" onBlur="if(this.value=='') this.value='Telefono'" onFocus="if(this.value =='Telefono' ) this.value=''" pattern="^[9|8|7|6]\d{8}$" minlenght="8" maxlength="8" />
-								</label>
-								<textarea onBlur="if(this.value=='') this.value='Message'" onFocus="if(this.value =='Message' ) this.value=''">Mensaje</textarea>
-								<div class="buttons-wrapper">
-									<a class="button" onClick="document.getElementById('contact-form').reset()">Limpiar</a>
-									<a class="button" onClick="document.getElementById('contact-form').submit()">Enviar</a>
+<div class="container">
+  	<div class="panel-group">
+  		<div class="panel panel-success">
+  	  		<div class="panel-heading">
+				<h1>Contactanos</h1>
+				<script>
+					function validacion(id){
+						var elem=document.getElementById(id);
+						if(elem.checkvalidity())
+							elem.style.borderColor="blue";
+						else
+							elem.style.borderColor="red";
+					}
+				</script>
+			</div>
+			<div class="panel-body">
+        		<div class="row">
+          			<div class="col-md-4">
+            			<div class="panel-body">
+            				<h3><b>Dirección:</b></h3>
+							<dl>
+								<dt>Vicuña Mackenna #10422, La Florida.</dt>
+								<dd><span><b>Teléfono:</b> +569 7346 4561</span></dd>
+								<dd><span><b>E-mail:</b></span> <a class="link-2" href="#">funcionality.chris@gym.cl</a></dd>
+							</dl>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<section id="content">
+							<div class="main">
+								<div class="indent-left">
+									<div class="wrapper">
+										<article class="col-1">
+											<iframe src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDJ4PH-6n3qAfAxLntjfFII1TjuW1pQQZo&center=-33.552472, -70.586491&zoom=40&maptype=satellite" width="500" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+										</article>
 									</div>
 								</div>
-							</fieldset>
-						</form>
-					</article>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div class="panel-body">
+					<b><h3>¿Preguntas?</h3></b>
+					<form id="contact-form">
+						<fieldset>
+							<div class="panel-body">
+								<b><label class="control-label col-xs-2">Nombre:</label></b>
+								<i><input type="text" name="nombre" value="Nombre" id="nombre"  onblur="this.checkValidity();" /></i>
+							</div>
+							<div class="panel-body">
+								<b><label class="control-label col-xs-2">Email:</label></b>
+								<i><input type="text" name="email"id="email" placeholder="example@example.com"oninput="validacion('email') required" /></i>
+							</div>
+							<div class="panel-body">
+								<b><label class="control-label col-xs-2">N° Celular:</label></b>
+								<i><input type="text" value="Telefono" onBlur="if(this.value=='') this.value='Telefono'" onFocus="if(this.value =='Telefono' ) this.value=''" pattern="^[9|8|7|6]\d{8}$" minlenght="8" maxlength="8" /></i>
+							</div>
+							<div class="panel-body">
+								<b><label class="control-label col-xs-2">Mensaje:</label></b>
+								<i><textarea onBlur="if(this.value=='') this.value='Message'" onFocus="if(this.value =='Message' ) this.value=''">Agregar Mensaje Aqui</textarea></i>
+							</div>
+							<div class="buttons-wrapper">
+								<a class="btn btn-success" onClick="document.getElementById('contact-form').submit()">Enviar</a>
+								<a class="btn btn-default" onClick="document.getElementById('contact-form').reset()">Limpiar</a>
+							</div>
+						</fieldset>
+					</form>	
 				</div>
 			</div>
 		</div>
-	</section>
-
-<!--=====================================================================================-->
-	<footer>
-	<div id="wrapper">
-	        <div id="header"></div>
-	        <div id="contento"></div>
-	        <div id="footer">Vicuña Mackenna #10422, La Florida </div>
-	    </div>
-	</footer>
-</body>
-</html>
+	</div>
+</div>
