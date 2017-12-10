@@ -53,7 +53,6 @@
             <td><%= link_to 'Mostrar', alumno_url(actual), class: "btn btn-success" %>
             <%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info" %>
             <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
-          </tr>
         <% else %>
           <% plan_alumno = actual.plan.id.to_i %>
           <% @clases.each do |xxx| %>
@@ -65,6 +64,7 @@
                 <td><%= link_to 'Mostrar', alumno_url(actual), class: "btn btn-success" %>
                 <%= link_to 'Editar', editar_alumno_path(actual), class: "btn btn-info" %>
                 <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
+            </tr>
               <% end %>
             <% end %>
           <% end %>

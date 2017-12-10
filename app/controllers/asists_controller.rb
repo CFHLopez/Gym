@@ -14,10 +14,12 @@ class AsistsController < ApplicationController
   def nuevo
     @asists = Asist.new
     @alumnos = Alumno.all
+    @clases = Clase.all
   end
 
   def editar
     @alumnos = Alumno.all
+    @clases = Clase.all
   end
 
   def crear
@@ -57,6 +59,6 @@ class AsistsController < ApplicationController
   end
 
   def asist_params
-    params.require(:asist).permit(:fecha, :cantidad, :clase_id) #:alumnos
+    params.require(:asist).permit(:fecha, :cantidad, :clase_id, :desc) #:alumnos
   end
 end

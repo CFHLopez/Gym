@@ -1,5 +1,5 @@
 <%= form_for(@asists, :html =>{:class => 'panel-body'}) do |f| %>
-  <div class="container"><big>
+  <div class="container">
     <div class="panel-body">
       <% if @asists.errors.any? %>
         <div class="alert fade in alert-error">
@@ -20,24 +20,36 @@
           <% end %>
         </div>
       <% end %>
-    </div>
+    </div><big>
     <div class="form-group">
-    <big><b>
-      <!-- AÑADIR A ASISTENCIA UN CAMPO STRING PARA DECIR SI EL PROFESOR ASISTIO O NO -->
       <div class="panel-body">
-        <label>Clase:</label></b>
-        <i><%= f.collection_select :clase_id, Clase.order("Nombre"), :id, :nombre, include_blank: true %></i>
-      </div><b>
-      <div class="panel-body">
-        <label> Alumnos/as: </label></b>
-        <% @alumnos.each do |alumno| %>
-          <div class="field">
-            <%= check_box_tag "Alumnos[]", alumno.id %><%= alumno.nombre %>
-          </div>
+        <b><label class="control-label col-xs-3">Clase:</label></b>
+        <% if current_user.role == 'Profesor' %>
+          <i><%= f.collection_select :clase_id, Clase.order("Nombre").where(user_id: current_user.id), :id, :nombre, include_blank: true %></i>
+        <% else %>
+          <i><%= f.collection_select :clase_id, Clase.order("Nombre"), :id, :nombre, include_blank: true %></i>
         <% end %>
-        <input type="checkbox" id="cantidad" value="1000"><%= "Otros"%>
-      </div></big>
-      <b><div>Cantidad: <span id="select">0</span></div> 
+      </div>
+      <div class="panel-body">
+        <b><label>Alumnos/as:</label></b> 
+        <input type="checkbox" disabled="disabled" id="cantidad" value="1000"><b><%= "Profesor: "%></b><i><%= current_user.nombre %></i>
+        <% @alumnos.each do |alumno| %>
+          <% plan_alumno = alumno.plan.id.to_i %>
+          <% @clases.each do |xxx| %>
+            <% if xxx.plan_id == plan_alumno %>
+              <% if current_user.id == xxx.user_id %>
+                <div class="field">
+                  <%= check_box_tag "Alumnos[]", alumno.id %><%= alumno.nombre %><%= " - " %><%= alumno.plan.nombre %>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>  
+      <div class="panel-body">
+        <b><label class="control-label col-xs-3">Cantidad:</label></b>
+        <span id="select">0</span>
+      </div>
       <script>
         $(document).ready(function(){
           // Evento que se ejecuta al soltar una tecla en el input
@@ -65,15 +77,18 @@
             }
             $("#select").html(cont);
             $("#select").html(emen);
-
           });
         });
       </script>
       <div class="panel-body">
-        <%= "Ingrese Cantidad de Alumnos/as: " %></b>
-        <i><%= f.text_field :cantidad, placeholder: "Ej: 5" %></i>
+        <b><label class="control-label col-xs-3">Cant. Alumnos Asistentes:</label></b>
+        <i><%= f.text_field :cantidad, placeholder: "Ejemplo: 5" %></i>
       </div>
-    </div>
+      <div class="panel-body">
+        <b><label class="control-label col-xs-3">Descripción Clase:</label></b>
+        <i><%= f.text_area :desc, size: "20x3", placeholder: "Trabajo Realizado" %></i>
+      </div>
+    </div></big>
     <%= f.submit value="Guardar", class: "btn btn-success"%>
     <input type="reset" class="btn btn-default" value="Limpiar">
     <%= link_to "Volver", Asist, class: "btn btn-primary"%>
