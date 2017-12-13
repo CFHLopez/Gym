@@ -31,7 +31,7 @@
       <% @clases.each do |actual| %>
         <tr>
           <td><b><%= link_to(actual.nombre, actual) %></b></td>
-          <td><%= link_to 'Mostrar', plan_url(actual), class: "btn btn-success" %>
+          <td><%= link_to 'Mostrar', clase_url(actual), class: "btn btn-success" %>
           <%= link_to 'Editar', editar_clase_path(actual), class: "btn btn-info"%>
           <%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
         </tr>

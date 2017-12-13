@@ -62,7 +62,9 @@
           <td><b><%= actual.email %></b></td>
           <% if current_user.email == 'christian.lopez@alumnos.uda.cl'%>
             <% if actual.email != 'christian.lopez@alumnos.uda.cl'%>
-              <td><%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
+              <% if cc == 0%>
+                <td><%= link_to 'Borrar', actual, method: :delete, data: {confirm: '¿Está Seguro?'}, class: "btn btn-danger"%></td>
+              <% end %>
            <% end %>
           <% end %>
         </tr>
