@@ -62,6 +62,7 @@
                   <% @alumnos.each do |n| %>
                     <% rut_alumno = n.rut %>
                     <% dia_pago = n.diapago.to_i %>
+                    <% deuda = n.plan.precio %> 
                     <!-- Si el dia actual es mayor o igual al de pago -->
                     <% if dia_pago <= dia_actual %>
                       <!-- listamos los pagos -->
@@ -79,7 +80,7 @@
                               <%= n.plan.precio %><%="="%><%= x.monto %>
                               <% if n.plan.precio > x.monto %>
                                 <% c0 = 1 %>
-                                <% deuda = n.plan.precio - x.monto %>
+                                <% deuda = deuda - x.monto %>
                               <% else %>
                                 <% c0 = 2 %>
                               <% end %>
