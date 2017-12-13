@@ -27,6 +27,7 @@
                   <li><a href="/alumnos">Alumnos/as</a></li>
                   <% if current_user.role == 'Administrador' %>
                     <li><a href="/total/index">Asistencias</a></li>
+                    <li><a href="/fichas">Fichas</a></li>
                   <% else %>
                     <li><a href="/asistencias">Asistencias</a></li>
                     <li><a href="/fichas">Fichas</a></li>
