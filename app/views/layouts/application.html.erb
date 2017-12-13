@@ -29,13 +29,13 @@
                     <li><a href="/total/index">Asistencias</a></li>
                   <% else %>
                     <li><a href="/asistencias">Asistencias</a></li>
+                    <li><a href="/fichas">Fichas</a></li>
                   <% end %>
                   <li><a href="/pagos">Pagos</a></li>
                   <li><a href="/visitas/index">Fichas Personales</a></li>
                   <% if current_user.role == 'Administrador'%>
                     <li><a href="/clases">Clases</a></li>
                     <li><a href="/planes">Planes</a></li>
-                    <li><a href="/fichas">Fichas</a></li>
                     <li><a href="/users/index">Usuarios</a></li>
                   <% end %>
                 <% else %>
