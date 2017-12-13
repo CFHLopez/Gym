@@ -6,9 +6,11 @@ class AsistsController < ApplicationController
     @asists = Asist.paginate(:page => params[:page], :per_page => 5)
     @alumnos = Alumno.all
     @plans = Plan.all
+    @clases = Clase.all
   end
 
   def mostrar
+    @clases = Clase.all
   end
 
   def nuevo
@@ -23,6 +25,7 @@ class AsistsController < ApplicationController
   end
 
   def crear
+    @clases = Clase.all
     @asists = Asist.create(asist_params)
     @alumnos = Alumno.all
     respond_to do |format|
@@ -35,6 +38,7 @@ class AsistsController < ApplicationController
   end
 
   def update
+    @clases = Clase.all
     @alumnos = Alumno.all
     respond_to do |format|
       if @asists.update(asist_params)
