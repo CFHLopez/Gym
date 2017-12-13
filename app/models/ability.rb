@@ -12,6 +12,8 @@ class Ability
         can :crud, Alumno
         can :crud, Asist
         can :crud, Pago
+        can :crud, Ficha
+        can :read , :visit
       elsif user.role == "Alumno"
         can :read , :visit
     else
